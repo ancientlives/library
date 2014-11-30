@@ -1,0 +1,67 @@
+### Markdown - Basics
+
+An overview of the basic syntax for Markdown. Markdown was created to be easy to read, write, and publish.
+Markdown is simply a text-to-HTML conversion tool for online, web writers. It allows writers to format their 
+plain text documents with a simple syntax, and then convert it to structurally valid XHTML (or HTML4 if 
+required).
+[Daring Fireball](http://daringfireball.net/projects/markdown/)
+
+
+#### Contents
+
+* [Basic Writing](#toc-bw) 
+  * Paragraphs
+* [Headings](#toc-headings)
+  * Blockquotes
+  * Styling Text
+* [Lists](#toc-lists)
+  * Unordered lists
+  * Ordered lists
+  * Nested lists
+* [Code Formatting](#toc-cf)
+  * Inline formats
+  * Multiple lines
+* [Links](#toc-links)
+
+#### <a name="toc-bw"></a>Basic-Writing
+
+##### Paragraphs
+No specific syntax in Markdown for paragraphs. They are simply one or more lines of consecutive text, which 
+is followed by one or more blank lines.
+
+#### <a name="toc-headings"></a>Headings
+Following the example of HTML syntax, Markdown permits headings equivalent to h1 through h6.
+A simple hash character `#` is used to indicate the heading number, incrementing from one to six.
+This is equivalent to h1 through h6 in HTML.
+
+##### Blockquotes
+Markdown indicates blockquotes with a greater than sign `>`
+
+##### Styling Text
+Text can be marked as bold or italic. A single asterisk or underscore marks italic markup, and 
+a set of double asterisks or underscores marks bold markup.
+
+#### <a name="toc-lists"></a>Lists
+
+##### Unordered lists
+Unordered lists can be written using either a single asterisk or dash preceding the list item.
+
+##### Ordered lists
+Simply precede list items with the required, ordered number.
+
+##### Nested lists
+List items can be nested by indenting each list item by two spaces.
+
+#### <a name="toc-cf"></a>Code Formatting
+
+##### Inline formats
+Markdown syntax allows code etc to be marked without processing. To mark any special text, simply
+use a single backtick (`) to wrap the special text.
+
+##### Multiple lines
+You can also format multiple lines as a distinct block of text by wrapping in
+triple backticks (```).
+
+#### <a name="toc-links"></a>Links
+Links in Markdown are created as a pair indicating link title and link reference.
+The link title is wrapped in brackets `[]`, and the link reference is in parenthesis `()`.
