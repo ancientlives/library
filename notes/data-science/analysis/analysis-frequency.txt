@@ -1,0 +1,8 @@
+#### Analysis - Frequency
+
+* frequency distribution
+  * in statistics, a frequency distribution is a table that displays the frequency of various outcomes in a sample
+  * each entry in the table contains the frequency or count of the occurrences of values within a particular group of interval
+  * therefore, the table summarises the distribution of values in the sample
+  * [Source - Wikipedia](http://en.wikipedia.org/wiki/Frequency_distribution)
+
