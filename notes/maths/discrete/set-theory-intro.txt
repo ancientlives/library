@@ -1,0 +1,9 @@
+#### Set theory, intuition, and countable infinity
+
+* set theory in general mathematics provides the foundation for many mathematical principles
+* George Cantor is generally credited with formalising the mathematics behind set theory
+  * “On a Characteristic Property of All Real Algebraic Numbers” (1874)
+  * formalised this theory as part of his ongoing work on answering questions about infinity
+    * eg: is the set of positive integers larger in cardinality than the set of both positive and negative integers?
+    * Cantor proved that they were both the same. ie: they could both be clearly enumerated but there was no ending point...both sets are said to be countably infinite
+      * ie: there is a definite pattern which can be followed deterministically to infinity if there was infinite time (pun intended...)
