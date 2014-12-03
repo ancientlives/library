@@ -1,4 +1,4 @@
-### Music - Opera - Intro
+### Readme - Music - Opera
 
 A collection of notes considering various aspects of operatic music, performances, history etc...
 

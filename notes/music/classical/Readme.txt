@@ -1,4 +1,4 @@
-### Music - Classical - Intro
+### Readme - Music - Classical
 
 A collection of notes considering various aspects of classical music.
 

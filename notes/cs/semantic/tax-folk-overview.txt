@@ -1,0 +1,16 @@
+### Semantic Computing - Taxonomy & Folksonomy Overview
+
+A fundamental aspect of human nature, organisation, and intelligence is the desire to 
+classify things and derive a hierarchy.
+
+* A taxonomy is a hierarchical structure like a tree, which classifies elements into 
+a particular parent / child relationship.
+* A folksonomy (c.2004) describes the universe of collaborative tagging and social indexing 
+efforts that emerge in various ecosystems of the web...
+  * A folksonomy is a creative way of describing a universe of informal, de-centralised 
+tags resultant of collective intelligence as people are allowed to classify content with ad-hoc labels
+  * Twitter's hashtags create folksonomies that organically emerge as points of common interest. 
+They also provide a focused way to explore content, events, themes etc, whilst 
+leaving open opportunities for serendipitous connections and links...
+
+
