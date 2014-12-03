@@ -1,0 +1,31 @@
+#### Twitter - Data Mining
+
+A few introductory notes on the options for data mining Twitter via its latest REST API.
+[Twitter REST API](https://dev.twitter.com/rest/public) & [Mining the Social Web - 2nd Edition](https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition)
+
+* Creating a Twitter API connection
+  * OAuth with Twitter
+* Exploring trending topics
+  * Retrieving trend
+  * API responses as JSON
+  * Computing trend intersections
+* Searching for Tweets
+  * Collecting search results
+* Analysing the 140 characters
+* Extracting the Tweet entities
+  * Text, screen name, hashtags...
+* Frequency analysis of Tweets and Tweet entities
+  * Basic frequency distribution
+  * Displaying tuples...
+* Computing lexical diversity of Tweets
+* Examining patterns in Retweets
+  * Discover the most popular retweets
+  * Retweeted status...
+* Histograms and visualising frequency data
+  * Plotting frequencies of words
+  * Histograms of words, screen names, and hashtags
+  * Histogram of retweet counts
+
+##### Creating a Twitter API connection
+
+
