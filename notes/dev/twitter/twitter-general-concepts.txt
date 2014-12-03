@@ -1,0 +1,52 @@
+### Twitter - General Concepts 
+
+#### Contents
+
+* [Overview of Tweets](#toc-ot)
+* [Timelines](#toc-time)
+* [Interest Graph](#toc-ig)
+* [Organisation](#toc-org)
+
+##### <a name="toc-ot"></a>Overview of Tweets
+
+* 140 characters in length
+* A Twitter platform object
+* Each tweet includes additional metadata, in particular
+  * Entities
+    * User mentions, hashtags, URLs, and media that may be associated with a tweet
+  * Places
+    * Locations in the real world that may be attached to a tweet
+    * May include location from where a tweet was sent or a referenced place in a tweet
+
+##### <a name="toc-time"></a>Timelines
+
+* Chronologically sorted collections of tweets
+* A timeline could be any collection of tweets displayed in chronological order
+* Two prevalent types
+  * Home timeline is all tweets from users that you are following, normally shown
+when you login to your account
+  * User timeline is a collection of tweets for a given user
+* Often perceived as streams of tweets with relatively low velocity
+  * Public firehose of all tweets is a different matter entirely...
+
+##### <a name="toc-ig"></a>Interest Graph
+
+* We may consider as a way of modelling connections between people and their
+arbitrary interests...
+* Provide many options in data science that primarily involve 
+  * measuring correlations
+  * making intelligent recommendations
+  * other applications in machine learning
+* Relative to an interest graph, a Twitter user need not necessarily be a real person
+* Twitter enables you to create, connect, and explore a community of interest for 
+an arbitrary topic of interest
+  * important distinction from some social websites, which require accounts to 
+correspond to real persons, living people, businesses, or entities of a similar 
+nature that fits into a particular, given taxonomy
+
+##### <a name="toc-org"></a>Organisation
+
+* Relies on self-organising behavious such as following relationships and 
+folksonomies that emerge from the use of hashtags to create a certain kind of
+order within the system
+
