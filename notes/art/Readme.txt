@@ -1,4 +1,4 @@
-#### Readme - Art
+### Readme - Art
 
 Welcome to the Notes - Art directory
 
