@@ -1,5 +1,0 @@
-#### Analysis - Intro
-
-* virtually all analysis can be reduced to the simple process of counting things on some level
-* empirically, the act of counting observable things is the starting point for just about everything
-  * eg: any kind of statistical filtering or manipulation that attempts to detect a faint signal in otherwise noisy data
