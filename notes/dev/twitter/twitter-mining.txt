@@ -1,7 +1,7 @@
 #### Twitter - Data Mining
 
 A few introductory notes on the options for data mining Twitter via its latest REST API.
-[Twitter REST API](https://dev.twitter.com/rest/public) & [Mining the Social Web - 2nd Edition](https://github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition)
+[Twitter REST API](https://dev.twitter.com/rest/public)
 
 * Creating a Twitter API connection
   * OAuth with Twitter
