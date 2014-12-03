@@ -1,0 +1,17 @@
+### Music - Opera - Intro
+
+A collection of notes considering various aspects of operatic music, performances, history etc...
+
+* Composers
+  * Biographies
+  * Corpus
+* Operas
+  * Collated Composer Corpus
+    * Year
+    * Genre
+    * Title
+* Performers
+  * Biography
+  * Roles
+
+and so on.
