@@ -1,0 +1,55 @@
+### GitHub - API Options - Python
+
+General overview of some of the options available in the GitHub API using Python
+[GitHub API](https://developer.github.com/v3/)
+
+#### Contents
+* API Connection
+* API Request
+* Making API Requests
+
+##### API Connection
+As with many other online APIs, GitHub similarly implements OAuth for its API authentication.
+
+Python provides a useful library *PyGithub* to help us query the GitHub API.
+
+Install as follows,
+`pip install PyGithub` or `easy_install PyGithub`
+
+GitHub allows us to issue both authenticated and unauthenticated requests. However, unauthenticated requests
+are limited to 60 per hour compared to 5000 for authenticated requests.
+
+Data returned as JSON.
+
+##### API Request
+Data returned as JSON and in the HTTP headers.
+
+Eg: the *status* header, which tells us that the request was OK and, for example, a 200 response.
+
+The *link* header is also very useful, and returns values for URLs such as next, last. This 
+header value gives us a pre-constructed URL that could be used to fetch the next page of 
+results. It is also an indication of how many pages of results are available.
+
+##### Making API Requests
+Curl, Python `requests` library, or a broader Python library such as `PyGithub`.
+
+Using PyGithub:
+* from github import Github
+* specify access token
+* specify user and repository
+* store returned Github values
+* query the API for the required data
+  * eg: stargazers in a repository
+  * page through results to get full count where applicable
+
+Using PyGithub takes care of many of the API implementation details, and then 
+exposes some objects for query.
+
+We create a connection to Github and use the `per_page` keyword parameter so
+we can retrive the maximum results per page instead of the default 30.
+
+PyGithub normally provides `lazy iterators` as results. It will not attempt to fetch all
+pages of results when a query is issued. Instead, it waits until a page is requested
+whilst iterating over the data.
+
+Further documentation on [PyGithub](http://jacquev6.net/PyGithub/v1/introduction.html)
