@@ -1,3 +1,13 @@
 ### GitHub - Overview
 
+Designed for developers et al to help create and maintain open source projects. 
+It uses the open source distributed version control system [Git]().
 
+Unlike CVS or Subversion, there is no canonical copy of a project's code base with Git. Copies are working copies, thereby allowing developers to commit local 
+changes on a working copy without the need to connect to a centralised server.
+
+GitHub also allows developers to contribute by forking a working copy of a project's 
+code repository, and then begin working on it in the same fashion as the master branch developer. It 
+also makes it easy to merge these changes from a forked branch into the master or parent branch.
+
+In essence, GitHub has become an enabler of open source software development. 
