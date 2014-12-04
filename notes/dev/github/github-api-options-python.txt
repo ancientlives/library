@@ -4,21 +4,9 @@ General overview of some of the options available in the GitHub API using Python
 [GitHub API](https://developer.github.com/v3/)
 
 #### Contents
-* Intro
 * API Connection
 * API Request
 * Making API Requests
-
-##### Intro
-Base fundamental primitives for GitHub are its *users* and *projects*. 
-Each user has their own public profile, which normally includes some repositories. These may have been created by the given user or forked from another
-user. 
-
-One of the strengths, and indeed powers, of GitHub is a user's ability to fork such repositories 
-and, effectively, modify this code and work in any fashion they see fit. This is, naturally, subject to license provisions and restrictions.
-
-A user can also bookmark or *star* a project to become what is known as a *stargazer* of a project.
-Each bookmark is saved and shown in a user's list of GitHub bookmarks, naturally for quick reference.
 
 ##### API Connection
 As with many other online APIs, GitHub similarly implements OAuth for its API authentication.
