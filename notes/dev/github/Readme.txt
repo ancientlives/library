@@ -4,4 +4,11 @@ These notes are for reference purposes only. For further, and hopefully, current
 consult the latest GitHub API documents. 
 [GitHub API](https://developer.github.com/v3/)
 
+#### Contents
+* Overview
+* API Options
+* Python
+  * API Options
+  * Data Mining
+  * Property Graphs
 
