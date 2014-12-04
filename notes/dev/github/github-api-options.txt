@@ -1,6 +1,45 @@
-#### GitHub - API Options
+### GitHub - API Options
 
 General overview of some of the options available in the GitHub API
 [GitHub API](https://developer.github.com/v3/)
 
+#### Contents
+* Intro
+* API Connection
+* API Request
+* Making API Requests
 
+##### Intro
+Base fundamental primitives for GitHub are its *users* and *projects*. 
+Each user has their own public profile, which normally includes some repositories. These may have been created by the given user or forked from another
+user. 
+
+One of the strengths, and indeed powers, of GitHub is a user's ability to fork such repositories 
+and, effectively, modify this code and work in any fashion they see fit. This is, naturally, subject to license provisions and restrictions.
+
+A user can also bookmark or *star* a project to become what is known as a *stargazer* of a project.
+Each bookmark is saved and shown in a user's list of GitHub bookmarks, naturally for quick reference.
+
+##### API Connection
+As with many other online APIs, GitHub similarly implements OAuth for its API authentication.
+
+Python provides a useful library *PyGithub* to help us query the GitHub API.
+
+Install as follows,
+`pip install PyGithub` or `easy_install PyGithub`
+
+GitHub allows us to issue both authenticated and unauthenticated requests. However, unauthenticated requests
+are limited to 60 per hour compared to 5000 for authenticated requests.
+
+Data returned as JSON.
+
+##### API Request
+Data returned as JSON and in the HTTP headers.
+
+Eg: the *status* header, which tells us that the request was OK and, for example, a 200 response.
+
+The *link* header is also very useful, and returns values for URLs such as next, last. This 
+header value gives us a pre-constructed URL that could be used to fetch the next page of 
+results. It is also an indication of how many pages of results are available.
+
+##### Making API Requests
