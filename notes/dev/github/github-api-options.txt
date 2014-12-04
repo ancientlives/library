@@ -43,3 +43,26 @@ header value gives us a pre-constructed URL that could be used to fetch the next
 results. It is also an indication of how many pages of results are available.
 
 ##### Making API Requests
+Curl, Python `requests` library, or a broader Python library such as `PyGithub`.
+
+Using PyGithub:
+* from github import Github
+* specify access token
+* specify user and repository
+* store returned Github values
+* query the API for the required data
+  * eg: stargazers in a repository
+  * page through results to get full count where applicable
+
+Using PyGithub takes care of many of the API implementation details, and then 
+exposes some objects for query.
+
+We create a connection to Github and use the `per_page` keyword parameter so
+we can retrive the maximum results per page instead of the default 30.
+
+PyGithub normally provides `lazy iterators` as results. It will not attempt to fetch all
+pages of results when a query is issued. Instead, it waits until a page is requested
+whilst iterating over the data.
+
+Further documentation on [PyGithub](http://jacquev6.net/PyGithub/v1/introduction.html)
+
