@@ -2,6 +2,6 @@
 
 These notes are for reference purposes only. For further, and hopefully, current details please
 consult the latest GitHub API documents. 
-[GitHub](https://developer.github.com/v3/)
+[GitHub API](https://developer.github.com/v3/)
 
 
