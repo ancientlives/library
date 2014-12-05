@@ -4,3 +4,21 @@ A brief overview of graph theory in computer science.
 
 #### Contents
 * Intro
+* Property Graph
+
+##### Property Graph
+A property graph is a data structure that represents entities with *nodes* and
+relationships between entities with *edges*. Each vertex has a unique identifier,
+a map of properties, which are defined as standard key/value pairs, and a collection of edges.
+
+Edges are also unique in 
+* connecting nodes
+* can be uniquely identified
+* can also contain properties.
+
+A *digraph* is so-called because its edges are directed, which need not be the case unless
+the direction of the edge is rooted in meaning for the modeled domain.
+
+eg: X ----------> Y
+
+
