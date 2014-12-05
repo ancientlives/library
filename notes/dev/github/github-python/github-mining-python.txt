@@ -40,7 +40,40 @@ With Python, we can use NetworkX to represent such property graphs. Install Netw
 
 `pip install networkx`
 
-        
+*Example digraph*
+We can add an edge from a node, uniquely identified by *x*, to a node uniquely identified by *y*.
+This results in a grpah with two nodes, and one edge between them. We end up with a graph uniquely 
+identified by the tuple (*x, y*)
+
+*Graph degree*
+The degree of a node in a graph is the number of its incident edges. For a directed graph
+there is also the notion of *in degree* and *out degree* because the edges have direction. 
+The average *in degree* and average *out degree* values provide a normalised score for the 
+graph. This represents the number of nodes that have incoming and outgoing edges. For our 
+above example digraph, the directed graph has a single directed edge, which means there is 
+one node with an outgoing edge and one node with an incoming edge.
+
+Assuming you know the number of vertices in a given graph, the average degree provides a measure
+of the graph's *density*. This is the number of actual edges compared to the number 
+of possible edges if the graph was fully connected.
+
+In a fully connected graph, each node is connected to every other node, and in the
+case of a directed graph this means that all nodes have incoming edges from all other nodes. A pathway, 
+of sorts, may be followed through the graph.
+
+The average degree for an entire graph can be calculated by summing the values of each node's 
+*in-degree* and dividing the total by the number of nodes in the graph. For our example above,
+we end up with 1 divided by 2. 
+
+The average *out degree* is calculated by taking the sum of each node's *out degree* and then
+dividing by the number of nodes in the graph. 
+
+**NB:** when considering an entire directed graph, there will always be an equal number of 
+incoming and outgoing edges. This is because each edge connects only two nodes, and the
+average *in degree* and average *out degree* values for the entire graph will be the same.
+
+**NB:** in general, maximum values for a graph's average in and out degree are one less than the
+number of nodes in the graph.
 
 ##### <a name="toc-eg"></a>Constructing an ego graph of a repository and its stargazers
 
