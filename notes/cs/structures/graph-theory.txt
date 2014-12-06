@@ -4,12 +4,51 @@ A brief overview of graph theory in computer science.
 
 #### Contents
 * Intro
+* General Properties
+* Graph Variations
+  * Undirected
+  * Directed
+  * Vertex labeled
+  * Cyclic
+  * Edge labeled
+  * Weighted
+  * Directed
+  * Disconnected
 * Property Graph
 
+##### Intro
+A mathematical concept with many uses in computer science. Graphs are available in many
+different variations, including
+
+* Simple
+* Undirected or directed
+* Cyclic or acyclic
+* Labeled
+* Weighted
+* Infinite
+
+and so on...
+
+##### General properties
+Majority of graphs are a variation of the following,
+
+* Made up of two sets called vertices and edges
+* Vertices derive from some underlying type, and may be finite or infinite
+* Each part of the *edge* set is a pair, which consists of two elements from the *vertices* set
+* Graphs are often depicted visually
+  * elements of the *vertices* set (nodes...) are often drawn as squares or circles
+  * elements of the *edges* set as lines or arcs between the squares and circles
+
+
+
 ##### Property Graph
-A property graph is a data structure that represents entities with *nodes* and
-relationships between entities with *edges*. Each vertex has a unique identifier,
-a map of properties, which are defined as standard key/value pairs, and a collection of edges.
+A property graph can be used to model complex networks. It is a versatile data structure that 
+represents entities with *nodes* and relationships between entities with *edges*. Each vertex 
+has a unique identifier, a map of properties, which are defined as standard key/value pairs, 
+and a collection of edges.
+
+Property graphs provide flexibility and versatility in modeling and querying 
+complex data.
 
 Edges are also unique in 
 * connecting nodes
