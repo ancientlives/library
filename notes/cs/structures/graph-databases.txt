@@ -4,5 +4,26 @@ A brief overview of graph databases, in particular relative to big graphs...
 
 #### Contents
 * Intro
+* NetworkX
+* Big Graph Databases
 
+##### Intro
+Different graph databases naturally meet certain requirements and fulfill a given scenario. 
 
+***** NetworkX
+A Python based graph toolkit, particularly useful for modeling property graphs. However, it 
+is also an in-memory graph database. It is, therefore, limited to the amount of working memory 
+on the host machine. Work arounds naturally exist, such as constraining the domain to a subset 
+of the required data or simply moving to a machine with more memory.
+
+***** Big Graph Databases
+With larger datasets it is no longer suitable to restrict ourselves to in-memory graphs. Increasingly, 
+Hadoop and NoSQL are filling this gap.
+
+Nascent development of *big graph databases* that leverage NoSQL databases for storage and provide
+property graph semantics. For example,
+
+* Titan
+
+Titan claims that is designed to effectively manage the memory hierarchy in order to scale well. 
+We can, of course, compare this with a *semantic* web stack, such as RDF schema, OWL, and SPARQL.
