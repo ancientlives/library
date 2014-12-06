@@ -4,3 +4,5 @@ A collection of notes about using Python to query the [GitHub API](https://devel
 
 #### Contents
 * API Options
+* Data Mining
+
