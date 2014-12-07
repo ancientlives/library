@@ -12,4 +12,14 @@ A few notes on using cURL to query GitHub for *Activity* data.
 * Watching
 
 ***** Starring
+Starring a repository allows a user to bookmark their chosen repository. The number of stars per repository
+simply reflects the number of starred users per repository.
+
+*NB:* Currently, stars have no effect on notifications or a user's activity feed.
+
+API options include:
+* List stargazers
+* List repositories being starred
+  * List per specified user
+  * List per authenticated user
 
