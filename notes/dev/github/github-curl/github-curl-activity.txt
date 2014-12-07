@@ -23,3 +23,8 @@ API options include:
   * List per specified user
   * List per authenticated user
 
+*List repositories being starred* also accepts parameters to define *sort* and *direction*. 
+For *sort*, we can specify *created* for the repository star, and *updated*. Default is *created*.
+For *direction* we can simply define either an ascending or descending sort order, and the default is descending.
+
+
