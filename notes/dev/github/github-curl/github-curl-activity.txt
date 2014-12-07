@@ -1,0 +1,15 @@
+### GitHub - cURL - Activity
+
+A few notes on using cURL to query GitHub for *Activity* data.
+[GitHub API](https://developer.github.com/v3/activity/)
+
+#### Contents
+* Events
+* Event Types & Payloads
+* Feeds
+* Notifications
+* Starring
+* Watching
+
+***** Starring
+
