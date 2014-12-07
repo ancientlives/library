@@ -11,7 +11,17 @@ A few notes on using cURL to query GitHub for *Activity* data.
 * Starring
 * Watching
 
-***** Starring
+##### Notifications
+Notifications on GitHub are powered by *watched repositories*. For example, users receive notifications for
+discussions in watched repositories. This includes,
+
+* Issues and their comments
+* Pull requests and their comments
+* Comments on any commits
+
+
+
+##### Starring
 Starring a repository allows a user to bookmark their chosen repository. The number of stars per repository
 simply reflects the number of starred users per repository.
 
