@@ -42,8 +42,6 @@ A registered user who watches a repository will receive notifications on new dis
 API options include:
 * List watchers
 * List repositories being watched
-* Get a repository subscription
-* Set a repository subscription
-* Delete a repository subscription 
+* Get a repository subscription 
 
-JSON results returned require standard paging.
+JSON results for watched repositories require standard paging.
