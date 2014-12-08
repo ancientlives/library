@@ -45,3 +45,5 @@ API options include:
 * Get a repository subscription
 * Set a repository subscription
 * Delete a repository subscription 
+
+JSON results returned require standard paging.
