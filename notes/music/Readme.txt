@@ -5,4 +5,5 @@ Some notes on various aspects of music. This will initially focus upon classical
 #### Contents
 
 * Classical
+* Movie Music
 * Opera
