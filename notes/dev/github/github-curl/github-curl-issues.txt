@@ -1,0 +1,42 @@
+### GitHub - cURL - Issues
+
+Notes on using cURL to query GitHub for *Issues* data.
+[GitHub API](https://developer.github.com/v3/issues/)
+
+#### Contents
+* List Issues
+* List Issues for a Repository
+
+##### List Issues
+It is currently possible to query for an authenticated user's repository issues. This includes the following options:
+
+* List all issues for an authenticated user, including owned visible repositories, member repositories, and
+organisation repositories.
+* List all issues for an authenticated user, including owned visible and member repositories.
+* List all issues for an authenticated user's specified organisation.
+
+These queries can also be supplemented with the following parameters:
+
+* direction (string) - A direction may be set for the sort order, which can either be ascending or descending. Default is descending.
+* filter (string) - This filter indicates the type of issues to return. These can be one of the following:
+  * all: all issues the authenticated user can see, regardless of creation or participation
+  * assigned: issues assigned to the user
+  * created: issues created by the user
+  * mentioned: issues mentioning the user
+  * subscribed: issues for subscribed updates for the user
+  * NB: the default filter is *assigned*
+* labels (string) - A comma separated list of label names
+* since (string) - A specified date from which issues will be returned. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+* sort (string) - Preferred sort order, which may include the following:
+  * comments
+  * created
+  * updated
+  * NB: the default sort oder is *created*
+* state (string) - This indicates the state of the issues to return, which may include the following:
+  * all
+  * closed
+  * open
+  * NB: the default is *open*
+
+##### List Issues for a repository
+
