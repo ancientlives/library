@@ -2,8 +2,9 @@
 
 A collection of notes considering various aspects of classical music.
 
-This includes many disparate aspects of classical music, but includes aspects such as
+This includes many disparate aspects of classical music.
 
+#### Contents
 * History of Classical music
 * Composers
   * Biographies
@@ -11,5 +12,3 @@ This includes many disparate aspects of classical music, but includes aspects su
 * Festivals
 * Orchestras
 * Performances
-
-and so on.
