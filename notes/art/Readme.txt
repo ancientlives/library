@@ -6,8 +6,7 @@ This directory is intended to store notes, thoughts, reports, articles...
 
 It is intentionally broad in its scope.
 
-Current sub-directories include
-
+#### Contents
 * Ancient
 * Classical
 * Mediaeval
