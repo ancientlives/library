@@ -21,6 +21,10 @@ API options include:
 * List issue events for a specified repository
 * List public events for a network of repositories (eg: Django)
 * List public events for an organisation (eg: again, Django)
+* List public events that a user has received
+* List events performed by a user
+* List public events performed by a user
+ 
 
 ##### Notifications
 Notifications on GitHub are powered by *watched repositories*. For example, users receive notifications for
