@@ -1,4 +1,4 @@
-#### Readme - Computer Science
+### Readme - Computer Science
 
 A collection of notes on various aspects of computer science theory.
 
@@ -6,4 +6,4 @@ A collection of notes on various aspects of computer science theory.
 * Data Science
   * Analysis
 * Semantic
-
+* Structures
