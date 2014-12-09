@@ -1,0 +1,34 @@
+### GitHub - cURL - Pull Requests
+
+Brief notes on using cURL to query GitHub for *Pull Requests* data.
+[GitHub API](https://developer.github.com/v3/pulls/)
+
+#### Contents
+* List Pull Requests
+* Get a Single Pull Request
+* List Commits on a Pull Request
+* List Pull Requests' Files
+* Get if a Pull Request has been Merged
+
+##### List Pull Requests
+Get pull requests for a specified owner's repository. 
+
+Parameters may include the following:
+
+* base (string) - A filter may be set to pull by base branch name, eg: gh-pages 
+* direction (string) - A direction may be set for the specified sort order, which may be either ascending or descending
+  * NB: default direction is dependent upon whether sort has been set to *created* or not specified (descending). Otherwise the direction will default to ascending.
+* head (string) - A filter may be set to pull by head user and branch name, eg: github:new-script-format
+* sort (string) - Set a sort order for returned results data. These may include one of the following:
+  * created 
+  * long-running (age, filter by pulls recently updated in the last month)
+  * popularity (based on comment count)
+  * updated
+* state (string) - can be set to either *open*, *closed*, or *all* to enable filtering by state (default = *open*).
+
+*NB: * Returned results will also require paging.
+
+##### Get a Single Pull Request
+Get specific, detailed output for a single pull number.
+
+
