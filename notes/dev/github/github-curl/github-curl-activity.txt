@@ -24,7 +24,9 @@ API options include:
 * List public events that a user has received
 * List events performed by a user
 * List public events performed by a user
- 
+* List events for an organisation
+
+*NB:* Some of the above API options will only work for an authenticated user. 
 
 ##### Notifications
 Notifications on GitHub are powered by *watched repositories*. For example, users receive notifications for
