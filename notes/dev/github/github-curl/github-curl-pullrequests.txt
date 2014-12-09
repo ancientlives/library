@@ -31,4 +31,8 @@ Parameters may include the following:
 ##### Get a Single Pull Request
 Get specific, detailed output for a single pull number.
 
+##### List Commits on a Pull Request
+This will list all of the commits for a specified pull request number.
+
+
 
