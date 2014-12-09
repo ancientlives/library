@@ -1,21 +1,24 @@
-#### Readme - Notes
+### Readme - Notes
 
 Welcome to the notes directory
 
-This directory provides a quick storage facility for notes, ideas, snippets...
+This directory provides a quick storage facility for notes, ideas, snippets, and research.
 
-Current sub-directories include
-
+#### Contents
 * Art
-* Data Science
+  * Ancient
+* CS
+  * Data Science
+  * Semantic
+  * Structures
 * Dev
   * GitHub
   * Markdown
+  * Python
   * Twitter
 * Maths
+  * Discrete
 * Music
   * Classical
+  * Movie Music
   * Opera
-
-and, hopefully, more to come...
-
