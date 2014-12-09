@@ -11,6 +11,10 @@ A few notes on using cURL to query GitHub for *Activity* data.
 * Starring
 * Watching
 
+##### Events
+This is a read-only API for events in GitHub. These events are used to drive the activity streams 
+currently available on the site.
+
 ##### Notifications
 Notifications on GitHub are powered by *watched repositories*. For example, users receive notifications for
 discussions in watched repositories.
