@@ -34,5 +34,10 @@ Get specific, detailed output for a single pull number.
 ##### List Commits on a Pull Request
 This will list all of the commits for a specified pull request number.
 
+##### List Pull Requests' Files
+This will query a given user's specified repository for files against a numbered pull request.
+Details of the file, if applicable, will be listed in the JSON output.
 
+##### Get if a Pull Request has been Merged
+This query checks whether a numbered pull request has subsequently been merged.
 
