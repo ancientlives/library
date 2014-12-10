@@ -24,6 +24,9 @@ Notes on using cURL to query GitHub for *Issues* data.
   * Get a Single Label
   * List all Labels on an Issue
   * Get Labels for every Issue in a Milestone
+* Milestones
+  * List Milestones for a Repository
+  * Get a Single Milestone
 
 ##### General - List Issues
 It is currently possible to query for an authenticated user's repository issues. This includes the following options:
@@ -152,3 +155,14 @@ This returns any assigned labels for a defined issue.
 This will return any labels for every issue in a defined milestone.
 
 *NB:* Returned results can be paged, if applicable 
+
+##### Milestones
+GitHub milestones are an action or event marking a significant change or stage in development.
+
+##### Milestones - List Milestones for a Repository
+This query will return all of the milestones for the defined repository.
+
+*NB:* Returned results can be paged, if applicable
+
+##### Milestones - Get a single milestone
+Data returned for a single, numbered milestone.
