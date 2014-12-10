@@ -19,6 +19,11 @@ Notes on using cURL to query GitHub for *Issues* data.
   * List Events for an Issue
   * List Events for a Repository
   * Get a Single Event  
+* Labels
+  * List all Labels for a Repository
+  * Get a Single Label
+  * List all Labels on an Issue
+  * Get Labels for every Issue in a Milestone
 
 ##### General - List Issues
 It is currently possible to query for an authenticated user's repository issues. This includes the following options:
@@ -122,3 +127,28 @@ This returns all events for a defined repository.
 ##### Events - Get a single event
 This returns data for a defined single event ID.
   
+##### Labels
+This API option returns defined labels for a repository, issue, and issues in a milestone.
+
+##### Labels - List all labels for a repository
+Returns all labels for a defined repository.
+
+*NB:* Returned results will need to be paged
+
+##### Labels - Get a single label
+Checks a specified label against a defined repository. If the lavel is available, it will simply return 
+the label's details. These currently include:
+
+* url
+* name
+* colour (returned as a HEX colour code)
+
+##### Labels - List labels on an issue
+This returns any assigned labels for a defined issue.
+
+*NB:* Returned results can be paged, if applicable
+
+##### Labels - Get labels for every issue in a milestone
+This will return any labels for every issue in a defined milestone.
+
+*NB:* Returned results can be paged, if applicable 
