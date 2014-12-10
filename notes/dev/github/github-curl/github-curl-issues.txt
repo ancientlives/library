@@ -15,6 +15,10 @@ Notes on using cURL to query GitHub for *Issues* data.
   * List Comments on an Issue
   * List Comments in a Repository
   * Get a Single Comment
+* Events
+  * List Events for an Issue
+  * List Events for a Repository
+  * Get a Single Event  
 
 ##### General - List Issues
 It is currently possible to query for an authenticated user's repository issues. This includes the following options:
@@ -102,4 +106,19 @@ Returns a list of comments for a defined repository. This query may also include
 ##### Comments - Get a single comment
 This returns a single comment for an ID specified repository issue.
 
+##### Events
+This API option records various events, which occur due too an *Issue* or *Pull* request.
+
+##### Events - List events for an issue
+This return events relative to a defined issue number.
+
+*NB:* Returned results will need to be paged
+
+##### Events - List events for a repository
+This returns all events for a defined repository.
+
+*NB:* Returned results will need to be paged
+
+##### Events - Get a single event
+This returns data for a defined single event ID.
   
