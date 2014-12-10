@@ -11,6 +11,10 @@ Notes on using cURL to query GitHub for *Issues* data.
 * Assignees
   * List Assignees
   * Check Assignee
+* Comments
+  * List Comments on an Issue
+  * List Comments in a Repository
+  * Get a Single Comment
 
 ##### General - List Issues
 It is currently possible to query for an authenticated user's repository issues. This includes the following options:
@@ -79,3 +83,23 @@ It is also possible to check if a particular user has been assigned to a reposit
 
 *NB:* If the returned result is true for the *assignee* login, then a *204* header is returned with no content.
 Otherwise, it returns a *404* status code.
+
+##### Comments - List comments on an issue
+This will, naturally, list comments for a specified issue. The issues is defined with a specific number relative to a repository.
+
+*NB:* Returned results will need to be paged
+
+##### Comments - List comments in a repository
+Returns a list of comments for a defined repository. This query may also include the following parameters:
+
+* direction (string) - Defined direction, either *ascending* or *descending*. This parameter will be ignored without the 
+*sort* parameter
+* since (string) - A specified date from which issues will be returned. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+* sort (string) - This can be set to either *created* or *updated*. NB: Default is *created*
+
+*NB:* Issue comments are ordered by *ascending* ID by default.
+
+##### Comments - Get a single comment
+This returns a single comment for an ID specified repository issue.
+
+  
