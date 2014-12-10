@@ -4,11 +4,15 @@ Notes on using cURL to query GitHub for *Issues* data.
 [GitHub API](https://developer.github.com/v3/issues/)
 
 #### Contents
-* List Issues
-* List Issues for a Repository
-* Get a Single Issue
+* General
+  * List Issues
+  * List Issues for a Repository
+  * Get a Single Issue
+* Assignees
+  * List Assignees
+  * Check Assignee
 
-##### List Issues
+##### General - List Issues
 It is currently possible to query for an authenticated user's repository issues. This includes the following options:
 
 * List all issues for an authenticated user, including owned visible repositories, member repositories, and
@@ -39,7 +43,7 @@ These queries can also be supplemented with the following parameters:
   * open
   * NB: the default is *open*
 
-##### List Issues for a repository
+##### General - List Issues for a repository
 Get the latest issues for a specified repository. It will also accept the following parameters:
 
 * assignee (string) - Name of a user, if specific. Otherwise *none* for issues with no assigned user, or \*\ for any user
@@ -60,8 +64,14 @@ Get the latest issues for a specified repository. It will also accept the follow
   * open
   * NB: the default is *open*
 
-##### Get a Single Issue
+##### General - Get a Single Issue
 It's important to note with this request, that the API defines every pull request as an issue, but not every issues as a
 pull request. It also notes that if the issue is not a pull request, the response omits the *pull_request* attribute.
 
  
+##### Assignees - List Assignees
+This will list all of the available assignees, including owner and collaborators, for issues.
+
+##### Assignees - Check Assignee 
+It is also possible to check if a particular user has been assigned to a repository.
+
