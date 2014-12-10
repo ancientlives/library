@@ -72,6 +72,10 @@ pull request. It also notes that if the issue is not a pull request, the respons
 ##### Assignees - List Assignees
 This will list all of the available assignees, including owner and collaborators, for issues.
 
+*NB:* Returned results will need to be paged.
+
 ##### Assignees - Check Assignee 
 It is also possible to check if a particular user has been assigned to a repository.
 
+*NB:* If the returned result is true for the *assignee* login, then a *204* header is returned with no content.
+Otherwise, it returns a *404* status code.
