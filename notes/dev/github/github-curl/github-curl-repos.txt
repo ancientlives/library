@@ -28,6 +28,8 @@ Notes on using cURL to query GitHub for *Repositories* data.
   * Get the Readme
   * Get Contents
   * Get Archive Link
+* Deployment
+  * Overview
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
@@ -148,4 +150,19 @@ This query can be supplemented with the following parameters:
 * use a recursive tree to recursively retrieve a repos contents
 * API supports files up to 1MB in size
 
-  
+##### Deployments - Overview
+Within GitHub, deployments simply allow us to request a specific reference. This reference may include
+a branch, sha, tag etc. GitHub then dispatches these events thereby enabling external services to monitor.
+
+This deployment pattern allows developers, organisations etc to build loosely coupled tooling around such 
+deployments.
+
+Deployment statuses allow such external services to mark their deployments with the following state:
+
+* success
+* failure
+* error
+* pending 
+
+Such status messages can then be consumed by any system listening for *deployment_status* events.
+
