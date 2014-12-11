@@ -9,11 +9,22 @@ Notes on using cURL to query GitHub for *Repositories* data.
   * List Your Repos
   * List Organisation Repos
   * List Contributors
+  * List Languages
+  * List Teams
+  * List Tags
+  * List Branches
+  * Get Branch
+* Collaborators
+  * List Collaborators
+* Comments
+  * List Commit Comments for a Repository
+  * List Comments for a Single Commit
+  * Get a Single Commit Comment
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
 
-##### Contents - List User Repos
+##### General - List User Repos
 This query returns a list of public repositories for the specified user.
 
 This query can be supplemented with the following parameters:
@@ -32,7 +43,7 @@ Otherwise, it will be set to *descending*
   * owner
   * NB: default is set to *owner*
 
-##### Contents - List Organisation Repositories
+##### General - List Organisation Repositories
 This query simply returns a list of repositories for a defined organisation.
 
 This query can be supplemented with the following parameters:
@@ -47,8 +58,47 @@ This query can be supplemented with the following parameters:
 
 *NB:* Returned results can be paged, if applicable
 
-##### Contents - List Contributors
+##### General - List Contributors
 This query list contributors to a defined repository. The returned result is sorted by the number of commits per
 contributor in descending order.
+
+##### General - List Languages
+This query returns the languages for a defined repository. 
+
+*NB:* The returned JSON includes a value to the right of the language name. This is the number of bytes of code writtent in that language.
+
+##### General - List Teams
+This query returns any teams for a defined owner and repository.
+
+*NB:* Returned results can be paged, if applicable
+
+##### General - List Tags
+Returns tags for a defined repository.
+
+*NB:* Returned results can be paged, if applicable
+
+##### General - List Branches
+Returns branches for a defined repository
+
+*NB:* Returned results can be paged, if applicable
+
+##### General - Get Branch
+Return a specified branch for a defined repository.
+
+##### Collaborators - List Collaborators
+Simply returns a list of collaborators for a defined repository.
+
+##### Comments - List commit comments for a repository
+Returns commit comments for a defined repository. These comments are returned in an *ascending* ID order.
+
+*NB:* Returned results can be paged, if applicable 
+
+##### Comments - List comments for a single commit
+Returns all comments for a single comment for a defined repository.
+
+*NB:* Returned results can be paged, if applicable
+
+##### Comments - Get a single commit comment
+Returns a single ID specified commit comment for a defined repository.
 
 
