@@ -20,6 +20,7 @@ Notes on using cURL to query GitHub for *Repositories* data.
   * List Commit Comments for a Repository
   * List Comments for a Single Commit
   * Get a Single Commit Comment
+* Commits
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
