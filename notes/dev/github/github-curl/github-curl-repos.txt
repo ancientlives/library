@@ -21,6 +21,8 @@ Notes on using cURL to query GitHub for *Repositories* data.
   * List Comments for a Single Commit
   * Get a Single Commit Comment
 * Commits
+  * List Commits on a Repository
+  * Get a Single Commit
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
@@ -101,5 +103,21 @@ Returns all comments for a single comment for a defined repository.
 
 ##### Comments - Get a single commit comment
 Returns a single ID specified commit comment for a defined repository.
+
+##### Commits - List commits on a repository
+Returns all commits for a defined repository. 
+
+This query can be supplemented with the following parameters:
+
+* author (string) - Add a GitHub login or email address to filter by commit author
+* path (string) - Returned results will only include commits containing this file path
+* sha (string) - List commits starting from the defined SHA or brach
+* since (string) - A specified date from which issues will be returned. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+* until (string) - A specified date up to which issues will be returned. Timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+
+*NB:* Returned results can be paged, if applicable
+
+##### Commits - Get a single commit
+Returns a single specified commit for a defined repository.
 
 
