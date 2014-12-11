@@ -23,6 +23,7 @@ Notes on using cURL to query GitHub for *Repositories* data.
 * Commits
   * List Commits on a Repository
   * Get a Single Commit
+  * Compare two commits
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
@@ -119,5 +120,9 @@ This query can be supplemented with the following parameters:
 
 ##### Commits - Get a single commit
 Returns a single specified commit for a defined repository.
+
+##### Commits - Compare two commits
+Default query returns comparison (diff) between a defined base branch and head branch. This query can also be modified to 
+include branches in other repositories in the same network as the defined repository.
 
 
