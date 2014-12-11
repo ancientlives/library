@@ -24,6 +24,10 @@ Notes on using cURL to query GitHub for *Repositories* data.
   * List Commits on a Repository
   * Get a Single Commit
   * Compare Two Commits
+* Contents
+  * Get the Readme
+  * Get Contents
+  * Get Archive Link
 
 ##### Contents - List All Repos
 This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
@@ -124,3 +128,24 @@ Returns a single specified commit for a defined repository.
 ##### Commits - Compare two commits
 Default query returns comparison (diff) between a defined base branch and head branch. This query can also be modified to 
 include branches in other repositories in the same network as the defined repository.
+
+##### Contents - Get the Readme
+Simply returns the default Readme for the defined repository.
+
+This query can be supplemented with the following parameters:
+
+* ref (string) - This is the reference string for a commit/branch/tag. *NB:* default is set to the *master* branch
+
+##### Contents - Get contents
+Returns the contents of a file or directory in a repository.
+
+This query can be supplemented with the following parameters:
+
+* path (string) - content path
+* ref (string) - This is the reference string for a commit/branch/tag. *NB:* default is set to the master branch
+
+*NB:* 
+* use a recursive tree to recursively retrieve a repos contents
+* API supports files up to 1MB in size
+
+  
