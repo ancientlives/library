@@ -1,0 +1,54 @@
+### GitHub - cURL - Repositories
+
+Notes on using cURL to query GitHub for *Repositories* data.
+[GitHub API](https://developer.github.com/v3/repos/)
+
+#### Contents
+* General
+  * List All Public Repos
+  * List Your Repos
+  * List Organisation Repos
+  * List Contributors
+
+##### Contents - List All Repos
+This query simply returns a paged list of all the current GitHub repositories (a bit slow...)
+
+##### Contents - List User Repos
+This query returns a list of public repositories for the specified user.
+
+This query can be supplemented with the following parameters:
+
+* direction (string) - can be either *ascending* or *descending*. Default will be *ascending* if *sort* is set to *full_name*.
+Otherwise, it will be set to *descending*
+* sort (string) - this can be set to:
+  * created
+  * full_name
+  * pushed
+  * updated
+  * NB: default will be set to *full_name*
+* type (string) - this can be set to:
+  * all
+  * member
+  * owner
+  * NB: default is set to *owner*
+
+##### Contents - List Organisation Repositories
+This query simply returns a list of repositories for a defined organisation.
+
+This query can be supplemented with the following parameters:
+
+* type (string) - this can be set to:
+  * all
+  * forks
+  * member
+  * private
+  * public
+  * sources
+
+*NB:* Returned results can be paged, if applicable
+
+##### Contents - List Contributors
+This query list contributors to a defined repository. The returned result is sorted by the number of commits per
+contributor in descending order.
+
+
