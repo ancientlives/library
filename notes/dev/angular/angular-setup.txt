@@ -1,0 +1,83 @@
+### Dev - Angular - Angular Seed
+This is a set of quick notes for installing and using angular-seed. Latest version is available at 
+[angular/angular-seed](https://github.com/angular/angular-seed#how-to-use-angular-seed) on GitHub.
+
+#### Contents
+* Introduction
+* Requirements
+* Clone the Source
+* Install Dependencies
+* npm Issues
+* Running the App
+* Custom Domain and Port
+* Testing - Unit Testing
+* Updating Angular
+
+##### Introduction
+*angular-seed* provides a bare-bones framework for developing web apps in angular.js. The following is a set of install 
+and setup notes for 8angular-seed* on Ubuntu 14.04.
+
+##### Requirements
+To install and use *angular-seed* you will also need to install *git*, *node*, *npm*, and *bower*.
+
+##### Clone the source
+Clone the latest version of *angular-seed* as follows,
+
+`git clone https://github.com/angular/angular-seed.git`
+
+and then cd to your *angular-seed* directory.
+
+##### Install dependencies
+There are two types of dependencies required for the *angular-seed* app, which are as follows,
+
+* tools for *angular-seed* from *npm*
+* angular code from *bower*
+
+To install these dependencies, we simply run the following command
+
+`npm install`
+
+##### npm issues
+If we encounter any issues with *npm* we can try the following,
+
+* `npm test`
+* `npm update`
+* `bower update`
+
+##### Running the app
+To run the *angular-seed* app we can use the following command
+
+`npm start`
+
+This will start the *http-server* and by default serves the app at the following URL,
+
+* http://localhost:8000/app/index.html
+
+##### Custom domain and port
+We can modify the domain and port in the *package.json* file. Our new app URL will be as follows,
+
+* http://yourdomain.com:8080/app/index.html
+
+If using *ufw* we'll also need to set the correct rules for our custom port. 
+
+##### Testing - Unit testing
+Unit tests are pre-configured for the *angular-seed* app. To run unit tests issue the followin command,
+
+`npm test`
+
+This will call *Karma*, which will execute the unit tests. It will also monitor changes in the source and test files.
+If you run unit tests each time a file is saved, *karma* will also run unit tests at the same time.
+
+To perform a single test, use the following command.
+
+`npm run test-single-run`
+
+##### Updating angular
+To update the tool dependencies run the following command,
+
+`npm update`
+
+To update the Angular dependencies run the following command,
+
+`bower update`
+
