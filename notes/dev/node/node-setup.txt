@@ -1,0 +1,57 @@
+### Dev - Node - Node Setup
+
+Some brief notes on install, configuring, and runing basic node.js. This document currently assumes that you are 
+running a server with Ubuntu Linux 14.04 installed.
+
+#### Contents
+* Introduction
+* Install node.js
+  * Distro-stable version
+  * cURL and Git
+* Install express
+
+
+##### Introduction
+There are a number of different ways to install *node.js*, *npm*, and the lightweight web server *express*.
+
+##### Install node.js - Distro-stable version
+There is a version of node.js in the default repositories of Ubuntu 14.04. It will not be the latest version, but it 
+will make it easier to provision a consistent experience across multiple servers. It should also be quite stable for day to day use.
+
+`sudo apt-get update`
+`sudo apt-get install nodejs`
+
+You should also install *npm*
+
+`sudo apt-get install npm`
+
+*NB:* the executable will be *ndejs* instead of the customary *node*. This is due to a conflict with another package.
+
+##### Install node.js - cURL and Git
+An alternative, and more recent version, can be installed from GitHub.
+
+Check that *curl* and *git* are installed,
+
+`sudo apt-get install curl git`
+
+Then run the following install script to install *NVM*,
+
+`curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash`
+
+*NB:*you'll need to modify *v.0.20.0* to match the latest version.
+*NB:*you'll also need to logut of *ssh* and then reconnect before continuing.
+
+Further details can be found at the [NVM Github Repository](https://github.com/creationix/nvm).
+
+You can then use *nvm*(Node Version Manager) to install and maintain node.js. For example,
+
+`nvm install 0.10.33` 
+
+will install that version of node.js. It's also possible to install by branch,
+
+`nvm install stable`
+
+and so on.
+
+##### Install Express
+
