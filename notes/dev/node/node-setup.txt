@@ -9,7 +9,7 @@ running a server with Ubuntu Linux 14.04 installed.
   * Distro-stable version
   * cURL and Git
 * Install express
-
+* Using express
 
 ##### Introduction
 There are a number of different ways to install *node.js*, *npm*, and the lightweight web server *express*.
@@ -53,5 +53,34 @@ will install that version of node.js. It's also possible to install by branch,
 
 and so on.
 
-##### Install Express
+##### Install express
+Express is a framework for web applications built upon node.js, and is minimal and flexible.
+
+We can use *npm* to install the *express* module,
+
+`npm install -g express`
+
+This installs the *express* command line tool, which allows us to start building our basic web application. It is now 
+also necessary to install the *Express* application generator,
+
+`npm install -g express-generator'
+
+##### Using express
+We can now use *express* to start building our initial basic web application.
+
+Express creates a basic shell for our web application with the following command,
+
+`express /node/test-project`
+
+This command makes a new directory, and populates with the required basic web application directories and files.
+
+We then cd to this directory and install any required dependencies,
+
+`npm install`
+
+We can then run our new app,
+
+`npm start`
+
+
 
