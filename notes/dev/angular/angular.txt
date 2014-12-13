@@ -1,6 +1,0 @@
-### Dev - Angular - Introduction
-
-A quick introduction to the Angular.js MVW framework. Further details are available at the [Angular](https://angularjs.org/) website.
-
-#### Contents
-* 
