@@ -9,6 +9,7 @@ A brief overview of databases and their usage with *node.js*.
   * BSON
   * Horizontal scaling with auto-sharding
   * Schemeless
+  * Using
 
 ##### Introduction
 By its very nature, *node.js* supports *JSON* in a clean way. With this in mind, more traditional SQL databases are not 
@@ -91,4 +92,26 @@ it doesn't throw an error.
 
 Therefore, for most instanaces of MongoDB, you do not setup anything before hand. For example, there is no command to 
 create an index in MongoDB. There is the command `ensureIndex`, which will create an index if it does not already exist.
+
+##### MongoDB - Using
+To start MongDB, issue the following command
+
+* OS X = `mongod`
+* Linux = `sudo service mongod start`
+
+To stop a running session, issue the following command,
+
+* OS X = `ctrl+c`
+* Linux = `sudo service mongod stop`
+          `sudo service mongod restart`
+
+On OS X, we can then test MongoDb by issuing the following command,
+
+* `mongo`
+
+This uses the current instance of mongod to allow us to connect to `test`. This allows us to test databases etc, such as 
+
+* `use playground`
+
+where we can add a new collection etc...
 
