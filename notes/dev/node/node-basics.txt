@@ -28,5 +28,10 @@ and then view the output in your browser at the following url,
 
 `http://localhost:3000`
 
+*NB:* the `createServer` function is being called against the *HTTP* module, and is then being passed a new, anonymous
+function. This new function is not executed immediately, but will wait until the web server receives a new request. This is an example of *callback*. Node simply stores the function until it is needed upon receipt of a request.
+
+
+
 
 
