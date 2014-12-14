@@ -1,0 +1,45 @@
+### Dev - Node - Databases
+
+A brief overview of databases and their usage with *node.js*.
+
+#### Contents
+* Introduction
+* MongoDB
+  * Document oriented
+  * BSON
+
+##### Introduction
+By its very nature, *node.js* supports *JSON* in a clean way. With this in mind, more traditional SQL databases are not 
+a good fit. Therefore, *node.js* is better suited to document databases including,
+
+* Cassandra
+* MongoDB
+* ReThinkDB
+* Riak
+
+*JSON* is a particularly good fit for these databases as it represents a document naturally. Some databases, including 
+MongoDB, use a *JSON* superset as their own internal storage.
+
+##### MongoDB
+*MongoDB* is a document database, which includes a number of advantages over a traditional SQL databases.
+
+##### MongoDB - Document Oriented
+In a traditional SQL database, data is stored in tables and rows. MongoDB, by contrast, uses *collections* and *documents*.
+A comparison is often made between a collection and a table. However, a document is quite different from a table. 
+
+A document can contain a lot more data than a table. For example, in a SQL database we may decide to store user details, 
+including `user_id`, `email`, `name` and so on, in multiple tables. We then join these tables to create a user record. 
+However, with documents we simply store the data, id, email etc, and this will now be the only item in the database to 
+store this data. 
+
+A noted concern with this document approach is duplication of data for each user. This, however, is one of the trade-offs
+between NoSQL (MongoDB) and SQL. 
+
+In SQL, the goal of data structuring is to normalise as much as possible, thereby avoiding duplicated information. With 
+MongoDB, there is a notably different goal. We are trying to provision a data store which is as easy as possible for the
+application to use. Whilst updating the name of a given user role would be a tedious iterative process, accessing the user's role itself is considerably easier and quicker with NoSQL (MongoDB). The latter is the more common task
+for an application accessing a database.
+
+##### MongoDB - BSON
+
+
