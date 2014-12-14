@@ -8,6 +8,7 @@ A brief overview of databases and their usage with *node.js*.
   * Document oriented
   * BSON
   * Horizontal scaling with auto-sharding
+  * Schemeless
 
 ##### Introduction
 By its very nature, *node.js* supports *JSON* in a clean way. With this in mind, more traditional SQL databases are not 
@@ -64,4 +65,30 @@ A few other advantages of `BSON` over SQL rows and tables include,
 MomgoDB is also well suited to scaling. It supports horizontal scaling, which is simply the ability to add more machines
 to a cluster, thereby increasing its scale.
 
+*NB:* horizontal scaling is adding more machines to a cluster to increase its scale, whilst vertical scaling is simply
+increasing the performance of a single machine etc
+
+By comparison, with a traditional relational database you are limited in your options for scaling. As soon as the performance 
+suffers, a database admin will need to analyse and further optimise queries, add more caching, move the data to other sources, 
+decrease query usage, and so on. However, each of these tasks will take time to perform and complete.
+
+Sharding has often been a last resort for such relational database issues. Sharding, in effect, involves splitting the 
+data across multiple databases. For a relational database, this can be particularly challenging and will normally involve
+many changes to the application in order to provision support. After sharding, you'll also lose the ability to perform
+many types of queries. For example, queries that need to be performed across the whole data set.
+
+By comparison, MongoDB openly supports and embraces the option for sharding. It will, often, simply assume your data is
+sharded from the beginning. Therefore, standard queries such as `joins`, which require the whole data set, are simply 
+not supported. You are, instead, expected tp design your data architecture accordingly.
+
+*NB:* MongoDB can't scale indefinitely. It will be able to add a few databases to the system, but there is atipping point
+where it becomes too much work to maintain parity with each other, and the system will simply break.
+
+##### MongoDB - Schemeless
+Schemas, and their desgin, are an integral part of designing and implementing relational databases. However, MongoDb simply 
+does not follow this convention. With MongoDB, you simply start adding data. If it does not match earlier data entries, 
+it doesn't throw an error.
+
+Therefore, for most instanaces of MongoDB, you do not setup anything before hand. For example, there is no command to 
+create an index in MongoDB. There is the command `ensureIndex`, which will create an index if it does not already exist.
 
