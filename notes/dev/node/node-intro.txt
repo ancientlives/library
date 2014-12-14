@@ -1,0 +1,20 @@
+### Dev - Node - Introduction
+
+A quick introduction to Node.js.
+Further details are available at the [node.js](http://nodejs.org) website.
+
+#### Contents
+* What is node.js?
+
+##### What is node.js?
+Node.js is, in essence, a javascript runtime environment designed to be run outside of the browser. It has 
+been designed as a general purpose utility, and can be used for many different tasks including,
+
+* Asset compilation
+* Monitoring
+* Scripting
+* Web servers
+
+With node.js, we now see javascript moving from client-side to a support role in back-end development.
+
+  
