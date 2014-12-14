@@ -7,6 +7,7 @@ A brief overview of databases and their usage with *node.js*.
 * MongoDB
   * Document oriented
   * BSON
+  * Horizontal scaling with auto-sharding
 
 ##### Introduction
 By its very nature, *node.js* supports *JSON* in a clean way. With this in mind, more traditional SQL databases are not 
@@ -41,5 +42,26 @@ application to use. Whilst updating the name of a given user role would be a ted
 for an application accessing a database.
 
 ##### MongoDB - BSON
+BSON is the format used by MongoDB to store its data. It is, effectively, JSON stored as binary with a few notable differences.
+One of these differences is the `ObjectId` values, which is a data type used in MongoDB to uniquely identify documents. 
+It is created automatically on each document in the database, and can be considered as analogous to a primary key in a 
+SQL database.
+
+The `ObjectId` is a large pseudo-random number. For nearly all practical occurrences, we can assume that this number will be
+unique. The only situation where we might have a collision or clash in these numbers is if we were generating a large number in a short period of time. Evev with this scenario, we would need to be generating these numbers so fast that
+the database would not be able to keep pace. Therefore, we can assume they're always unique.
+
+The other interesting aspect of `ObjectId` is that they are partially based on a timestamp. Thsi allows us to determine
+when they were created. 
+
+A few other advantages of `BSON` over SQL rows and tables include,
+
+* documents and objects in programming map naturally
+* arrays and embedding of documents prevents the need for tradition SQL joins
+* with the absence of achema, polymorphism is a lot easier
+
+##### MongoDB - Horizontal scaling and auto-sharding
+MomgoDB is also well suited to scaling. It supports horizontal scaling, which is simply the ability to add more machines
+to a cluster, thereby increasing its scale.
 
 
