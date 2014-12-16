@@ -1,6 +1,6 @@
-### Readme - Music
+### Readme - Notes - Music
 
-Some notes on various aspects of music. This will initially focus upon classical and operatic music.
+Some notes on various aspects of music. Initial focus is upon classical, operatic, and movie music.
 
 #### Contents
 

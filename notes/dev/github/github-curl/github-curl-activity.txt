@@ -31,7 +31,7 @@ API options include:
 ##### Event Types & Payloads
 Each event has a similar *JSON* schema. However, a unique *payload* object is determined by its event type.
 
-Event names are used by *repository webhooks*, and specifiy the events a webhook should receive.
+Event names are used by *repository webhooks*, and specify the events a webhook should receive.
 
 *NB:* Some of the events the above section of the API may not be rendered in the timeline.
 

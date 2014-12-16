@@ -1,6 +1,4 @@
-### Readme - Notes
-
-Welcome to the notes directory
+### Readme - Library - Notes
 
 This directory provides a quick storage facility for notes, ideas, snippets, and research.
 
@@ -9,16 +7,19 @@ This directory provides a quick storage facility for notes, ideas, snippets, and
   * Ancient
 * CS
   * Data Science
+  * Metrics
   * Semantic
   * Structures
 * Dev
+  * Angular
   * GitHub
   * Markdown
+  * Node
   * Python
   * Twitter
 * Maths
   * Discrete
 * Music
   * Classical
-  * Movie Music
+  * Movie
   * Opera

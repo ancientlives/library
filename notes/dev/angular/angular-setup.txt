@@ -1,4 +1,5 @@
 ### Dev - Angular - Angular Seed
+
 This is a set of quick notes for installing and using angular-seed. Latest version is available at 
 [angular/angular-seed](https://github.com/angular/angular-seed#how-to-use-angular-seed) on GitHub.
 

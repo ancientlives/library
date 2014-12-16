@@ -1,0 +1,55 @@
+### Databases - NoSQL - MongoDB - Usage Basic
+
+Brief notes on getting started with using MongoDB.
+
+#### Contents
+* Getting started
+* First database
+* Inserting documents
+
+##### Getting started
+To start MongDB, issue the following command
+
+* OS X = `mongod`
+* Linux = `sudo service mongod start`
+
+To stop a running session, issue the following command,
+
+* OS X = `ctrl+c`
+* Linux = `sudo service mongod stop`
+          `sudo service mongod restart`
+
+On OS X, we can then test MongoDb by issuing the following command,
+
+* `mongo`
+
+This uses the current instance of mongod to allow us to connect to `test`. This allows us to test databases etc.
+
+##### First database
+To specify our new database, we can issue the following command
+
+`use playground`
+
+This will also switch mongo to the specified database.
+
+##### Inserting documents
+We can now add a document to a new collection, *users*, using the following command
+
+`db.users.insert({name:'ancientlives', email:'test@test.com', roles: ['admin', 'operations']})`
+
+followed by `return`.
+
+Mongo will now write this document to the new collection.
+
+##### Querying documents
+To query our database for a document, or part, we can use `find` command. This will accept
+
+* an object ID defined by MongoDB
+* one of the sub-records of the document, eg: in our new document we can search by
+  *  name
+  * email
+  * roles (and either role as well)
+
+A successful query will return the complet document in JSON.
+
+

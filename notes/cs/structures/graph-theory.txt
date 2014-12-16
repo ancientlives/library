@@ -39,6 +39,7 @@ Majority of graphs are a variation of the following,
   * elements of the *vertices* set (nodes...) are often drawn as squares or circles
   * elements of the *edges* set as lines or arcs between the squares and circles
 
+##### Graph Variations
 
 
 ##### Property Graph

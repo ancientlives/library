@@ -1,4 +1,4 @@
-### Readme - Github - cURL
+### Readme - Notes - Dev - Github - cURL
 
 A collection of notes about using cURL to query the [GitHub API](https://developer.github.com/v3/)
 

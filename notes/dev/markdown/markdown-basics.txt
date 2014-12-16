@@ -2,13 +2,11 @@
 
 An overview of the basic syntax for Markdown. Markdown was created to be easy to read, write, and publish.
 Markdown is simply a text-to-HTML conversion tool for online, web writers. It allows writers to format their 
-plain text documents with a simple syntax, and then convert it to structurally valid XHTML (or HTML4 if 
-required).
+plain text documents with a simple syntax, and then convert it to structurally valid XHTML (or HTML4 if required).
 [Daring Fireball](http://daringfireball.net/projects/markdown/)
 
-
 #### Contents
-
+* Introduction
 * [Basic Writing](#toc-bw) 
   * Paragraphs
 * [Headings](#toc-headings)
@@ -22,6 +20,13 @@ required).
   * Inline formats
   * Multiple lines
 * [Links](#toc-links)
+
+##### Introduction
+Markdown was created to be easy to read, write, and publish.
+
+Markdown is simply a text-to-HTML conversion tool for online, web writers. It allows writers to format their
+plain text documents with a simple syntax, and then convert it to structurally valid XHTML (or HTML4 if required).
+[Daring Fireball](http://daringfireball.net/projects/markdown/)
 
 #### <a name="toc-bw"></a>Basic-Writing
 

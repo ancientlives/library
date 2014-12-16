@@ -1,4 +1,9 @@
-#### Set theory, intuition, and countable infinity
+### Maths - Discrete - Set theory, intuition, and countable infinity
+
+#### Contents
+* Overview
+
+##### Overview
 
 * set theory in general mathematics provides the foundation for many mathematical principles
 * George Cantor is generally credited with formalising the mathematics behind set theory

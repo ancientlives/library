@@ -1,6 +1,6 @@
-### Readme - Music - Opera
+### Readme - Notes - Music - Opera
 
-A collection of notes considering various aspects of operatic music, performances, history, and performers.
+A collection of notes considering various aspects of operatic music, including performances, history, and performers.
 
 #### Contents
 * Composers

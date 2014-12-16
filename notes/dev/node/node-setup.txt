@@ -1,4 +1,4 @@
-### Dev - Node - Node Setup
+### Node - Node Setup
 
 Some brief notes on install, configuring, and runing basic node.js. This document currently assumes that you are 
 running a server with Ubuntu Linux 14.04 installed.

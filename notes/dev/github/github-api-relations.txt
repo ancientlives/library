@@ -1,0 +1,15 @@
+### Github - API Relations
+
+An analysis of relationships between categories of queries within the [GitHub API](https://developer.github.com/v3/).
+
+#### Contents
+* Relational groupings
+
+##### Relational groupings
+These are inferred groupings of similar queries identified across the disparate API categories. They may not be explicitly identified within the
+API, but they are possible due to the nature of aggregated *mashup* content.
+
+These inferred groupings are currently as follows,
+
+* commits and their inferred associated data
+

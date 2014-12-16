@@ -1,4 +1,4 @@
-### Readme - Maths
+### Readme - Notes - Maths
 
 Welcome to the Notes - Maths directory
 
@@ -7,3 +7,5 @@ related research.
 
 #### Contents
 * Discrete Mathematics
+  * Set theory...
+

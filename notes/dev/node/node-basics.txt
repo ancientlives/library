@@ -1,4 +1,4 @@
-### Dev - Node - Basics
+### Node - Basics
 
 Introductory notes on the basics of using and running node.js server and apps. These notes assume you have node.js, npm
 etc already installed and working globally.

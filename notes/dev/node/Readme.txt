@@ -1,8 +1,10 @@
-### Readme - Dev - Node.js
+### Readme - Notes - Dev - Node
 
-A collection of notes on using node.js for application development. Further details are available at [nodeJS](http://nodejs.org/).
+A collection of notes on using node.js for application development. Further details are available at the [nodeJS](http://nodejs.org/) 
+website.
 
 #### Contents
 * Introduction
 * Basics
 * Setup
+

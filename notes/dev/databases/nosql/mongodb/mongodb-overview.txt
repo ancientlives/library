@@ -1,0 +1,90 @@
+### Databases - NoSQL - MongoDB - Overview
+
+A brief overview of the NoSQL database, MongoDB.
+
+#### Contents
+* Introduction
+* Document oriented
+* BSON
+* Horizontal scaling with auto-sharding
+* Schemaless
+* 
+
+##### Introduction
+*MongoDB* is a document database, which includes a number of advantages over a traditional SQL databases.
+
+##### MongoDB - Document Oriented
+In a traditional SQL database, data is stored in tables and rows. MongoDB, by contrast, uses *collections* and *documents*.
+A comparison is often made between a collection and a table. However, a document is quite different from a table.
+
+A document can contain a lot more data than a table. For example, in a SQL database we may decide to store user details,
+including `user_id`, `email`, `name` and so on, in multiple tables. We then join these tables to create a user record.
+However, with documents we simply store the data, id, email etc, and this will now be the only item in the database to
+store this data.
+
+A noted concern with this document approach is duplication of data for each user. This, however, is one of the trade-offs
+between NoSQL (MongoDB) and SQL.
+
+In SQL, the goal of data structuring is to normalise as much as possible, thereby avoiding duplicated information. With
+MongoDB, there is a notably different goal. We are trying to provision a data store which is as easy as possible for the
+application to use. Whilst updating the name of a given user role would be a tedious iterative process, accessing the user's $
+for an application accessing a database.
+
+##### MongoDB - BSON
+BSON is the format used by MongoDB to store its data. It is, effectively, JSON stored as binary with a few notable difference$
+One of these differences is the `ObjectId` values, which is a data type used in MongoDB to uniquely identify documents.
+It is created automatically on each document in the database, and can be considered as analogous to a primary key in a
+SQL database.
+
+The `ObjectId` is a large pseudo-random number. For nearly all practical occurrences, we can assume that this number will be
+unique. The only situation where we might have a collision or clash in these numbers is if we were generating a large number $
+the database would not be able to keep pace. Therefore, we can assume they're always unique.
+
+The other interesting aspect of `ObjectId` is that they are partially based on a timestamp. Thsi allows us to determine
+when they were created.
+
+A few other advantages of `BSON` over SQL rows and tables include,
+
+* documents and objects in programming map naturally
+* arrays and embedding of documents prevents the need for tradition SQL joins
+* with the absence of achema, polymorphism is a lot easier
+
+##### MongoDB - Horizontal scaling and auto-sharding
+MomgoDB is also well suited to scaling. It supports horizontal scaling, which is simply the ability to add more machines
+to a cluster, thereby increasing its scale.
+
+*NB:* horizontal scaling is adding more machines to a cluster to increase its scale, whilst vertical scaling is simply
+increasing the performance of a single machine etc
+
+By comparison, with a traditional relational database you are limited in your options for scaling. As soon as the performance
+suffers, a database admin will need to analyse and further optimise queries, add more caching, move the data to other sources$
+decrease query usage, and so on. However, each of these tasks will take time to perform and complete.
+
+Sharding has often been a last resort for such relational database issues. Sharding, in effect, involves splitting the
+data across multiple databases. For a relational database, this can be particularly challenging and will normally involve
+many changes to the application in order to provision support. After sharding, you'll also lose the ability to perform
+many types of queries. For example, queries that need to be performed across the whole data set.
+
+By comparison, MongoDB openly supports and embraces the option for sharding. It will, often, simply assume your data is
+sharded from the beginning. Therefore, standard queries such as `joins`, which require the whole data set, are simply
+not supported. You are, instead, expected tp design your data architecture accordingly.
+
+*NB:* MongoDB can't scale indefinitely. It will be able to add a few databases to the system, but there is atipping point
+where it becomes too much work to maintain parity with each other, and the system will simply break.
+
+##### MongoDB - Schemaless
+Schemas, and their desgin, are an integral part of designing and implementing relational databases. However, MongoDb simply
+does not follow this convention. With MongoDB, you simply start adding data. If it does not match earlier data entries,
+it doesn't throw an error.
+
+Therefore, for most instanaces of MongoDB, you do not setup anything before hand. For example, there is no command to
+create an index in MongoDB. There is the command `ensureIndex`, which will create an index if it does not already exist.
+
+##### Hierarchy of data
+MongoDB has three tiers to its hierarchy of data. These include,
+
+* Database - normally one database per app, but it is possible to have multiple per server. It functions the same basic role as a
+database in SQL.
+* Collection - a grouping of similar pieces of data. Its name is usually a noun, and it resembles in concept a table in SQL.
+* Document - a single item in the database, for example an individual user record. If a collection was a class in object-oriented, 
+then a document would be an object. 

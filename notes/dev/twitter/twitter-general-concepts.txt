@@ -1,7 +1,6 @@
 ### Twitter - General Concepts 
 
 #### Contents
-
 * [Overview of Tweets](#toc-ot)
 * [Timelines](#toc-time)
 * [Interest Graph](#toc-ig)

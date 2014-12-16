@@ -1,8 +1,6 @@
-### Readme - Art
+### Readme - Notes - Art
 
-Welcome to the Notes - Art directory
-
-This directory is intended to store notes, thoughts, reports, articles...
+This directory is intended to store notes, thoughts, reports, articles, and general information regarding art history.
 
 It is intentionally broad in its scope.
 

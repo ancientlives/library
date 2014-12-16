@@ -1,4 +1,4 @@
-### Dev - Node - Databases
+### Node - Databases
 
 A brief overview of databases and their usage with *node.js*.
 
@@ -8,7 +8,7 @@ A brief overview of databases and their usage with *node.js*.
   * Document oriented
   * BSON
   * Horizontal scaling with auto-sharding
-  * Schemeless
+  * Schemaless
   * Using
 
 ##### Introduction
@@ -85,7 +85,7 @@ not supported. You are, instead, expected tp design your data architecture accor
 *NB:* MongoDB can't scale indefinitely. It will be able to add a few databases to the system, but there is atipping point
 where it becomes too much work to maintain parity with each other, and the system will simply break.
 
-##### MongoDB - Schemeless
+##### MongoDB - Schemaless
 Schemas, and their desgin, are an integral part of designing and implementing relational databases. However, MongoDb simply 
 does not follow this convention. With MongoDB, you simply start adding data. If it does not match earlier data entries, 
 it doesn't throw an error.

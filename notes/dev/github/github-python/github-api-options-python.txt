@@ -1,4 +1,4 @@
-### GitHub - API Options - Python
+### GitHub - Python - API Options
 
 General overview of some of the options available in the GitHub API using Python
 [GitHub API](https://developer.github.com/v3/)

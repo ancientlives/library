@@ -1,6 +1,6 @@
 ### GitHub - API Options
 
-General overview of some of the options for quering the current  GitHub API.
+General overview of some of the options for quering the current GitHub API.
 [GitHub API](https://developer.github.com/v3/)
 
 #### Contents

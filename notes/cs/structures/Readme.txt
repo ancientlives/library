@@ -1,4 +1,4 @@
-### Readme - CS - Structures
+### Readme - Notes - CS - Structures
 
 A collection of notes on structures in computer science.
 
