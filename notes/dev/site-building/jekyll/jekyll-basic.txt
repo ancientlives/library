@@ -1,0 +1,25 @@
+### Jekyll - Basic Guide
+
+A basic guide to configuring Jekyll websites, and some of the more interesting options as well.
+
+#### Contents
+* Config
+
+##### Config
+Configuration for Jekyll is completed using [YAML](http://www.yaml.org). The configurations are
+generally kept in a file called `_config.yml`.
+
+This config file allows us to specify settings, including
+
+* name
+* description
+* url (eg: a custom domain name)
+* paginate
+* flavour of markdown
+* type of permalink
+* pygments (boolean value)
+
+*NB:* Pygments provides support for syntax highlighting in over 100 languages. This requires Python installed on your 
+system.
+
+
