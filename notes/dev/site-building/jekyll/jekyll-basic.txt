@@ -36,6 +36,9 @@ This provisions a basic site template, which can be viewed at
 
 * http://localhost:4000
 
+This basic site includes a standard header, content body, footer, sample post, sample home page, about page, rss xml, 
+and much more. It's a good place to start work on a Jekyll site.
+
 ##### Basic site
 A few initial steps to follow to create a starter site for Jekyll.
 
