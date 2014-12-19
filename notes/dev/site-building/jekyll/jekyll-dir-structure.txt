@@ -1,0 +1,9 @@
+### Jekyll - Directory Structure
+
+A basic guide to using and modifying the directory structure of Jekyll. Please see the [Jekyll Documentation](http://jekyllrb.com/docs/structure/) 
+for more information.
+
+#### Contents
+* Introduction
+
+##### Introduction

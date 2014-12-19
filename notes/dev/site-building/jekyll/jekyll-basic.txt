@@ -1,6 +1,7 @@
 ### Jekyll - Basic Guide
 
-A basic guide to configuring Jekyll websites, and some of the more interesting options as well.
+A basic guide to configuring Jekyll websites, and some of the more interesting options as well. Please see the 
+[Jekyll Documentation](http://jekyllrb.com/docs/usage/) for further information.
 
 #### Contents
 * Config
@@ -108,4 +109,3 @@ at the following url
 
 This option is very useful for testing the output and design for your new website.
 
- 
