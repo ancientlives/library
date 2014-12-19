@@ -1,6 +1,6 @@
 ### Readme - Notes - Dev
 
-This directory includes many disparate notes collected by language, technology, tool, and so on,
+This directory includes a collection of disparate notes collected by language, technology, tool, or development.
 
 #### Contents
 * Angular
