@@ -4,12 +4,17 @@ This directory includes many disparate notes collected by language, technology, 
 
 #### Contents
 * Angular
+* Databases
+  * NoSQL
+    * mongodb
 * GitHub
   * GitHub cURL
   * GitHub Python
 * Markdown
 * Node
 * Python
+* Site Building
+  * Jekyll
 * Twitter
 
 

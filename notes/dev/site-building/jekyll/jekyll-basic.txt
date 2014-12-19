@@ -1,0 +1,59 @@
+### Jekyll - Basic Guide
+
+A basic guide to configuring Jekyll websites, and some of the more interesting options as well.
+
+#### Contents
+* Config
+* Boilerplate
+* Basic site
+
+##### Config
+Configuration for Jekyll is completed using [YAML](http://www.yaml.org). The configurations are
+generally kept in a file called `_config.yml`.
+
+This config file allows us to specify settings, including
+
+* name
+* description
+* url (eg: a custom domain name)
+* paginate
+* flavour of markdown
+* type of permalink
+* highlighter (eg: pygments)
+
+*NB:* Pygments provides support for syntax highlighting in over 100 languages. This requires Python installed on your 
+system.
+
+##### Boilerplate
+For a very quick boilerplate site use the following commands,
+
+* `gem install jekyll`
+* `jekyll new mywebsite`
+* `cd mywebsite`
+* `jekyll server`
+
+This provisions a basic site template, which can be viewed at
+
+* http://localhost:4000
+
+This basic site includes a standard header, content body, footer, sample post, sample home page, about page, rss xml, 
+and much more. It's a good place to start work on a Jekyll site.
+
+##### Basic site
+A few initial steps to follow to create a starter site for Jekyll.
+
+* create `_config.yml`
+  * save to root of site directory
+  * add name, description, url, markdown processor (if custom), permalink, pygments...
+* create `_includes` directory
+  * allows developers/theme designers to organise common files together, eg: site-wide header, footer...
+* create `_layout` directory
+  * stores textual/page layout files. This allows custom layouts for different files etc...
+* create `_posts` directory
+  * this will contain the Markdown or HTML/Textile files for blog posts
+  * NB: if you do not need a blog, this directory is not necessary
+
+We can now build the site to test Jekyll,
+
+`jekyll build`
+

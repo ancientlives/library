@@ -12,10 +12,12 @@ This directory provides a quick storage facility for notes, ideas, snippets, and
   * Structures
 * Dev
   * Angular
+  * Databases
   * GitHub
   * Markdown
   * Node
   * Python
+  * Site Building
   * Twitter
 * Maths
   * Discrete
