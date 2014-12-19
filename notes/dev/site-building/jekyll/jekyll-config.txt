@@ -55,4 +55,7 @@ and, optionally, file type in that path.
 It is also possible to set multiple scope/value pairs for defaults in our `_config.yml` file.
 
 ##### Front matter defaults - Precedence
+All configuration settings specified in the `defaults`section of a `_config.yml` file will be applied by Jekyll. However, 
+it is also possible to override settings by specifying a more specific path for the scope.
+
 
