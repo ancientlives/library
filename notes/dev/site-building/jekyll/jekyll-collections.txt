@@ -1,0 +1,15 @@
+### Jekyll - Collections
+
+An overview of using collections with Jekyll. Further information can be found on the [Jekyll](http://jekyllrb.com/docs/collections/) website.
+
+#### Contents
+* Introduction
+* Using collections
+
+##### Introduction
+*NB:* Collections are currently listed as *unstable*, and the following API references may change.
+
+Collections allow the organisation of content not necessarily suitable for *pages* or *posts*. They allow a developer/designer 
+to define a new type of document, which can augment the standard functionality of *pages* and *posts*.
+
+
