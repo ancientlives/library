@@ -6,6 +6,9 @@ A basic guide to configuring Jekyll websites, and some of the more interesting o
 * Config
 * Boilerplate
 * Basic site
+* Adding site content
+* Auto generate builds
+* Jekyll server
 
 ##### Config
 Configuration for Jekyll is completed using [YAML](http://www.yaml.org). The configurations are
@@ -40,7 +43,7 @@ This basic site includes a standard header, content body, footer, sample post, s
 and much more. It's a good place to start work on a Jekyll site.
 
 ##### Basic site
-A few initial steps to follow to create a starter site for Jekyll.
+A few initial steps to follow to create your own starter site for Jekyll.
 
 * create `_config.yml`
   * save to root of site directory
@@ -57,3 +60,52 @@ We can now build the site to test Jekyll,
 
 `jekyll build`
 
+##### Adding site content
+Site content, including standard pages and blog posts, is created as simple text files. These text files are associated with
+content processors. 
+
+Jekyll processes these pages and copies them to the same location in your site relative to the defined root. This allows a 
+developer / designer to layout their site's structure before processing with Jekyll. For example,
+
+* contact/index.html is processed to `_site/contact/index.html`
+
+##### Front matter
+Jekyll sees *front matter* as a block of configuration details. This configuration can include information about the page, 
+including title, layout, and so forth. Front matter is defined as follows,
+
+---
+title: Home Page
+--- 
+
+This configuration block is added to a page before any content blocks. Jekyll will not process a page without this *front matter*
+block.
+
+##### Auto generate builds
+Whilst building Jekyll is a straightforward process, it is tedious repeating the build command. Thankfully, Jekyll includes
+an auto generate option, which responds to file changes.
+
+This option can be activated from the terminal using the following command,
+
+* `jekyll build --watch`
+
+We can also specify the build destination, and the source and build destinations. For example,
+
+* `jekyll build --source yourdirectory --destination yourwebsite`
+
+Many of these configuration options can also be specified in the `_config.yml` file. For example, we can specify the source and
+destination directories for our site. Then we only need to issue the `jekyll build` command, and Jekyll automatically used the
+configuration specified in `_config.yml`.
+
+##### Jekyll server
+Jekyll also provides the option to run a local server, which can be called with the following command
+
+* `jekyll serve`
+
+This command needs to be called at the root of the directory containing your Jekyll website. It will then serve your website
+at the following url
+
+* `http://localhost:4000/`
+
+This option is very useful for testing the output and design for your new website.
+
+ 
