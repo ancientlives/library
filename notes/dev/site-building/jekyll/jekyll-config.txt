@@ -54,4 +54,5 @@ and, optionally, file type in that path.
 
 It is also possible to set multiple scope/value pairs for defaults in our `_config.yml` file.
 
+##### Front matter defaults - Precedence
 
