@@ -5,6 +5,8 @@ A basic guide to configuring and developing themes for Jekyll built websites.
 #### Contents
 * Introduction
 * Layout
+* Include
+* Scripts
 
 ##### Introduction
 Jekyll, as with most web design, allows us to create our own site theming. We can incorporate existing JS libraries, icon 
@@ -24,10 +26,15 @@ site, and is used to style all of our posts and pages. It becomes the default te
 We design this template in the same manner as a standard HTML site page, but we use [Liquid](https://github.com/Shopify/liquid/wiki)
 template engine to insert custom data. For example, a site title, include files for a header and footer, and much more.
 
+##### Include
+
 In a similar fashion to PHP's `include` statement, we can abstract aspects of a template, such as the header and footer markup,
-to allow us to use the same design across our whole site. These files are stored in the `_includes` directory in the root directory 
+which allows us to use the same design across our whole site. These files are stored in the `_includes` directory in the root directory 
 of a Jekyll build.
 
-We can create an include for our header, footer, and sidebar.
+We can create, for example, an include for our header, footer, and sidebar. We can also include any other site wide material, including Bootstrap 
+specific requirements.
 
-
+##### Scripts
+CSS and Javascript files can be stored in a specific directory, for example `assets`, which is then referenced in standard HTML fashion from within
+our template.
