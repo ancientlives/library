@@ -55,7 +55,52 @@ and, optionally, file type in that path.
 It is also possible to set multiple scope/value pairs for defaults in our `_config.yml` file.
 
 ##### Front matter defaults - Precedence
-All configuration settings specified in the `defaults`section of a `_config.yml` file will be applied by Jekyll. However, 
+All configuration settings specified in the `defaults` section of a `_config.yml` file will be applied by Jekyll. However, 
 it is also possible to override settings by specifying a more specific path for the scope.
 
+For example, we can set a default layout for the overall site, and then specify a different layout for all files in a given
+directory.
 
+*NB:* we can also override `defaults` set in the `_config.yml` by adding any specific settings to the front matter of a page
+or post.
+
+##### Default Configuration
+Jekyll runs with many settings already configured by default. These are categorised as follows.
+
+* where things are...
+* handling reading
+* filtering content
+* plugins
+* conversion
+* serving
+* backwards compatibility
+* outputting
+* markdown processors
+
+Further details on these categories can be found in the online [documentation](http://jekyllrb.com/docs/configuration/#default-configuration)
+
+##### Markdown options
+The choice of Markdown processor may also include a number of different extra options. These options can be configured for use
+with Jekyll.
+
+For example, the processor *Redcarpet* can be configured with extensions. These can include extra options such as
+
+* tables
+* autolink
+* footnotes
+* highlight
+* code elements
+* strikethrough
+* superscript
+
+and so on. 
+
+In addition to such extras, it is also possible to use GitHub flavoured Markdown with Jekyll. This can be set, for example, 
+in the site's `_config.yml` file as follows,
+
+`kramdown:
+   input: GFM'
+
+##### Custom Markdown Processors
+Jekyll will happily work with a custom Markdown processor. To use this new processor, We can add the option within the site's 
+config as a `markdown` option.
