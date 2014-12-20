@@ -1,0 +1,42 @@
+### Jekyll - Blogging
+
+A brief overview of how to set up blog posts with [Jekyll](http://jekyllrb.com).
+
+#### Contents
+* Introduction
+* Saving
+* Post slug
+* Formats
+
+##### Introduction
+Blogging with Jekyll is similar to Wordpress, for example, in the general concepts required to build a blog. For example, Jekyll posts use a 
+similar *looping* concept. 
+
+A *post loop* is simply a way of ensuring that a blogging platform returns a certain list of posts. This will often be as simple as requesting 
+posts one to ten, and then an overflow onto the second page, and so on. This example request uses an iterator to output the same HTML content for
+each block of ten posts. Therefore, the same code to output as many posts as needed, each in blocks of ten.
+
+##### Saving
+Jekyll supports posts written in Markdown and Textile.
+
+Each blog post is an individual file, which is saved in the `_posts` folder. These posts must be saved, however, using the following naming format
+
+`YYYY-MM-DD-title.md`
+
+Obviously, the file extension needs to match the markup employed for each file. Also, each word in a title needs to be separated with a dash. An 
+example post file might be saved as follows,
+
+`2014-06-21-first-day-of-summer.md`
+
+##### Post slug
+
+The above type of URL is often referred to as a *post slug*, which is URL friendly format for a post's name. A few conventions apply,
+
+* no spaces, unusual characters, or anything not normally permitted in a URL
+* standard convention suggests lower case letters, and dashes instead of spaces
+* keep the slug relatively short
+
+##### Formats
+All post files must begin with `YAML Front Matter`.
+
+
