@@ -1,6 +1,33 @@
 ### Jekyll - Themes
 
-A basic guide to configuring and develop themes for Jekyll built websites.
+A basic guide to configuring and developing themes for Jekyll built websites.
 
 #### Contents
-* 
+* Introduction
+* Layout
+
+##### Introduction
+Jekyll, as with most web design, allows us to create our own site theming. We can incorporate existing JS libraries, icon 
+sets, CSS stylesheets, and much more.
+
+##### Bootstrap
+[Bootstrap](http://getbootstrap.com) is a 'popular HTML, CSS, and JS framework for developing responsive, mobile first
+projects on the web'.
+
+To use Bootstrap within our theme, we can download the default [Bootstrap](http://getbootstrap.com/getting-started/#download)
+version, and add to our Jekyll site's root directory. 
+
+##### Layout
+To create our initial layout we save a `default.html` file to the `_layouts` folder. This becomes the default layout for our 
+site, and is used to style all of our posts and pages. It becomes the default template for site rendering.
+
+We design this template in the same manner as a standard HTML site page, but we use [Liquid](https://github.com/Shopify/liquid/wiki)
+template engine to insert custom data. For example, a site title, include files for a header and footer, and much more.
+
+In a similar fashion to PHP's `include` statement, we can abstract aspects of a template, such as the header and footer markup,
+to allow us to use the same design across our whole site. These files are stored in the `_includes` directory in the root directory 
+of a Jekyll build.
+
+We can create an include for our header, footer, and sidebar.
+
+

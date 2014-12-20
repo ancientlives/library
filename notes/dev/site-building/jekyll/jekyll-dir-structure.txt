@@ -20,19 +20,19 @@ Jekyll uses the following basic site layout,
 .
 |- _config.yml
 |- _drafts
-    |- draft1.md
-    |- draft2.md
+|   |- draft1.md
+|   |- draft2.md
 |- _includes
-    |- header.html
-    |- footer.html
+|   |- header.html
+|   |- footer.html
 |- _layouts
-    |- default.html
-    |- post.html
+|   |- default.html
+|   |- post.html
 |- _posts
-    |- 2014-02-24-post-1.md
-    |- 2014-03-19-post-2.md
+|   |- 2014-02-24-post-1.md
+|   |- 2014-03-19-post-2.md
 |- _data
-    |- members.yml
+|   |- members.yml
 |- _site
 |- index.html
 
