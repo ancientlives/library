@@ -9,6 +9,10 @@ A brief overview of how to set up blog posts with [Jekyll](http://jekyllrb.com).
 * Formats
 * Images and resources
 * Index of posts
+* Post filters
+* Post excerpts
+* Pagination
+* Code highlighting
 
 ##### Introduction
 Blogging with Jekyll is similar to Wordpress, for example, in the general concepts required to build a blog. For example, Jekyll posts use a 
@@ -56,9 +60,11 @@ then it is not necessary to include `site.url`.
 We can also create an index of existing posts using the [Liquid](http://docs.shopify.com/themes/liquid-documentation/basics) template engine.
 For example, we can output a list of posts using a simple for loop,
 
-`{% for post in site.posts %}
- <a href="{{ post.url }}">{{ post.title }}</a>
- {% endfor %}`
+```
+{% for post in site.posts %}
+<a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
+```
 
 We can, of course, add this output to an unordered list etc, and style the output HTML as required.
 
@@ -73,5 +79,31 @@ Filters are snippets of Ruby code, which we can use to modify the content output
 
 `{{ post.title | truncatewords: 10 | capitalize }}`
 
+which truncates a post's title and then capitalises. We could also manipulate a post's data to a different format, for example
 
+`{{ post.date | date: "%d-%m-%Y  }}' or `{{ post.date | date_to_long_string }}`
 
+##### Post excerpts
+Excerpts will show a defined snippet of a post, for example within an index of posts. This can be added to post loop using the following code,
+
+`{{ post.excerpt }}`
+
+To set the end point for an excerpt, we simply add `<!--more-->` to the required cut-off point in our post. We can also override this auto-generated 
+excerpt by setting `excerpt_separator` to `""` in the YAML Front Matter of a given post.
+
+This generated excerpt can also be overridden by setting this  
+
+##### Pagination
+To enable pagination in Jekyll, for example with our lists of posts, we need to use the `paginator` option.
+
+##### Code highlighting
+Highlighting of code snippets is also supported in Jekyll using either *Pygments* or *Rouge*. Simply add the *Liquid* tag,
+
+```
+{% highlight ruby %}
+...
+...
+{% endhighlight %}
+```
+
+specifying your chosen language.
