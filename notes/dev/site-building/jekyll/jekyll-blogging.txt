@@ -8,7 +8,7 @@ A brief overview of how to set up blog posts with [Jekyll](http://jekyllrb.com).
 * Post slug
 * Formats
 * Images and resources
-# Index of posts
+* Index of posts
 
 ##### Introduction
 Blogging with Jekyll is similar to Wordpress, for example, in the general concepts required to build a blog. For example, Jekyll posts use a 
@@ -39,7 +39,7 @@ The above type of URL is often referred to as a *post slug*, which is URL friend
 * keep the slug relatively short
 
 ##### Formats
-All post files must begin with `YAML Front Matter`. The post itself is simply a matter of writing your content in your preferred format.
+All post files must begin with *YAML Front Matter*. The post itself is simply a matter of writing your content in your preferred format.
 
 ##### Images and resources
 Images, and other media resources, can be stored within Jekyll's directory structure. It is common practice to include these files in a directory
@@ -53,5 +53,25 @@ Without `site.url`, there is the inherent assumption that a site will be stored 
 then it is not necessary to include `site.url`.
 
 ##### Index of posts
+We can also create an index of existing posts using the [Liquid](http://docs.shopify.com/themes/liquid-documentation/basics) template engine.
+For example, we can output a list of posts using a simple for loop,
+
+`{% for post in site.posts %}
+ <a href="{{ post.url }}">{{ post.title }}</a>
+ {% endfor %}`
+
+We can, of course, add this output to an unordered list etc, and style the output HTML as required.
+
+We can also restrict the number of posts output, for example to create a most recent list, using the following
+
+`{% for post in site.posts limit: 5 %}`
+
+We can use this structure on any page etc where we want output blog posts. We simply modify the `for loop` to match each requirement.
+
+##### Post filters
+Filters are snippets of Ruby code, which we can use to modify the content output. For example,
+
+`{{ post.title | truncatewords: 10 | capitalize }}`
+
 
 
