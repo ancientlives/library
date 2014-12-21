@@ -8,6 +8,7 @@ A brief overview of how to set up blog posts with [Jekyll](http://jekyllrb.com).
 * Post slug
 * Formats
 * Images and resources
+# Index of posts
 
 ##### Introduction
 Blogging with Jekyll is similar to Wordpress, for example, in the general concepts required to build a blog. For example, Jekyll posts use a 
@@ -44,5 +45,13 @@ All post files must begin with `YAML Front Matter`. The post itself is simply a 
 Images, and other media resources, can be stored within Jekyll's directory structure. It is common practice to include these files in a directory
 such as `assets`, `media` etc, which is stored in the root directory.
 
+Images etc can be added to posts and pages using the site's root as the path for the `assets` directory. For example, 
+
+`![image title...]({{ site.url }}/assets/screenshot.jpg)`
+
+Without `site.url`, there is the inherent assumption that a site will be stored in the root directory of a domain. If this assumption is correct, 
+then it is not necessary to include `site.url`.
+
+##### Index of posts
 
 
