@@ -1,0 +1,26 @@
+### Jekyll - Pages
+
+A brief overview of creating and using *pages* in [Jekyll](http://jekyllrb.com)
+
+#### Contents
+* Home page
+* Additional pages
+
+##### Home page
+As with most servers, Jekyll will look for `index.html` as the home page of the website. This page accepts site wide layouts, liquid 
+templating, and other standard features of a Jekyll site.
+
+##### Additional pages
+There are two primary options for storing HTML files for pages, which are currently as follows,
+
+* HTML files for each page can be stored in the site's root directory
+* create a directory for each page, and add an index.html file
+
+Each of the above methods is fine, although the resultant URL will be different. A file in the root directory will output the same file relative
+to the site's root URL. A directory will output the root URL plus the directory for the page. For example, 
+
+`http://www.yourdomain.com/about/`
+
+The file rendered will be index.html relative to the parent directory.
+
+
