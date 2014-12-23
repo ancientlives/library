@@ -1,0 +1,34 @@
+### Jekyll - Semantic Options
+
+A brief overview of the options for semantic organisation of data in [Jekyll](http://jekyllrb.com/docs/)
+
+#### Contents
+* Introduction
+* Tagging
+* Categorisation
+
+##### Introduction
+Jekyll offers a few basic options for creating a site's categories, and adding a folksonomy through tagging. Related information, such as posts,
+can also be determined from this categorisation.
+
+##### Tagging
+In the YAML front matter, we can add custom defined tags for a page, post etc. These can be called for the page itself when it is loaded. For
+example,
+
+```
+tags:
+- index
+- semantics
+- folksonomy
+```
+
+and so on. We can then output these tags as follows,
+
+`{{ page.tags }}`
+
+We can also list all posts for a given tag. For example,
+
+`site.tags.tag`
+
+##### Categorisation
+Defining categories for a page, post etc follows the same pattern as tagging.
