@@ -28,3 +28,15 @@ Another option includes the use of Markdown files in the root directory. For exa
 `http://www.yourdomain.com/contact/`
 
 This page will, therefore, be served as `index.html` relative to the parent directory. 
+
+We can also add a specified `.html` page to a sub-directory of the site, and it will be built as follows,
+
+`http://www.yourdomain.com/texts/text1/`
+
+The built file will be `index.html` relative to its parent directory. However, this file is stored as follows relative to the root directory,
+
+`/texts/text1.html`
+
+This will also work with Markdown files.
+
+
