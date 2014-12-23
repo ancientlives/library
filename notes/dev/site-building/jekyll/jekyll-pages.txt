@@ -21,6 +21,10 @@ to the site's root URL. A directory will output the root URL plus the directory 
 
 `http://www.yourdomain.com/about/`
 
-The file rendered will be index.html relative to the parent directory.
+The file rendered will be `index.html` relative to the parent directory.
 
+Another option includes the use of Markdown files in the root directory. For example, a `contact.md` file will be built with the following URL
 
+`http://www.yourdomain.com/contact/`
+
+This page will, therefore, be served as `index.html` relative to the parent directory. 
