@@ -13,6 +13,7 @@ A brief overview of how to set up blog posts with [Jekyll](http://jekyllrb.com).
 * Post excerpts
 * Pagination
 * Code highlighting
+* Drafts
 
 ##### Introduction
 Blogging with Jekyll is similar to Wordpress, for example, in the general concepts required to build a blog. For example, Jekyll posts use a 
@@ -107,3 +108,12 @@ Highlighting of code snippets is also supported in Jekyll using either *Pygments
 ```
 
 specifying your chosen language.
+
+##### Drafts
+Within Jekyll, drafts are unfinished posts that do not yet include a date. They should be stored in the `_drafts` directory. These drafts can be 
+previewed within a site by running the following command,
+
+`jekyll build --drafts` or `jekyll serve --drafts`
+
+This will build and render a current site, and populate posts with the current drafts. This allows a developer to test the rendering and layout of 
+draft posts.
