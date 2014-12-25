@@ -7,8 +7,13 @@ Various notes on developing and using Jekyll for static site publication.
 * Blogging
 * Collections (experimental)
 * Config
+* Data
 * Directory structure
+* Pages
+* Semantic
+* Templates
 * Themes
 * Usage
   * Basic
   * Options
+* Variables
