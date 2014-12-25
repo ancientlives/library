@@ -1,0 +1,33 @@
+### Jekyll - Data Files
+
+An overview of data files in Jekyll. Further information can be found on the [Jekyll](http://jekyllrb.com/docs/datafiles/) website.
+
+#### Contents
+* Introduction
+* Data folder
+* Example usage
+
+##### Introduction
+Jekyll accespts custom data, which is accessed via the *Liquid* template engine. It supports loading data from *YAML*, *JSON*, and *CSV* files,
+which are stored in `_data` directory. 
+
+*NB:* *CSV* files must contain a header row.
+
+##### Data folder
+In Jekyll, the `_data` folder is used to store additional data for processing during the site build. These data files must be *YAML* compliant, 
+and a `.yml, .yaml, .json or csv` file extension is supported. These data files are also accessible via `site.data`.
+
+##### Example usage
+A data file might be used to store repetitive data, such as a group or member list, to avoid tedious duplication throughout a site. For example,
+a list can be stored in `_data/members.yml`, and then accessed via `site.data.members`. The filename determines the variable name.
+
+We could then access this data as follows,
+
+	{% for member in site.data.members %}
+	{{ member.name }}
+	{% endfor %}
+
+Data files can also be stored in sub-folders of the `_data` folder. Each hierarchical level is then added to the variable's namespace.
+
+
+
