@@ -1,0 +1,53 @@
+### Jekyll - Templates
+
+A quick guide to some of the options for using templates in Jekyll. Further information can be found on the
+[Jekyll](http://jekyllrb.com/docs/templates/) website.
+
+#### Contents
+* Introduction
+* Filters
+* Tags
+  * Includes
+  * Code highlighting
+  * Post URL
+  * Gist
+
+##### Introduction
+Jekyll uses the *Liquid* temple engine to process templates. Liquid's standard tags and filters are supports, and there are a few useful filters
+and tags added by Jekyll itself. These are primarily for common tasks.
+
+##### Filters
+Template filters include date manipulation and formatting, array usage and manipulation, string manipulation and formatting, url formatting, and
+basic JSON usage. A full list is available at [Jekyll](http://jekyllrb.com/docs/templates/). 
+
+##### Tags - Includes
+This allows a developer to ember small code fragments in a file. It works in a similar fashion to PHP's `include`. For example,
+
+`{% include footer.html %}
+
+All include files need to be stored in the `_includes` directory in Jekyll.
+
+Jekyll includes can also include parameters, 
+
+`{% include footer.html param="copyright_year" %}`
+
+which are then accessible via Liquid
+
+` {{ include.param }}`
+
+We can also use `include_relative` to store an include file relative to the current file's path. However, this include will then only be available
+from that local directory. For example, if a file stored at `_posts/2014-12-31-file.md` uses the `include_relative` tag, the include file must be 
+in the same directory of a sub-directory.
+
+##### Tags - Code highlighting
+Jekyll supports syntax highlighting using *Pygments*, which supports over 100 languages. You can also use *Rouge*, if preferred. We can also force
+the highlighter to include line numbers for the highlighted code block.
+
+##### Tags - Post URL
+It is possible to included a link to a post on your site, which includes the correct permalink URL for the post. This `post_url` tag can also be
+used to create a link to a site post in Markdown.
+
+##### Tags - Gist
+We can also embed GitHub Gists on a Jekyll site using the `gist` tag.
+
+
