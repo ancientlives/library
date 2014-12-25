@@ -1,6 +1,6 @@
 ### Readme - Library - Notes
 
-This directory provides a quick storage facility for notes, ideas, snippets, and research.
+This directory contains notes, ideas, and research for various topics, including the following
 
 #### Contents
 * Art
