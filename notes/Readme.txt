@@ -9,6 +9,7 @@ This directory provides a quick storage facility for notes, ideas, snippets, and
   * Data Science
   * Metrics
   * Semantic
+  * State
   * Structures
 * Dev
   * Angular
