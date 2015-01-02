@@ -1,0 +1,60 @@
+### GitHub Pages
+
+A brief overview of setting up a Jekyll site with GitHub pages. Further details can be found on [GitHub](https://help.github.com/articles/using-jekyll-with-pages/).
+
+#### Contents
+* Intro
+* Initial setup
+* Jekyll installation
+* Running Jekyll
+* Updating Jekyll
+* Configure Jekyll
+
+##### Intro
+GitHub pages currently supports hosting sites using [Jekyll](http://jekyllrb.com) generated static sites. It also supports [Markdown](http://daringfireball.net/projects/markdown/), 
+which allows text to HTML conversion. It also supports standard HTML sites, although this requires opting out of the default Jekyll option.
+
+##### Initial setup - Jekyll sites
+Sites hosted on GitHub pages, excluding opt-out HTML sites, are processed through Jekyll each time content is pushed to your GitHub Pages' repository. For user pages, and not
+project pages, content should be pushed to the `master` branch. Project pages should be pushed to the `gh-pages` branch of the project's repository.
+
+##### Jekyll installation
+There is now a GitHub Pages specific install for Jekyll, which allows local testing before pushing content to your remote repository. Essentially, this eases potential issues 
+by replicating locally the GitHub Pages build environment.
+
+Assuming you have Ruby and Gems installed and configured correctly, we also need to install the following,
+
+* Bundler - `gem install bundler`
+
+* Jekyll
+  * create a `Gemfile` in your site's root directory and add the following to this file.
+
+	`source 'https://rubygems.org'`
+	`gem 'github-pages'`	
+
+  * run the command `bundle install`
+
+If you encounter any install issues with Jekyll simply follow the messages on the Terminal. For example, on Mac OS X you'll need the XCode terminal tools installed before running 
+the above command. To install these terminal tools run the following command,
+
+* `xcode-select --install`
+
+##### Running Jekyll
+With this installation, we can now run Jekyll locally to match GitHub Pages' build server. To enable this option, we run Jekyll with Bundler using the following command
+
+* `bundle exec jekyll serve`
+
+This will then serve your site locally at `http://localhost:4000`. 
+
+##### Updating Jekyll
+To ensure parity with the latest build server for GitHub Pages, we need to check for applicable updates. To update this install, we can run the following command
+
+* `bundle update`
+
+##### Configure Jekyll
+As with a standard Jekyll site, we can configure most site setting using a `_config.yml` file. This should be saved to the root directory of your site.
+
+Frontmatter is also required, again as with a standard Jekyll site.
+
+
+
