@@ -11,6 +11,8 @@ These commands are not meant as an exhaustive list but simply reference for regu
 
 ##### Basic
 
+* clone a repository - `git clone https://repositoryurl`
+
 * add files from local repository - `git add *`
 
 * commit changes with message - `git commit -m "your commit message..."`
