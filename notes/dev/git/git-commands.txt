@@ -1,0 +1,24 @@
+### Git - Commands
+
+A collection of useful commands for the version control software [Git](http://git-scm.com).
+
+#### Contents
+* Intro
+* Basic
+
+##### Intro
+These commands are not meant as an exhaustive list but simply reference for regular use.
+
+##### Basic
+
+* add files from local repository - `git add *`
+
+* commit changes with message - `git commit -m "your commit message..."`
+
+* push changes to specified branch - `git push -u origin master`
+
+* delete a directory from repository - `git rm -r directory_name`
+
+* reset git after unwanted add, commit etc - `git reset`
+
+
