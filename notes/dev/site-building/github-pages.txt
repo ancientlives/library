@@ -9,6 +9,7 @@ A brief overview of setting up a Jekyll site with GitHub pages. Further details 
 * Running Jekyll
 * Updating Jekyll
 * Configure Jekyll
+* Disable Jekyll
 
 ##### Intro
 GitHub pages currently supports hosting sites using [Jekyll](http://jekyllrb.com) generated static sites. It also supports [Markdown](http://daringfireball.net/projects/markdown/), 
@@ -56,5 +57,8 @@ As with a standard Jekyll site, we can configure most site setting using a `_con
 
 Frontmatter is also required, again as with a standard Jekyll site.
 
+##### Disable Jekyll
+We can also choose to disable Jekyll for GitHub Pages by creating a file called `.nojekyll`, which is saved to the root directory of your site.
 
+However, as Jekyll happily processes vanilla HTML files it is normally only necessary to invoke this option for directories starting with an underscore.
 
