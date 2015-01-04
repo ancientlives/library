@@ -30,8 +30,8 @@ Assuming you have Ruby and Gems installed and configured correctly, we also need
 * Jekyll
   * create a `Gemfile` in your site's root directory and add the following to this file.
 
-	`source 'https://rubygems.org'`
-	`gem 'github-pages'`	
+	source 'https://rubygems.org'
+	gem 'github-pages'	
 
   * run the command `bundle install`
 
