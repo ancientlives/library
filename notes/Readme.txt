@@ -26,3 +26,5 @@ This directory contains notes, ideas, and research for various topics, including
   * Classical
   * Movie
   * Opera
+* Various
+  * Quotes
