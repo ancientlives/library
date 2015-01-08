@@ -85,3 +85,12 @@ Code example,
     {% endunless %}
 {% endfor %}
 ```
+##### Breadcrumbs
+
+The following allows us to split a page URL to create an array of items for a page's breadcrumb listing.
+
+Code example,
+
+```
+{% assign url_array = page.url | remove_first:'/' | split: '/' %}
+```
