@@ -1,0 +1,48 @@
+### Dev - Angular - Introduction
+
+A quick introduction to the Angular.js MVW framework. Further details are available at the [Angular](https://angularjs.org/) website.
+
+#### Contents
+* What is angular.js?
+* Angular vs JQuery
+
+##### What is angular.js?
+Angular.js is a powerful framework for building and deploying browser based web applications. 
+These applications characteristically are highly interactive, and angular.js comes with many 
+existing components for building useful applications. It is also highly modular in structure,
+and supports extensive testing.
+
+Angular.js has some interesting features including,
+
+* Ajax helpers
+* Animations
+* Dependency injection
+* DOM manipulation
+* Testing helpers and utilites
+* Two-way data binding
+* ...
+
+##### Angular vs JQuery
+Put simply, JQuery is imperative and Angular is declarative. This means that in JQuery a developer 
+manipulates the DOM, whereas in Angular you are able to declare the DOM structure beforehand.
+
+A good way to think of this is as follows,
+
+* JQuery manipulates an existing HTML page
+* Angular helps to build the page from the start
+
+For example, with JQuery you would need to know the structure, class etc of an <li> element to be able 
+to modify, add, delete etc. You would also need to keep track of this element to be able to modify.
+Angular allows a developer to use *directives*, which are special, custom HTML attributes that 
+Angular understands will change the HTML for the user etc.
+
+Example directives might include `ng-repeat` or `ng-click`.
+
+In effect, Angular.js splits the logic from the presentation. In JQuery, the need for DOM selectors ensures 
+that they are tied together.
+
+Angular.js code also tends to be more concise.
+
+
+
+

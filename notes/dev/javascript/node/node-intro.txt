@@ -1,0 +1,82 @@
+### Node - Introduction
+
+A quick introduction to Node.js. Further details are available at the [node.js](http://nodejs.org) website.
+
+#### Contents
+* What is node.js?
+* Speed of node.js
+* Threaded architecture
+* Evented architecture
+* Callbacks
+* NPM and its modules
+
+##### What is node.js?
+Node.js is, in essence, a javascript runtime environment designed to be run outside of the browser. It has 
+been designed as a general purpose utility, and can be used for many different tasks including,
+
+* Asset compilation
+* Monitoring
+* Scripting
+* Web servers
+
+With node.js, we now see javascript moving from client-side to a support role in back-end development.
+
+##### Speed of node.js
+One of the key advantages touted for node.js is its speed. Many companies, including PayPal, Walmart, LinkedIn etc 
+have all noted the performance benefits of implementing node.js.
+
+One of the primary reasons for this speed boost is the underlying architecture of node.js. Node.js uses an *evented*
+architecture instead of a threading model popular in compiled languages.
+
+##### Threaded architecture
+Concurrency allows multiple things to happen at the same time. This is common practice on servers due to the nature of 
+multiple user queries. Java, for example, will create a new thread on each connection, and threading is inherently
+resource expensive. The size of a thread is normally around 4MB of memory, and this naturally limits the number of 
+threads that can run at the same time. It is also inherently more complicated to develop platforms that are thread-safe 
+allowing for such functionality.
+
+Due to this complexity, many languages, including Ruby, Python, and PHP, do not have threads that allow for real concurrency
+, and without custom binaries. Javascript is similarly single-threaded, but it is able to run multiple code paths in 
+parallel due to *events*.
+
+##### Evented Architecture
+Javascript, by its very nature, was originally designed to work within the confines of the web browser. It had to handle 
+the restrictive nature of a single thread and single process for the whole page. Therefore, synchronous blocking in code 
+would lock up a web page from all actions. Javascript was built with this in mind.
+
+Due to this style of I/O handling, node.js is able to handle millions of concurrent requests on a single process.
+
+This had been added, using libraries, to many other existing languages, including
+
+* Akka for Java
+* EventMachine for Ruby
+* Twisted for Python
+* ...
+
+but Javascript syntax already assumes events through its use of callbacks.
+
+*NB:* As a note of caution, if a query etc is CPU intensive instead of I/O intensive, the thread will be tied up and 
+everything will be blocked as it waits for it to finish.
+
+***** Callbacks
+In most languages, you send an I/O query and wait until a result is returned before you can continue your code procedure.
+For example, if you submit a query to a database for a user ID, the server will pause that thread/process until the 
+database returns a result for the ID query. 
+
+In Javascript, this concept is rarely implemented. Instead, it is more common to pass the I/O call a *callback*. This 
+*callback* will need to run when the task is completed. For example, find a user ID and then do something, such as 
+output to a HTML element.
+
+The biggest difference in these approaches is that whilst the database is fetching the user ID query, that thread is
+free to do whatever else might be useful. For example, accept another web request, listen to a different event etc.
+
+This is one of the reasons that node.js returns good benchmarks and is easily scaled.
+
+*NB:* this makes node.js well suited for I/O heavy and intensive scenarios. This makes it particularly well suited to 
+web development.
+
+##### NPM and its modules
+Another well-loved aspect of node.js is its use and implementation of modules and packages, which are available on
+*NPM*. Node.js uses a specification known as *CommonJS* for its modules.
+
+
