@@ -9,7 +9,7 @@ Latest version is available at [d3js.org](http://d3js.org/).
 * Configuration
 
 ##### Introduction
-D3 is s custom javascript library designed for the manipulation of data centric
+D3 is a custom javascript library designed for the manipulation of data centric
 documents. D3 uses a custom library with HTML, CSS, and SVG to create graphically
 rich, informative documents for the presentation of data. Essentially, it uses a
 data-driven approach to manipulate the document object model (DOM).
@@ -21,7 +21,7 @@ in place.
 
 D3.js works with standard HTML files and, therefore, requires a web server simply
 capable of parsing and rendering HTML and associated files. For example, we could
-this code on a full LAMP stack on a remote server, or simply use XAMPP etc. We can
+host and run this code on a full LAMP stack on a remote server, or simply use XAMPP etc. We can
 also invoke Python's built-in *SimpleHTTPServer* as follows,
 
 ```
@@ -45,7 +45,7 @@ On Mac OS X, this defaults to the route directory of the current logged in user.
 After configuring a web server to test and run D3 projects, simply download the 
 latest version from D3's [GitHub](https://github.com/mbostock/d3) page.
 
-Latest release notes is also available on [GitHub](https://github.com/mbostock/d3/releases/).
+Latest release notes are also available on [GitHub](https://github.com/mbostock/d3/releases/).
 
 ##### Configuration
 Create a new directory for testing D3 projects on your preferred web server.
