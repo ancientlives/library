@@ -1,4 +1,4 @@
-### Databases - NoSQL - MongoDB - Usage Basic
+### MongoDB - Usage Basic
 
 Brief notes on getting started with using MongoDB.
 

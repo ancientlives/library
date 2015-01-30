@@ -1,4 +1,4 @@
-### Databases - NoSQL - MongoDB - Overview
+### MongoDB - Overview
 
 A brief overview of the NoSQL database, MongoDB.
 
