@@ -1,0 +1,79 @@
+### D3 - Setup
+
+This is a quick guide for installing and configuring the D3 javascript library. 
+Latest version is available at [d3js.org](http://d3js.org/).
+
+#### Contents
+* Introduction
+* Basic Setup
+* Configuration
+
+##### Introduction
+D3 is s custom javascript library designed for the manipulation of data centric
+documents. D3 uses a custom library with HTML, CSS, and SVG to create graphically
+rich, informative documents for the presentation of data. Essentially, it uses a
+data-driven approach to manipulate the document object model (DOM).
+
+##### Basic Setup
+Setup and configuration of D3 is pretty straightforward. The most involved aspect
+is the configuration of a web server, assuming you do not have an existing setup 
+in place.
+
+D3.js works with standard HTML files and, therefore, requires a web server simply
+capable of parsing and rendering HTML and associated files. For example, we could
+this code on a full LAMP stack on a remote server, or simply use XAMPP etc. We can
+also invoke Python's built-in *SimpleHTTPServer* as follows,
+
+```
+python -m SimpleHTTPServer 8888 &
+```
+
+for Python 2.x, and *http.server* for Python 3.x,
+
+```
+python -m http.server 8888 &
+```
+
+This runs a local web server, which is available at the following URL,
+
+```
+http://localhost:8888/
+```
+
+On Mac OS X, this defaults to the route directory of the current logged in user.
+
+After configuring a web server to test and run D3 projects, simply download the 
+latest version from D3's [GitHub](https://github.com/mbostock/d3) page.
+
+Latest release notes is also available on [GitHub](https://github.com/mbostock/d3/releases/).
+
+##### Configuration
+Create a new directory for testing D3 projects on your preferred web server.
+
+To make it easier to reference site assets, create a new directory in the root
+of your test site called *assets*. This will store CSS, Javascript, and other
+site assets including site logo etc.
+
+Create a standard *index.html* file in your project's root directory.
+
+An initial example directory structure is as follows,
+
+. 
+|- index.html
+|- assets
+   |- scripts
+      |- d3
+         |- d3.js
+   |- styles
+      |- style.css
+
+One of the requirements for parsing D3 within our HTML is a UTF-8 encoding reference
+within a *meta* element in the *head* section of our file.
+
+As with other Javascript libraries, such as JQuery, we simply reference the D3
+library with a standard script element in the *head* section of our HTML file.
+
+We also need a script element in the body of our HTML document, which is used for the
+D3 code itself.
+
+
