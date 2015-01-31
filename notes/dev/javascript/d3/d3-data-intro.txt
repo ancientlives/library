@@ -2,7 +2,7 @@
 
 A brief introduction on data usage and application with the [D3](http://d3js.org/) Javascript library.
 
-#### Content
+#### Contents
 * Introduction
 * Page elements
 * Binding data
