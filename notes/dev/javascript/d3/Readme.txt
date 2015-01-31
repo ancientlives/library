@@ -6,3 +6,5 @@ A collection of notes on working with D3js. For further details please consult
 #### Contents
 * Introduction
 * Setup
+* Data Intro
+
