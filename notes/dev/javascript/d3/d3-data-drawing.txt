@@ -8,6 +8,8 @@ A brief overview of drawing with data using the [D3](http://d3js.org/) Javascrip
   * Drawing the bars
   * Benefit of data()
 * Drawing SVGs
+  * SVG Barchart
+  * Adding colour
 
 ##### Drawing divs
 One of the easiest ways to draw a rectangle, for example, is with a HTML *div*. So, we now have an easy way to start drawing a bar chart for our stats.
@@ -62,5 +64,132 @@ The data() function is smart enough to loop through all of the data it is given.
 As it loops through the data, it will then execute each method following in the chain, and update the context for the methods.
 
 ##### Drawing SVGs
+Properties of SVG elements are specified as *attributes*. They are included as property/value pairs within each element tag,
+
+```
+<element property="value">...</element>
+```
+
+SVG elements exist in the DOM, so we can still use D3's *append()* and *attr()* methods to create new HTML elements and, of course, set their attributes.
+
+###### Create SVG
+We now need to create an element for our SVG, which will allow us to all of our required shapes.
+
+```
+d3.selecr("body").append("svg");
+```
+
+This simply appends to the body an SVG element. However, it might be useful to encapsulate this new DOM element within a variable,
+
+```
+var svg = d3.select("body").append("svg');
+```
+
+This variable effectively works as a reference, which points to the newly created SVG object. This allows us to use this reference anytime we need to access this element in the DOM.
+
+###### SVG Barchart
+To create a new barchart, this time using SVGs, firstly we need to set the required size for our SVG output,
+
+```
+//width & height
+var w = 750;
+var h = 200;
+```
+
+You'll often see single character variable names in Javascript, as it is seen as programmatically efficient, concise syntax.
+
+We then use D3 to create an empty SVG element, and add it to the DOM.
+
+```
+var svg = d3.select("body")
+	.append("svg")
+	.attr("width", w)
+	.attr("height", h);
+```
+
+With SVGs, instead of creating DIVs as before, we generate *rects* and add them to the *svg* element.
+
+```
+svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", 0)
+	.attr("y", 0)
+	.attr("width", 20)
+	.attr("height", 100);
+```
+
+So, this code selects all of the *rect* elements within *svg*. Even though there are initially none, D3 still needs to select them before creating them. *data* then checks the number of values in the specified dataset, and hands those values to the *enter* method for processing. The *enter* method then creates a placeholder for each data value that does not currently have a corresponding *rect*. For each of these placeholders, it appends a rectangle to the DOM. We then use the *attr* method to set the *x, y, width, height* values for each rectangle. However, this still only outputs a single bar due to an overlap issue. 
+
+So, we need to amend our code to handle the width of each bar, and implement flexible, dynamic coordinates to fit our available SVG width and height. This allows our visualisation to scale appropriately with the supplied data. For example, we could amend our code as follows,
+
+```
+.attr("x", function(d, i) {
+	return i * (w / dataset.length);
+})
+```
+So, we have now linked the *x* value directly to the width of the SVG *w*, and the number of values in the dataset, *dataset.length*. This means that the bars will be evenly spaced regardless of the number of values. However, if we have a huge number of data values, they will still look like one horizontal bar unless there is sufficient width for the parent SVG and a space between each bar. 
+
+However, we can try to solve this as well by setting the bar width to be proportional. Narrower for more data, wider for less data. For example,
+
+```
+var w = 750;
+var h = 200;
+var bar Padding = 1;
+```
+
+So, we can now set each bar's width as a fraction of the SVG width and number of data points, minus our padding value.
+
+```
+.attr("width", w / dataset.length - barPadding)
+```
+
+The above code change means our bar widths and x positions scale correctly regardless of data values. 
+
+Next, we encode our data as the *height* of each bar. If we use the following code,
+
+```
+.attr("height", function(d) {
+	return d * 4;
+});
+```
+our bar chart will size correctly, albeit from the top down. This is due to the nature of SVG, which adheres to a top left, upper left corner, pattern for rendering shapes etc. So, to correct this issue we now need to calculate the top position of our bars relative to the SVG. Therefore, the top of each bar could be expressed as a relationship between the height of the SVG and the corresponding data value,
+
+```
+.attr("y", function(d) {
+	//height minus data value
+	return h - d;
+})
+```
+
+Our bar chart will now display correctly from the bottom upwards. 
+
+###### Adding colour
+Adding a colour per bar, instead of the default black, is simply a matter of setting an attribute for the fill colour,
+
+```
+.attr("fill", "teal");
+```
+
+We can also set more interesting colours, which allows us to use the data itself to determine the colour. For example,
+
+```
+.attr("fill", function(d) {
+	return "rgb(0, 0, " + (d * 10) + ")";
+});
+```
+
+###### Adding text labels
+We can also set dynamic text labels per bar, which reflect the current dataset. So, we can add text to our bars as follows,
+
+```
+
+```
+
+
+
+
+
 
 
