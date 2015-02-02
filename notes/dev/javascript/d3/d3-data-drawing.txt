@@ -10,6 +10,8 @@ A brief overview of drawing with data using the [D3](http://d3js.org/) Javascrip
 * Drawing SVGs
   * SVG Barchart
   * Adding colour
+* Updates, transitions & motion
+  * Ordinal Scales
 
 ##### Drawing divs
 One of the easiest ways to draw a rectangle, for example, is with a HTML *div*. So, we now have an easy way to start drawing a bar chart for our stats.
@@ -184,8 +186,55 @@ We can also set more interesting colours, which allows us to use the data itself
 We can also set dynamic text labels per bar, which reflect the current dataset. So, we can add text to our bars as follows,
 
 ```
+svg.selectAll("text")
+.data(dataset)
+.enter()
+.append("text")
+```
+
+We can extend this further by position our text labels correctly, for example
 
 ```
+.attr("x", function(d, i) {
+	return i * (w / dataset.length);
+})
+.attr("y", function(d, i) {
+	return h - (d * 4);
+});
+```
+
+We can then position them relative to the applicable bars, add some styling, colours etc.
+
+```
+.attr("font-family", "sans-serif")
+.attr("font-size", "11px")
+.attr("fill", "white");
+```
+
+##### Updates, transitions and motions
+We can now modify our simple barchart to include dynamic updates to the dataset, interesting transitions, and graphical motions to add emphasis and impact to our rendering.
+
+###### Ordinal Scales
+Ordinal scales are used for ordinal data, for example categories with a sense of inherent *order* or organisation to them. For example, an incrementing scale of preference.
+
+For D3, we need to set an input domain for the scale. This could be a hard-coded dataset, or a dynamic set. For example,
+
+```
+.domain(d3.range(dataset.length))
+```
+
+**NB:** for a linear scale, this domain is set as the low and high values of the domain.
+
+It's also worth noting that ordinal values are typically non-numerical. 
+
+*d3.scale.ordinal()* supports **range banding**. Therefore, instead of returning a continuous range, as a quantitative scale (such as *d3.scale.linear(), ordinal scales use *discrete* scales, which means the output values are determined in advanced, thereby allowing numeric and non-numeric alike. For example,
+
+```
+.rangeBands([0, w])
+```
+
+
+
 
 
 
