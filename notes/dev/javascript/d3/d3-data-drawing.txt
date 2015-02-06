@@ -233,6 +233,35 @@ It's also worth noting that ordinal values are typically non-numerical.
 .rangeBands([0, w])
 ```
 
+The above code example effectively tells our application to start at *0* and end at *w*, and then set
+the range for the scale to those defined bands.
+
+For example, if we specified 20 values for the domain, D3 would calculate the range for our bars as follows,
+
+```
+(w - 0) / xScale.domain().length
+
+or 
+
+(600 - 0) / 20
+600 / 20
+= 30
+```
+
+In effect, after this calculation each band will now be 30 wide.
+
+We can also supplement the above code by setting a second parameter for spacing between each band.
+This can be set to a percentage of the width of each band,
+
+```
+.rangeBands([0, w], 02.)
+```
+
+which gives us a spacing per band of 20 percent of the width of each band. Due to this addition, we can 
+now ignore setting a value for the `barPadding` as this is now handled by the percentage calculation.
+
+
+
 
 
 
