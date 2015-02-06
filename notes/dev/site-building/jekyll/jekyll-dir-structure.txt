@@ -45,7 +45,7 @@ The above perform the following function in creating a Jekyll site,
 matter.
 * _posts = content that is regularly updated, such as blog posts. A naming convention for these files exists, and it must
 follow the convention,
-	* `Year-Month-Day-title.markup eg: 2014-02-24-post.md
+	* `Year-Month-Day-title.markup eg: 2014-02-24-post.md`
 * _data = well-formed site data may be stored in this directory. Jekyll will autoload *YAML* files.
 * _site = this is the default directory for our Jekyll generated site
 * index.html = must include a *YAML* front section for Jekyll transformation, and includes `.html`, `.md`, `.markdown` or `.textile` files in the site's root directory or other non-default directories. 
