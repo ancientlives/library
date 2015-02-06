@@ -1,0 +1,61 @@
+### D3 - Data - Interaction
+
+A brief overview of interaction with data using the [D3](http://d3js.org/) Javascript library.
+
+#### Contents
+* Interaction with event listeners
+* Updating the visuals
+
+##### Interaction with event listeners
+Relative to interaction, event listeners applies to any DOM element, from a button to a *p* with the
+body of a HTML page.
+
+For example, our HTML element might be a simple *p*,
+
+```
+<p>this is a HTML paragraph...</p>
+```
+
+To add a listener to this DOM element, our D3 will be as follows,
+
+```
+d3.select("p")
+	.on("click", function() {
+	//do something with the element...
+	}); 
+```
+
+So, the above sample code simply selects the *p* element, and then adds an event *listener* to
+that element.
+
+An *event listener* is simply an anonymous function that listens for a specific event *on* on 
+specific element or group of elements. So, in the above on() function, the function takes two 
+arguments, the event *type* ("click"0, and the listener itself, which is the anonymous function.
+
+##### Updating the visuals
+This is, effectively, a matter of combining the event listener and the modification of the visuals 
+relative to the changes in data.
+
+For example,
+
+```
+d3.select("p")
+	.on("click", function() {
+	
+	dataset = [....];
+	
+	//update all of the rects
+	svg.selectAll("rect")
+	.data(dataset)
+	.attr("y", function(d) {
+	return h - yScale(d);
+	});
+	.attr("height", function(d) {
+	return yScale(d);
+	});
+});
+```
+
+Therefore, the above code allows us to trigger a change to the visual for each time the event listener
+is called. 
+
