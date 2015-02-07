@@ -5,6 +5,8 @@ A brief overview of interaction with data using the [D3](http://d3js.org/) Javas
 #### Contents
 * Interaction with event listeners
 * Updating the visuals
+* Transitions
+* Adding values (and elements)
 
 ##### Interaction with event listeners
 Relative to interaction, event listeners applies to any DOM element, from a button to a *p* with the
@@ -59,3 +61,88 @@ d3.select("p")
 Therefore, the above code allows us to trigger a change to the visual for each time the event listener
 is called. 
 
+Of course, the above does not update the bar colours for the new dataset. We need to add the *fill*
+as well.
+
+```
+.attr("fill", function( d) {
+	return "rgb( 0, 0, " + (d * 10) + ")"; 
+});
+```
+
+##### Transitions
+Adding a fun transition in D3 is as simple as adding the following,
+
+```
+.transition()
+```
+
+So, when we add this to above code chain we get a lovely transition in the data. The animation 
+reflects the change from the old to the new data.
+
+We can also add a call to the `duration()` function, which allows us to specify a time delay for 
+the transition. Quick, slow, we can specify each based upon time.
+
+We chain the `duration()` function after `transition()`,
+
+```
+.transition().duration(1000)
+```
+
+If we want to specify a constant easing to the transition, we can use the `ease()` with a `linear`
+parameter,
+
+```
+.ease(linear)
+```
+
+There are also other built-in options, including
+
+  * circle - gradual ease in and acceleration until elements snap into place
+  * elastic - best described as springy
+  * bounce - like a ball bouncing, and then coming to rest...
+
+and more examples are available on the [D3 wiki](https://github.com/mbostock/d3/wiki/Transitions#d3_ease).
+
+We can also add a delay using the `delay()` function. For example,
+
+```
+.transition()
+.delay(1000)
+.duration(2000)
+```
+
+We can also set the `delay()` function dynamically relative to the data,
+
+```
+.transition() 
+.delay( function( d, i) { 
+return i * 100; 
+}) 
+.duration( 500) 
+```
+
+As we've seen with other D3 methods, when passed an anonymous function, the datum bound to the 
+current element is passed into *d*, and the index position of that element is passed into *i*.
+
+So, in the above code example, as D3 loops through each element, the delay for each element is set
+to `i * 100`, meaning each subsequent element will be delayed 100ms more than the preceding element.
+
+##### Adding Values (and elements)
+First thing we need to do is select all of the bars in our chart, essentially so we can rebind the
+new data to those bars, and grab the new update as well,
+
+```
+var bars = svg.selectAll("rect")
+	.data(dataset);
+```
+
+If there are more new elements, bars in our example, than the original length, then we need to use 
+`enter()` to create references to those new elements that do not yet exist.
+
+Now that we have these reserved elements, in effect, we can oncemore use `append()` to add those
+new elements to the DOM. This will now update our bar chart as well. 
+
+We've now made the new `rect` elements, so we need to update all visual attributes for our *rects*.
+We set the x, and y position relative to the new dataset lenght, and also set the width and height
+based upon the new xScale and yScale, which is again calculated from the new dataset length.
