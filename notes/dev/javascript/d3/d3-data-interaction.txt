@@ -7,6 +7,7 @@ A brief overview of interaction with data using the [D3](http://d3js.org/) Javas
 * Updating the visuals
 * Transitions
 * Adding values (and elements)
+* Removing values (and elements)
 
 ##### Interaction with event listeners
 Relative to interaction, event listeners applies to any DOM element, from a button to a *p* with the
@@ -146,3 +147,22 @@ new elements to the DOM. This will now update our bar chart as well.
 We've now made the new `rect` elements, so we need to update all visual attributes for our *rects*.
 We set the x, and y position relative to the new dataset lenght, and also set the width and height
 based upon the new xScale and yScale, which is again calculated from the new dataset length.
+
+##### Removing values (and elements)
+If there are more DOM elements than provided data values, the D3 *exit* selection contains references
+to those elements without specified data. This *exit* selection is simply accessed using the `exit()`
+function. 
+
+So, we grab the *exit* selection, transition the exiting elements off the screen, for example to
+the right, and finally remove it. eg:
+
+```
+bars.exit()
+.transition()
+.duration(500)
+.attr("x", w)
+.remove();
+```
+
+`remove()` is a special transition method that awaits until the transition is complete, and then
+deletes the element from the DOM forever. To get it back, we'd need to rebuild it again.
