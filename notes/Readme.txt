@@ -7,16 +7,17 @@ This directory contains notes, ideas, and research for various topics, including
   * Ancient
 * CS
   * Data Science
+  * HCI
   * Metrics
   * Semantic
   * State
   * Structures
 * Dev
-  * Angular
   * Databases
+  * Git
   * GitHub
+  * Javascript
   * Markdown
-  * Node
   * Python
   * Site Building
   * Twitter
