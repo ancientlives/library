@@ -4,3 +4,25 @@ A brief overview of extra options available whilst using the [D3](http://d3js.or
 
 #### Contents
 * Data joins with keys
+* Preparing the data
+
+##### Data joins with keys
+A data join happens each time we bind data to elements in the DOM. Effectively, each time
+we call `data()`.
+
+Default join is by *index order*, which effectively gives us a logical, indexed order
+to DOM selection and assignment. 
+
+eg: the first data value is bound to the first DOM element selected, and the second data
+to the second DOM element...
+
+If data values and DOM elements are not in the same order, we can specify a key for ordering
+either. This effectively tells D3 how to join or pair values and elements. This is specified
+using a *key function*.
+
+We can use a *key funtion* to control the data join with greater specificity, thereby ensuring
+that the correct datum is bound to the correct *rect* element.
+
+##### Preparing the data
+
+
