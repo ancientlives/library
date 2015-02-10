@@ -1,0 +1,69 @@
+### D3 - Interactivity
+
+A brief overview of interactivity with DOM elements and events using the [D3](http://d3js.org)
+Javascript library.
+
+#### Contents
+* Intro
+* Binding event listeners
+* Behaviours
+  * hover to highlight
+
+##### Intro
+Javascript uses an *event model*. This is where *events* are triggered by things happening,
+such as new user input. Events are being triggered on a regular basis, but if there is no
+listener the event will be ignored.
+
+##### Binding Event Listeners
+To make our elements interactive, we define code that effectively *listens* for specific
+events being triggered on specific DOM elements. For example,
+
+```
+d3.select("p")
+.on("click", function() {
+	//perform an action etc...
+}
+```
+
+This code binds an event listener to a *p* element. We can modify this code to support all
+*p* elements using the `selectAll()` method.
+
+**NB:** To increase compliancy, D3 supports all of the existing Javascript standards. For 
+example, *mouseover*, *click*, etc.
+
+So, D3's `on()` method quickly binds an event listener to the specified D3 selection. This method
+accepts two arguments, including the event name and an anonymous function to be executed
+when the event is triggered on the selected event. Setting interactive aspects for a D3 
+visualisation is as follows,
+
+* bind event listeners
+* define the behaviour
+
+##### Behaviours
+We can also bind listeners direct to the DOM dynamic DOM elements, and thereby create 
+behaviours for newly generated elements. For example,
+
+```
+.on("click", function(d) {
+//perform some task etc...	
+	console.log(d);
+});
+```
+
+The above code sample will simply pass the data value for the clicked DOM element to the
+console. This data could, for example, be used to dynamically output the value to the 
+screen for user, and so on.
+
+###### Hover to highlight
+By binding such event listeners we could, for example, apply highlighting to some data
+within our visualisation. For example,
+
+```
+.on("mouseover", function() {
+	d3.select(this)
+	.attr("fill", "orange")
+}
+```
+
+This listener will add an orange fill colour each time a user moves their mouse over the
+selected element.
