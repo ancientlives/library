@@ -130,9 +130,9 @@ values currently available in the *dataset*. Effectively, its akin to looping th
 an array, and outputting a new paragraph for each value in the array.
 
 So, how does the **enter()** function work. Well, to create new, data-bound elements
-we need to use *enter()*. This method checks the current DOM selection, and at the data being assigned to it. If there are more data values than matching
-DOM elements, it will simply create a new placeholder element for the data value. 
-It then passes this placeholder on to the next step in the chain, which is *append()*
+we need to use *enter()*. This method checks the current DOM selection, and at the data being assigned to it. 
+If there are more data values than matching DOM elements, it will simply create a new placeholder element 
+for the data value. It then passes this placeholder on to the next step in the chain, which is *append()*
 in our code.
 
 If we run the above code we can see the output text within our new paragraphs. However, the
