@@ -1,0 +1,46 @@
+### D3 - Core
+
+A brief overview of some of the core concepts of using the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* .select()
+* .selectAll()
+* .data()
+* .enter()
+* .exit()
+* .transition()
+* .data()
+* .data(..., join)
+* Nested selections
+* Useful examples
+  * Shuffle
+  * Drawing lines
+
+##### .select()
+A *selection* in D3 is simply a way to pulling an array of specified elements from the current document's DOM. D3 uses CSS3 to select these specified elements, and you can select using the following options,
+
+* element tag (eg: div, span, p...)
+* CSS class (eg: .highlight)
+* unique ID (eg: #highlight)
+* attribute (eg: [color=red])
+* containment (eg: parent child)
+
+Selector can also be *intersected*. For example, 
+
+* intersected (logical AND)
+* unioned (logical OR)
+
+After selecting elements, we can then apply *operators* to actually do something. These operators can do things such as getting and setting the following,
+
+* attributes
+* styles
+* properties
+* HTML
+* text content...
+
+It is also possible to join selection to *data*. This data is then available to operators for data-driven transformation.
+
+Also, joining selectors to data produces *enter* and *exit* sub-selections. This enables us to *add* or *remove* elements in response to changes in data.
+
+It is also not necessary to explicitly use loops or other recursive functions within D3. This is because select functions inherently operate on entire selections at once, rather than looping over individual elements.
+
