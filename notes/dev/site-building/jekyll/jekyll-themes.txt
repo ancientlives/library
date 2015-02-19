@@ -42,10 +42,6 @@ CSS and Javascript files can be stored in a specific directory, for example `ass
 our template.
 
 ##### Highlighter
-We can highlight code in our site content by turning on the 
-
-`highlighter: pygments`
-
-option. We can also highlight Liquid code by simply wrapping it in a raw/endraw block. Liquid itself will then not process this code.
+We can highlight code in our site content by turning on the `highlighter: pygments` option. We can also highlight Liquid code by simply wrapping it in a raw/endraw block. Liquid itself will then not process this code.
 
 
