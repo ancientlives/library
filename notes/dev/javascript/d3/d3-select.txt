@@ -1,0 +1,86 @@
+### D3 - Selections
+
+A brief overview of the use and application of *selections* in the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* Intro
+* Grouping elements
+* Non-grouping elements
+* Bound to data
+* Date in D3
+
+##### Intro
+In D3, selections are a *subclass* of array. As such, this subclass provides methods that allow us to manipulate selected elements. This includes setting attributes and styles. 
+
+Selections also inherit native array methods, including *array.forEach* and *array.map*. However, D3 provides many native methods, which reduce any potential reliance on JS native methods.
+
+##### Grouping elements
+Selections are, in effect, arrays of arrays of elements. Therefore, a selection is an array of groups, and each group is an array of elements. The following code,
+
+```
+var selection = d3.select('body');
+```
+
+returns a selection with one group containing the selected element.
+
+Likewise,
+
+```
+d3.selectAll('h2');
+```
+
+returns a selection with one group and any number of elemnts. Both *select* and *selectAll* return exactly one group. If you want multiple groups, then you need to use *selection.selectAll*. Effectively, arrays within an array.
+
+Each group has a *parentNode* property, which naturally stores the shared parent of all of the group's elements. This parent node is set when the group is initially created. So,
+
+```
+d3.selectAll('tr').selectAll('td')
+```
+
+returns the parent as the *tr* elements. However, for selections returned by *d3.select* and *d3.selectAll*, the parent element is the document element itself.
+
+##### Non-grouping elements
+*select* preserves the existing grouping, whereas *selectAll* does not, hence the need for a data join.
+
+Therefore, *select* propagates data from parent to child.
+
+##### Bound to data
+Data, as such, is not a property of the selection, but a property of its elements. Therefore, when we bind data to a selection, the data is stored in the DOM rather thann in the selection itself.
+
+So, data is assigned to the *__data__* property of each element. If an element lacks this property, then the associated datum is left undefined. Data is, therefore, persistent compared to the transient nature of selections. We can re-select elements from the DOM, and they will retain whatever data was previously bound.
+
+Data can be bound to elements in one of several ways:
+
+* joined to groups of elements via *selection.data*
+* assigned to individual elements via *selection.datum*
+* inherited from a parent via *append*, *insert*, *select*
+
+To re-call this assigned data, we can use the following,
+
+```
+d3.select('body').datum();
+```
+
+If we now append an element to this parent, the new child automatically inherits data from the parent. 
+
+##### Data in D3
+Data in D3 can take many different forms. For example, it could be one of the following,
+
+* an array of numbers, strings...
+* an array of objects
+* a multi-dimensional array
+
+Unlike the selection methods, *selection.data* defines data per group rather than per element. So, data is expressed as an array of values for the group, or a function that returns an array. 
+
+**NB:** for selections with only a single group, you can pass the corresponding single array to *selection.data* directly. It is only necessary to provide a function when binding different data to different groups.
+
+##### Data keys in D3
+To join data to elements, we need to know which datum to assign to which element. In D3, we do this using keys, which can include an identifying string, an id, and so on. 
+
+The simplest method is to assign keys by index number. In effect, the first datum and the first element matched, assuming the number of both is the same. 
+
+If orders differ, and a key and index is not suitable, then we can use a key function as the second argument to *selection.data*.
+
+
+
+

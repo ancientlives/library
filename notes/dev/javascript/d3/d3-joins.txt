@@ -1,0 +1,44 @@
+### D3 - Joins
+
+A brief overview of the concept and implementation of *joins* in the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* Intro
+
+##### Intro
+D3 has no primitive for creating multiple DOM elements. We can use the *append()* to create a single element,
+
+```
+svg.append("circle")
+.attr('cx', d.x)
+.attr('cy', d.y)
+.attr('r', 2.5);
+```
+
+but this only gives us a single circle. Let's say we want many circles, one for each data point in an array etc. So, we now need to use the following,
+
+```
+svg.selectAll('circle')
+.data(data)
+.enter()
+.append('circle')
+.attr('cs', function(d) { return d.x; })
+.attr('cy', function(d) { return d.y; })
+.attr('r', 2.5);
+```
+
+The above code gives us exactly what we wanted. It creates a circle element for each data point, using the x and y data properties for positioning.
+
+So, when we run the above type of code we follow three possible paths.
+
+* data points joined to existing elements produce **update** selections
+* leftover unbound data produce the **enter** selection, which represents missing elements
+* any remaining unbound elements produce their **exit** selection, which represents elements to be removed
+
+So, we can breakdown the above code as follows,
+
+* *svg.selectAll('circle') returns a new empty selection, because the svg container was empty. The svg container is the parent node to this new selection.
+* this new selection is then joined to an array of data, which results in three new selections that represent the three possible states: *enter*, *update*, and *exit*. 
+  * **NB:** this selection was empty, so the update and exit selections are also empty, whilst the *enter* selection contains a placeholder for each new datum specified...
+* this *update* selection is returned by *selection.data*, whilst the *enter* and *exit* selections hang off the *update* selection, 
+* any missing elements are added to the parent svg container by calling *selection.append* on the *enter* selection. This now appends a new circle for each data point to the SVG container.

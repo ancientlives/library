@@ -4,6 +4,7 @@ A basic guide to configuring and developing themes for Jekyll built websites.
 
 #### Contents
 * Introduction
+* Bootstrap
 * Layout
 * Include
 * Scripts
