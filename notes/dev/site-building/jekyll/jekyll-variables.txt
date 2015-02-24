@@ -7,7 +7,6 @@ An overview of using variables within Jekyll. This data is available using the [
 * Global
 * Site
 * Page
-* Paginator
 
 ##### Introduction
 Jekyll uses the [Liquid](https://github.com/Shopify/liquid/wiki) template engine to access data within global, site, page, and paginator. Further
