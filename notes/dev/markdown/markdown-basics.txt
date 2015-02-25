@@ -21,7 +21,7 @@ plain text documents with a simple syntax, and then convert it to structurally v
   * Multiple lines
 * [Links](#toc-links)
 
-##### Introduction
+#### Introduction
 Markdown was created to be easy to read, write, and publish.
 
 Markdown is simply a text-to-HTML conversion tool for online, web writers. It allows writers to format their
