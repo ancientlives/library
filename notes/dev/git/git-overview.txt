@@ -3,9 +3,9 @@
 General overview of the version control software [Git](http://git-scm.com).
 
 #### Contents
-* What is Git?
+* Introduction
 
-##### What is Git?
+##### Introduction
 Git is a distributed version control system, which has been designed to scale from small to very large projects with *speed and efficiency*.
 
 
