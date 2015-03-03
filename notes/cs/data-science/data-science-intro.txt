@@ -1,0 +1,34 @@
+### Data Science - Introduction
+
+A brief introduction on data science.
+
+#### Contents
+* What is data science?
+* Obtaining data
+* Scrubbing data
+* Exploring data
+* Modeling data
+* Interpreting data
+* References
+
+##### What is data science?
+Data science, as such, is still very much in its infancy as a discipline or 
+sub-discipline of computer science. Therefore, many different definitions often
+exist. However, one of the most practical definitions is outlined by Mason and
+Wiggins in 2010. They define data science according to the following five steps,
+
+  * obtaining data
+  * scrubbing data
+  * exploring data
+  * modeling data
+  * interpreting data
+
+Together, these five steps form the **OSEMN** (pronounced as awesome) model.
+
+It's also interesting to note that data science is, more often than not, an 
+iterative and non-linear process. For example, after modeling data, you might 
+examine the data, and then decide to return to scrubbing the data to adjust the
+features of the data set.
+
+##### Obtaining data
+
