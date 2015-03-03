@@ -21,6 +21,7 @@ This directory contains notes, ideas, and research for various topics, including
   * Python
   * Site Building
   * Twitter
+* Language
 * Maths
   * Discrete
 * Music
