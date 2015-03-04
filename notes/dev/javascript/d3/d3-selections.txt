@@ -1,0 +1,169 @@
+### D3 - Selections
+
+A brief overview of the concept of selections in the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* Intro
+* Selection
+  * single element
+  * multiple elements
+  * iteration
+  * sub-selection
+  * function chaining
+
+##### Intro
+*Selection* is one of the key tasks required within D3 to manipulate and visualise our data. It simply allows us to target certain visual elements on a given page.
+
+Selector support is now standardised upon the W3C specification for the selector API. It is supported by all of the modern web browsers. However, its limitations are particularly noticeable for work with visualising data on the client side.
+
+In effect, this selector API only provides support for selector and not selection. This means that we are able to select an element in the document, but to manipulate or modify its data we need to implement a standard loop etc. To select all *p* elements in a document, we need to loop through the document, select all of the *p* elements, and then manipulate each within a standard loop construct.
+
+D3 introduced its own selection API in an attempt to address these issues and perceived shortcomings. This API is built on the level-3 selector support from the original W3C API, which is commonly known as CSS3 selector support.
+
+For example, the ability to select elements by ID or class, its attributes, set element IDs and class, and so on...
+
+#### Selection - single element
+To select a single element within our page, we can use the following code,
+
+```
+d3.select("p");
+```
+
+This will now select the first *p* element on the page, and then allow us to modify as necessary. For example, we could simply add some text to this element.
+
+```
+d3.select("p")
+.text("Hello World");
+```
+
+This D3 command simply performs a selection of a single specified element. This could be a generic element, such as *p*, or a specific element defined by targeting its ID.
+
+We can use additional modifier functions, such as *text*, to perform a given modification on the selected element. For example,
+
+```
+//set an attribute for the selected element
+d3.select("p").attr("foo");
+//get the attribute for the selected element
+d3.select("p").attr("foo");
+```
+
+We can also add or remove classes on the selected element,
+
+```
+//test selected element for specified class
+d3.select("p").classed("foo")
+//add a class to the selected element
+d3.select("p").classed("goo", true);
+//remove the specified class from the selected element
+d3.select("p").classed("goo", function(){ return false; });
+```
+
+There are many others as well, including setting specific styles for the selected element, its text or HTML, and so on.
+
+#### Selection - multiple elements
+We can also select of the specified elements using D3. For example,
+
+```
+d3.selectAll("p")
+.attr("class", "para");
+```
+
+The way we use and implement multiple element selection is the same as single selection. We can also use the same modifier functions, which allows us to modfiy each element's attributes, style, class, and so on.
+
+#### Selection - iterating through a selection
+D3 provides us with a selection iteration API, which allows us to iterate through each selection. We can then modify each selection relative to its position. This is very similar to the way we normally loop through data, for example a simple array.
+
+```
+d3.selectAll("p")
+.attr("class", "para")
+.each(function (d, i) {
+	d3.select(this).append("h1").text(i);
+});
+```
+
+In D3, selections are essentially like arrays with some enhancements. So, we could use this type of iteration to output the contents of a Javascript array,
+
+```
+//select #output
+d3.selectAll("#output")
+//set class to parar
+.attr("class", "para")
+//iterate through each selection
+.each(function (d, i) {
+//append h1 element and set text to index position in supplied data array...	d3.select(this).append("h1").text(cu_weekly_totals[i]);
+});
+```
+
+This code would simply output each value for the supplied index position in the array for the total number of selected elements.
+
+#### Selection - performing sub-selection
+As we work on visualisations, it will often be necessary to perform specific scope requests. For example, selecting all *p* elements for a given *div* element.
+
+Therefore, we are selecting all *p* elements at the local scope of the specified *div* elements. For example,
+
+```
+//direct css selector (selector level-3 combinators)
+d3.select("div > p")
+	.attr("class", "para");
+
+//d3 style scope selection
+d3.select("div")
+	.select("p")
+	.attr("class", "para");
+```
+
+The above two examples produce the same effect and output, but use very different selection techniques. The first example uses the CSS3, level-3, selectors to get direct access to the *div* and then the sub *p* elements. This type of syntax, *div > p*, is known as combinators. Level-3 selector support offers a number of different kinds of structural combinators.
+
+##### descendant combinator
+This combinator uses the pattern of *selector selector*. Effectively, it is describing a loose parent-child relationship for the selected elements within our document. It is defined as *loose* because this combinator does not care whether the parent-child relationship is child, grandchild etc relative to the selected parent. For example,
+
+```
+d3.select("div em");
+```
+
+This will select the *em* element as a child of the parent *div* element. It does not care if the *em* element is a child of another element, as along as the *em* element is a descendant of the parent *div* element.
+
+##### child combinator
+This combinator uses the same style of syntax, *selector > selector*, but it is able to describe a more restrictive *parent-child* relationship between two elements. For example,
+
+```
+d3.select("div > em");
+```
+
+will not return a result because the *em* is not a direct child to the *div* element. However, if the *em* element was a child to a *span* element we could use the following example,
+
+```
+d3.select("span > em");
+```
+
+because the *em* element is a direct child of the *span* element.
+
+**NB:** Level-3 combinators also support other various options, such as sibling combinators.
+
+##### D3 sub-selection
+Another option for sub-selection is D3's built-in selection of child elements. D3 provides a simple option to select an element, and then chain another selection to get the child element. This type of chained selection defines a scoped selection within D3.
+
+In effect, we are selecting a *p* element nested within our selected *div* element.
+
+The advantage of this type of selection is that each selection is, effectively, independent. Therefore, we can perform actions etc on the initial *div* selection before selecting the *p* element.
+
+#### Selection - function chaining
+The D3 API is, effectively, built around the inherent concept of function chaining. Therefore, it can almost be considered a *Domain Specific Language* for building HTML/SVG elements dynamically.
+
+One of the benefits of chaining is that allows us to easily produce concise and readable code that produces dynamic visual content for our document.
+
+For example,
+
+```
+var body = d3.select("body");
+
+body.append("div")
+	.attr("id", "div1")
+    .append("p")
+	.attr("class", "para")
+    .append("h5")
+	.text("this is a paragraph heading...");
+```
+
+This will simply select the main body of our document, append a *div* element, set its ID to *div1*, then append a *p* element with a class of *para*, and then add some text to the appended *h5* heading.
+

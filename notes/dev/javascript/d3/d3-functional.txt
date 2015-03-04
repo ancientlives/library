@@ -1,0 +1,35 @@
+### D3 - Functional Concepts
+
+A brief introduction on the functional concepts underlying the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* Intro
+* Functional Javascript
+* Function chaining
+
+##### Intro
+D3 has been designed and built to follow a function style of Javascript. It differs in its implementation and focus for Javascript with a conscious focus and priority upon the application of data to documents.
+
+##### Functional Javascript
+D3 Wiki describes the underlying functional concepts of D3 as follows,
+
+**D3's functional style allows code reuse through a diverse collection of components and plugins.**
+[D3 Wiki](August 2013)
+
+In Javascript, functions are objects. As with other objects, a function is simple a collection of a *name and value pair*. The real difference between a function object and a regular object is that a function can be invoked, and associated, with two hidden properties. These include a function *context* and function *code*.
+
+Variable resolution in D3 relies on variable searching being performed locally first. So, relative to a variable reference, if a variable declaration is not found, the search will continue to the parent object, and continue recursively to the next static parent until it reaches golbal variable definition. If this is not found, then a reference error will be generated for this variable.
+
+Therefore, it is important to keep this static scoping rule in mind when dealing with D3.
+
+**NB:** Javascript does not implement block level scoping, and it only applies to the function/object but not the block level. This means, for example, that if we have inner loops they inherit the same counter *i*, for example. There is no block level scoping to produce separate counters.
+
+**NB:** this functional style tends to be inherently more secure as well. 
+
+Therefore, Javascript can often invoke hidden parameters as arguments when we call functions. 
+
+##### Function chaining
+Most of the D3 functions are designed as chainable functions. This has been designed to provide a more concise and contextual programming interface. 
+
+If we consider the variable-parameter type of function, which can serve as both a getter and a setter, then returning the *instance* object when it is performing the role of a setter allows us to immediately invoke another function, as part of the chain, on the resulting result of this invocation. 
+
