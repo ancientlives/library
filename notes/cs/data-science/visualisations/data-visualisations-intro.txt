@@ -54,5 +54,8 @@ reference points. It is perceived that data visualisation, in its many disparate
 forms, is simply a variation between infographics, exploratory tools, charts, and 
 some data art. 
 
-* Exploratory visualisations - 
+* Exploratory visualisations - this aspect of data visualisation is more interested in the provision of tools to explore and interpret datasets. The visualisations can be represented either static or interactive. Therefore, from a user perspective these charts can be viewed either carefully, or simply become interactive representations to help discover new and interesting concepts. This interactivity may include the option for the user to filter the dataset, and thereby interact with the visualisation via manipulation of the data, and modify the resultant information represented from the data. This kind of project is often perceived as more objective and data oriented than other forms.
 
+* Dashboards - these are dense displays of charts. They are used to allow us to represent and understand the key *metrics* of a given issue as quickly and effective as possible.
+
+A good example is the display of server logs, website users, and business data within such dashboards. 
