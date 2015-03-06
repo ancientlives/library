@@ -47,7 +47,12 @@ For example,
 These will often be used within projects more inclined to exploratory data analysis, 
 which tend to be more interactive and provide less guidance to the user. 
 
+There are some in the data science community who do not perceive infographics as proper data visualisation because they are designed to guide a user through a story with the main facts already highlighted. This is often seen in contrast to chart-based data visualisation, which present the story and the facts for the user to discover.
+
 **NB:** such classifications, whilst generally useful, still only provide tangible
 reference points. It is perceived that data visualisation, in its many disparate
 forms, is simply a variation between infographics, exploratory tools, charts, and 
 some data art. 
+
+* Exploratory visualisations - 
+
