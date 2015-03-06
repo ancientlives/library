@@ -1,0 +1,53 @@
+### CS - Data Science - Visualisations
+
+A brief introduction to data visualisation in computer science.
+
+#### Contents
+* Introduction
+* Types
+
+##### Introduction
+Data visualisation refers to the study of how to visually communicate and analyse
+data. It is still a relatively young discipline, relative to data in computer science 
+and data science. However, there are already some notable definitions of the discipline. 
+One of the better known and accepted examples is as follows,
+
+	*"Data visualisation is the representation and presentation of data that 
+exploits our visual perception in order to amplify cognition."*
+
+	Kirk, A. *Data Visualisation: A successful design process.* Packt Publishing. 2012.
+
+Several variants of this general theme exist, however the underlying prmeise remains
+the same. Data visualisation is a visual representation of the underlying data. 
+The visualisation aims to impart a better understanding of this data and, by association,
+its relevant context. 
+
+There is, of course, an inherent flip-side to data visualisation. Without a correct 
+understanding of its application, it can simply impart a false perception, and 
+by association understanding, on the dataset. We run the risk of creating many examples
+of the standard *areal unit* problem, where a perception is based upon the creator's 
+base standard and potential bias.
+
+Our brains are inherently good at seeing what they want to see, and without due care and
+attention our visualisations can simply provide false summations of the data.
+
+Data visualisation also covers many disparate aspects, including infographics, 
+exploratory tools, dashboards, and so on. 
+ 
+##### Types
+There are many different ways to visualise datasets, and as many ways to customise 
+a standard infographic.
+
+However, there are some standard examples that allow us to consider the nature of
+visualisations.  
+
+For example,
+
+* Infographics - well suited for representing large datasets of contextual information.
+These will often be used within projects more inclined to exploratory data analysis, 
+which tend to be more interactive and provide less guidance to the user. 
+
+**NB:** such classifications, whilst generally useful, still only provide tangible
+reference points. It is perceived that data visualisation, in its many disparate
+forms, is simply a variation between infographics, exploratory tools, charts, and 
+some data art. 
