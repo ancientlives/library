@@ -1,0 +1,129 @@
+### D3 - Core
+
+A brief overview of some of the core concepts of using the [D3](http://d3js.org) Javascript library.
+
+#### Contents
+* Intro
+* .select() & .selectAll()
+* .data()
+* .enter()
+* .exit()
+* .transition()
+* .data()
+* .data(..., join)
+* Nested selections
+* Useful examples
+  * Shuffle
+  * Drawing lines
+
+##### Intro
+A *selection* in D3 is simply a way to pull an array of specified elements from the current document's DOM. D3 uses CSS3 to select these specified elements, and you can select using the following options,
+
+* element tag (eg: div, span, p...)
+* CSS class (eg: .highlight)
+* unique ID (eg: #highlight)
+* attribute (eg: [color=red])
+* containment (eg: parent child)
+
+Selector can also be *intersected*. For example, 
+
+* intersected (logical AND)
+* unioned (logical OR)
+
+After selecting elements, we can then apply *operators* to actually do something. These operators can do things such as getting and setting the following,
+
+* attributes
+* styles
+* properties
+* HTML
+* text content...
+
+It is also possible to join selection to *data*. This data is then available to operators for data-driven transformation.
+
+Also, joining selectors to data produces *enter* and *exit* sub-selections. This enables us to *add* or *remove* elements in response to changes in data.
+
+It is also not necessary to explicitly use loops or other recursive functions within D3. This is because select functions inherently operate on entire selections at once, rather than looping over individual elements.
+
+D3 provides two top-level methods for selecting elements. These include 
+
+* .select()
+* .selectAll()
+
+These methods accept *selector strings*, the former selecting only the first matching element. The latter selects **all** matching elements in the traversal order of the document. Both of these methods can also accept *nodes*.
+
+##### .select() & .selectAll()
+D3 can use a number of different operators to affect or manipulate the content of the document. We can also chain multiple operators together in a concise statement.
+
+For example, if we consider the following select
+
+```
+var svg = d3.select("div.output svg")
+var rect = svg.select("rect")
+```
+
+* selectiion.attr(name[, value])
+  * rect.attr('width', 100)
+
+* selection.classed(name[, value])
+  * rect.classed('myClass', true)
+
+This operator is known in D3 as a convenience class, which allows us to set or unset a given *class* attribute.
+
+We can also set specific CSS style properties by using the following operator,
+
+* selection.style(name[, value[, priority]])
+  * rect.style({'color': 'blue', 'font-size': 10})
+
+Certain HTML elements, such as form text fields, checkboxes etc, have special properties that are not addressed by other selection operators. For these, we can use a specific *property* operator,
+
+* selection.property(name[, value])
+  * rect.property('checked': 'true');
+
+By using the *text* operator, we can set text content for a selected element within the DOM.
+
+* selection.text([value])
+  * rect.text('some text...')
+
+HTML content can also be set using a similar pattern,
+
+* selection.html([value])
+  * rect.html('<p>some html...</p>')
+
+However, whilst adding raw HTML can be useful, it is often better simply to chain append() or insert() with text(). This separates out the logic of the DOM from the raw data.
+
+* selection.append(name)
+  * rect.append('p')
+
+Naturally, this will add the specified new element to the end of the defined selection. To add a new element before, we can effectively prepend or *insert* before our given selection.
+
+* selection.insert(name[, before])
+  * rect.insert('p')
+  * rect.insert('p', ':first-child')
+
+D3 *insert* selection supports many different types of DOM selection and namespace options.
+
+If we can append or insert an element, we can also remove an existing element.
+
+* selection.remove()
+  * rect.remove()
+
+This removes the elements in the current selection from the current document. 
+
+**NB:** these removed elements are not necessarily deleted, they have temporarily been removed *off-screen*. By using the append or insert selections, we can actually move these elements around within a custom function.
+
+##### .data()
+
+* selection.data([values[, key]])
+
+This function joins the specified array of data with the specified current selection. 
+
+The specified *values* is simply an array of data values, for example numbers, objects etc, or a function that may return an array of values. A *key* function does not have to be specified, and if not then a logical order will be used. A *key* function allows us to specify order of data assignment from the data to the selected element.
+
+If we wanted different data for each selected group, we could use the *selectAll()* function, and use a function to specify data for each select group. 
+
+* selection.enter()
+
+This returns the enter selection:placeholder nodes for each data element, where no corresponding existing DOM element was found for the current selection. The *enter* selection only defines the *append*, *insert*, *select* and *call* operators. You have to use these operators to instantiate the entering elements before modifying any content. 
+
+
+
