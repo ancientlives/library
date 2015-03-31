@@ -14,7 +14,7 @@ A brief introduction on data usage and application with the [D3](http://d3js.org
 ##### Introduction
 Data is structured information with an inherent perceived potential for meaning. In the context of development for visualisation, data is stored in a binary format. This is not simply textual data, but can also include data representing images, audio, video, streams, archives, models...
 
-However, for the purposes of D3 this concept is often simply restricted to textual
+However, for the purposes of D3 this concept may often simply be restricted to textual
 data, or text-based data. Effectively, any data that can be represented as a series of 
 numbers and strings of alpha numeric characters. For example, textual data stored as 
 a comma-separated value file, or .csv, or JSON document, .json, or a plain text file,
