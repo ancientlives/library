@@ -12,10 +12,7 @@ A brief introduction on data usage and application with the [D3](http://d3js.org
   * Beyond text
 
 ##### Introduction
-Data is structured information with the potential for meaning. In the context of 
-development for visualisation, data is stored in a binary format. This is not simply
-textual data, but can also include data representing images, audio, video, streams, 
-archives, models...
+Data is structured information with an inherent perceived potential for meaning. In the context of development for visualisation, data is stored in a binary format. This is not simply textual data, but can also include data representing images, audio, video, streams, archives, models...
 
 However, for the purposes of D3 this concept is often simply restricted to textual
 data, or text-based data. Effectively, any data that can be represented as a series of 
@@ -26,9 +23,7 @@ a comma-separated value file, or .csv, or JSON document, .json, or a plain text 
 In D3 syntax, this *data* needs to be *bound* to elements within the HTML page. 
 
 ##### Page elements
-With D3, the generation of new DOM elements will normally fit either cirles, rectangles, or
-some other visual form that represents the data. However, we can also create generic 
-structural elements in HTML, such as a *p*.
+With D3, the generation of new DOM elements will normally fit either cirles, rectangles, or some other visual form that represents the data. However, we can also create generic structural elements in HTML, such as a *p*.
 
 For example, we can append a standard *p* element to our new page as follows
 
@@ -39,7 +34,9 @@ d3.select("body").append("p").text("new paragraph");
 With this simple code, we have used D3 to select the *body* element, and then append
 a new *p* element with the text "new paragraph". The one thing we can notice straight 
 away is that D3 supports *chain syntax*, which allowed us to *select*, *append*, and
-add *text* in one statement.
+add *text* in one statement. 
+
+Effectively, in one statement we were able to select the element, append a new element, and then bind some data. The data was a string of textual characters in this example.
 
 **NB:** Javascript, like HTML, does not care about whitespace, line breaks, so we 
 could have written the previous D3 code on separate lines for each function.
@@ -81,7 +78,7 @@ better logic and readability to our code.
 ##### Binding data
 In D3, we bind data, our input values, to elements in the DOM. Binding is, effectively, 
 akin to *attaching* or associating data to specific elements. This allows us to 
-reference thos values later, so that we can apply required mapping rules.
+reference those values later, so that we can apply required mapping rules.
 
 So, we use D3's **selection.data()** method to bind our data to DOM elements.
 
@@ -111,7 +108,7 @@ d3.json("testdata.json", function(json) {
 you prefer.
 
 ###### Binding data - making a selection
-With our new data, we then need to decided upon a selector within our document.
+With our new data, we then need to decide upon a selector within our document.
 For example, we could select all of the paragraphs in our document
 
 ```
@@ -129,19 +126,11 @@ If we ran this code, we would get new paragraphs that match the total number of
 values currently available in the *dataset*. Effectively, its akin to looping through
 an array, and outputting a new paragraph for each value in the array.
 
-So, how does the **enter()** function work. Well, to create new, data-bound elements
-we need to use *enter()*. This method checks the current DOM selection, and at the data being assigned to it. 
-If there are more data values than matching DOM elements, it will simply create a new placeholder element 
-for the data value. It then passes this placeholder on to the next step in the chain, which is *append()*
-in our code.
+So, how does the **enter()** function work. Well, to create new, data-bound elements we need to use *enter()*. This method checks the current DOM selection, and the data being assigned to it. If there are more data values than matching DOM elements, it will simply create a new placeholder element for the data value. It then passes this placeholder on to the next step in the chain, which is *append()* in our code.
 
-If we run the above code we can see the output text within our new paragraphs. However, the
-data from our dataset has also been assigned to the new paragraphs. This data value is assigned to 
-each paragraph's **_data_** attribute.
+If we run the above code we can see the output text within our new paragraphs. However, the data from our dataset has also been assigned to the new paragraphs. This data value is assigned to each paragraph's **_data_** attribute.
 
-**NB:** when D3 binds data to a DOM element, it does not exist in the DOM itself, but it does
-exist in the memory as a **_data_** attribute of the given element. So, in this case it is simply
-assigned in memory to each *p* element. 
+**NB:** when D3 binds data to a DOM element, it does not exist in the DOM itself, but it does exist in the memory as a **_data_** attribute of the given element. So, in this case it is simply assigned in memory to each *p* element. 
 
 ###### Binding data - using the data
 If we change the last line of our code as follows,
@@ -150,14 +139,9 @@ If we change the last line of our code as follows,
 .text(function(d) { return d; });
 ```
 
-and then load our HTML page again, we will now see the dataset values output instead of the 
-previous text. Effectively, anytime in the chain after calling the *data()* method, we can then 
-access the current data using *d*. If we are using a loop, the value of *d* will also change 
-corresponding to the position in the loop.
+and then load our HTML page again, we will now see the dataset values output instead of the previous text. Effectively, anytime in the chain after calling the *data()* method, we can then access the current data using *d*. If we are using a loop, the value of *d* will also change corresponding to the position in the loop.
 
-**NB:** the above function is called an *anonymous* function because we have assigned a specific
-function name. If we want to use the above concept of *d*, we need to assign it to a function, anonymous or 
-otherwise, so that it has a value. 
+**NB:** the above function is called an *anonymous* function because we have not assigned a specific function name. If we want to use the above concept of *d*, we need to assign it to a function, anonymous or otherwise, so that it has a value. 
 
 ###### Binding data - beyond text
 We can also bind other things to elements with D3, for example CSS selectors, styles, etc.
@@ -166,11 +150,9 @@ We can also bind other things to elements with D3, for example CSS selectors, st
 .style("color", "red");
 ```
 
-If we chained the above to the end of our existing code, we would now bind an additional css 
-style attribute to each *p* element, thereby turning the font colour red.
+If we chained the above to the end of our existing code, we would now bind an additional css style attribute to each *p* element, thereby turning the font colour red.
 
-We could also extend this code to include a conditional statememt that checks the value of the
-data, and then only assigns this CSS styling if it is greater than a certain amount.
+We could also extend this code to include a conditional statememt that checks the value of the data, and then only assigns this CSS styling if it is greater than a certain amount.
 
 ```
 .style("color", function(d) {
