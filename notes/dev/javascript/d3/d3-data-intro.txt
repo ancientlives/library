@@ -12,15 +12,11 @@ A brief introduction on data usage and application with the [D3](http://d3js.org
   * Beyond text
 
 ##### Introduction
-Data is structured information with an inherent perceived potential for meaning. In the context of development for visualisation, data is stored in a binary format. This is not simply textual data, but can also include data representing images, audio, video, streams, archives, models...
+Data is structured information with an inherent perceived potential for meaning. Relative to development for visualisation, data will often be stored simply in a text or binary format. This is not simply textual data, though, but can also include data representing images, audio, video, streams, archives, models, and so on.
 
-However, for the purposes of D3 this concept may often simply be restricted to textual
-data, or text-based data. Effectively, any data that can be represented as a series of 
-numbers and strings of alpha numeric characters. For example, textual data stored as 
-a comma-separated value file, or .csv, or JSON document, .json, or a plain text file,
-.txt, can be used with D3.
+However, for the purposes of D3 this concept may often simply be restricted to textual data, or text-based data. Effectively, any data that can be represented as a series of numbers and strings of alpha numeric characters. For example, textual data stored as a comma-separated value file, or .csv, or JSON document, .json, or a plain text file, .txt, can be used with D3.
 
-In D3 syntax, this *data* needs to be *bound* to elements within the HTML page. 
+This data can then be *bound* to elements within the DOM of a page. This is the inherent pattern for D3.
 
 ##### Page elements
 With D3, the generation of new DOM elements will normally fit either cirles, rectangles, or some other visual form that represents the data. However, we can also create generic structural elements in HTML, such as a *p*.
