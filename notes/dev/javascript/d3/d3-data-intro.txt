@@ -1,6 +1,6 @@
 ### D3 - Data - Intro
 
-A brief introduction on data usage and application with the [D3](http://d3js.org/) Javascript library.
+A brief introduction on data usage and its application with the [D3](http://d3js.org/) Javascript library.
 
 #### Contents
 * Introduction
@@ -24,42 +24,31 @@ With D3, the generation of new DOM elements will normally fit either cirles, rec
 For example, we can append a standard *p* element to our new page as follows
 
 ```
-d3.select("body").append("p").text("new paragraph");
+d3.select("body").append("p").text("sample text...");
 ```
 
-With this simple code, we have used D3 to select the *body* element, and then append
-a new *p* element with the text "new paragraph". The one thing we can notice straight 
-away is that D3 supports *chain syntax*, which allowed us to *select*, *append*, and
-add *text* in one statement. 
+With this simple code, we have used D3 to select the *body* element, and then append a new *p* element with the text "new paragraph". The one thing we can notice straight away is that D3 supports *chain syntax*, which allowed us to *select*, *append*, and add *text* in one statement. 
 
 Effectively, in one statement we were able to select the element, append a new element, and then bind some data. The data was a string of textual characters in this example.
 
-**NB:** Javascript, like HTML, does not care about whitespace, line breaks, so we 
-could have written the previous D3 code on separate lines for each function.
+**NB:** Javascript, like HTML, does not care about whitespace, line breaks, so we could have written the previous D3 code on separate lines for each function.
 
 So, the above D3 can be understood as follows
 
   * D3 - references the D3 object, so we can access its built-in methods
-  * .select("body") - this method accepts a CSS selector and returns the first
-instance of the matched selector in the document's DOM. 
-    * .selectAll() - this method is a variant, and will return all of the matched 
-CSS selectors in the DOM. 
-  * .append("p") - creates the specified new DOM element, and appends it to the 
-end of the defined select CSS selector, just before the closing tag. So, in our 
-example, it simply appends a *p* element to the end of the defined *body*.
-  * .text("new paragraph") - takes the defined string, "new paragraph", and adds
-it to the newly created *p* DOM element.
-    * **NB:** if there is any existing content it will be overwritten by this newly 
-inserted content.
+  * .select("body") - this method accepts a CSS selector and returns the first instance of the matched selector in the document's DOM
+    * .selectAll() - **NB:** this method is a variant of the single *select*, and will return all of the matched CSS selectors in the DOM
+  * .append("p") - creates the specified new DOM element, and appends it to the end of the defined select CSS selector, just before the closing tag. So, in our example, it simply appends a *p* element to the end of the defined *body*.
+  * .text("new paragraph") - takes the defined string, "new paragraph", and adds it to the newly created *p* DOM element.
+    * **NB:** if there is any existing content it will be overwritten by this newly inserted content
 
 The semi-colon naturally indicates the end of the statement block.
 
-**NB:** when chaining methods in D3, order of precedence matters. Also the output 
-type of one method needs to match the expected input type of the next method. 
+**NB:** when chaining methods in D3, order of precedence matters. Also the output type of one method needs to match the expected input type of the next method. 
 
 The [API reference](https://github.com/mbostock/d3/wiki/API-Reference) provides useful guidance of expected input and output for functions.
 
-We could also have written the above code chain in a more formal, chainless manner
+We could also have written the above code chain in a more formal, verbose, and chainless manner.
 
 ```
 var body = d3.select("body");
@@ -67,28 +56,19 @@ var p = body.append("p");
 p.text("new paragraph");
 ```
 
-This can be inefficient for such a short chain, but if we start to grow our chain
-it may become unwieldy and simply too complicated to chain. Breaking it up can add 
-better logic and readability to our code.
+This can be inefficient for such a short chain, but if we start to grow our chain it may become unwieldy and simply too complicated to chain. Breaking it up can add better logic and readability to our code.
 
 ##### Binding data
-In D3, we bind data, our input values, to elements in the DOM. Binding is, effectively, 
-akin to *attaching* or associating data to specific elements. This allows us to 
-reference those values later, so that we can apply required mapping rules.
+D3 enables us to bind data to elements in the DOM. Binding is, effectively, associating data to specific elements. This allows us to reference those values later, so that we can apply required mapping rules.
 
-So, we use D3's **selection.data()** method to bind our data to DOM elements.
+So, we use D3's **selection.data()** method to bind our data to DOM elements. However, we obviously need some data to bind, and a selection of DOM elements.
 
-However, we obviously need some data to bind, and a selection of DOM elements.
-
-D3 is particularly flexible with data, and will happily accept various types. It 
-will accept various types of arrays of numbers, strings, or object, and these can
-also include multidimensional arrays. It can also handle JSON, including GeoJSON, 
-and will even accept CSV files. 
+D3 is particularly flexible with data, and will happily accept various types. It will accept various types of arrays of numbers, strings, or object, and these can also include multidimensional arrays. It can also handle JSON, including GeoJSON, and will even accept CSV files. 
 
 For example, an array in D3,
 
 ```
-var dataset = [ 1, 2, 3, 4, 5 ];
+var data = [ 0, 1, 2, 3, 4, 5 ];
 ```
 
 ###### Binding data - loading JSON data
@@ -100,27 +80,22 @@ d3.json("testdata.json", function(json) {
 });
 ```
 
-**NB:** the parsed output data is named *json*, but it could be named whatever 
-you prefer.
+**NB:** the parsed output data is obviously named *json*, but it could be named whatever you prefer.
 
 ###### Binding data - making a selection
-With our new data, we then need to decide upon a selector within our document.
-For example, we could select all of the paragraphs in our document
+With our new data, we then need to decide upon a selector within our document. For example, we could select all of the paragraphs in our document
 
 ```
 d3.select("body").selectAll("p");
 ```
 
-However, what happens if the element we require does not yet exist. We then need to 
-use a method called *enter()*. For example,
+However, what happens if the element we require does not yet exist. We then need to use a method called *enter()*. For example,
 
 ```
 d3.select("body").selectAll("p").data(dataset).enter().append("p").text("new paragraph");
 ```
 
-If we ran this code, we would get new paragraphs that match the total number of 
-values currently available in the *dataset*. Effectively, its akin to looping through
-an array, and outputting a new paragraph for each value in the array.
+If we ran this code, we would get new paragraphs that match the total number of values currently available in the *dataset*. Effectively, its akin to looping through an array, and outputting a new paragraph for each value in the array.
 
 So, how does the **enter()** function work. Well, to create new, data-bound elements we need to use *enter()*. This method checks the current DOM selection, and the data being assigned to it. If there are more data values than matching DOM elements, it will simply create a new placeholder element for the data value. It then passes this placeholder on to the next step in the chain, which is *append()* in our code.
 
@@ -143,17 +118,18 @@ and then load our HTML page again, we will now see the dataset values output ins
 We can also bind other things to elements with D3, for example CSS selectors, styles, etc.
 
 ```
-.style("color", "red");
+.style("color", "blue");
 ```
 
 If we chained the above to the end of our existing code, we would now bind an additional css style attribute to each *p* element, thereby turning the font colour red.
 
-We could also extend this code to include a conditional statememt that checks the value of the data, and then only assigns this CSS styling if it is greater than a certain amount.
+We could also extend this code to include a conditional statememt that checks the value of the data, and then only assigns this CSS styling if it is even or odd.
+A very simplistic striped colour option, for example.
 
 ```
 .style("color", function(d) {
-if (d > 3) {
-return "red";
+if (d % 2 == 0) {
+return "green";
 } else {
  return "blue";
 }
