@@ -1,0 +1,213 @@
+### D3 - Drawing - Barchart
+
+A brief overview of drawing a barchart using the [D3](http://d3js.org/) Javascript library.
+
+#### Contents
+* Intro
+* Create SVG
+* SVG barchart
+* Adding colour
+* Adding text labels
+* Updates, transitions and motions
+* Ordinal scales
+
+##### Intro
+To create our barchart we will be using SVG. The first thing we need to do is add our SVG to a seleced element.
+
+##### Create SVG
+We now need to create an element for our SVG, which will allow us to draw and output all of our required shapes.
+
+```
+d3.select("body").append("svg");
+```
+
+This simply appends to the body an SVG element. However, it might be useful to encapsulate this new DOM element within a variable,
+
+```
+var svg = d3.select("body").append("svg');
+```
+
+This variable effectively works as a reference, which points to the newly created SVG object. This allows us to use this reference anytime we need to access this element in the DOM.
+
+##### SVG Barchart
+To create a new barchart, this time using SVGs, firstly we need to set the required size for our SVG output,
+
+```
+//width & height
+var w = 750;
+var h = 200;
+```
+
+You'll often see single character variable names in Javascript, as it is seen as programmatically efficient, concise syntax.
+
+We then use D3 to create an empty SVG element, and add it to the DOM.
+
+```
+var svg = d3.select("body")
+	.append("svg")
+	.attr("width", w)
+	.attr("height", h);
+```
+
+With SVGs, instead of creating DIVs as before, we generate *rects* and add them to the *svg* element.
+
+```
+svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", 0)
+	.attr("y", 0)
+	.attr("width", 10)
+	.attr("height", 50);
+```
+
+So, this code selects all of the `rect` elements within `svg`. Even though there are initially none, D3 still needs to select them before creating them. `data()` then checks the number of values in the specified dataset, and hands those values to the `enter` method for processing. The `enter` method then creates a placeholder for each data value that does not currently have a corresponding `rect`. For each of these placeholders, it appends a rectangle to the DOM. We then use the *attr* method to set the `x, y, width, height` values for each rectangle. However, this still only outputs a single bar due to an overlap issue. 
+
+So, we need to amend our code to handle the width of each bar, and implement flexible, dynamic coordinates to fit our available SVG width and height. This allows our visualisation to scale appropriately with the supplied data. For example, we could amend our code as follows,
+
+```
+.attr("x", function(d, i) {
+	return i * (w / dataset.length);
+})
+```
+So, we have now linked the `x` value directly to the width of the SVG `w`, and the number of values in the dataset, `dataset.length`. This means that the bars will be evenly spaced regardless of the number of values. However, if we have a huge number of data values, they will still look like one horizontal bar unless there is sufficient width for the parent SVG and a space between each bar. 
+
+However, we can try to solve this as well by setting the bar width to be proportional. Narrower for more data, wider for less data. For example,
+
+```
+var w = 750;
+var h = 200;
+var barPadding = 1;
+```
+
+So, we can now set each bar's width as a fraction of the SVG width and number of data points, minus our padding value.
+
+```
+.attr("width", w / dataset.length - barPadding)
+```
+
+The above code change means our bar widths and x positions scale correctly regardless of data values. 
+
+Next, we encode our data as the *height* of each bar. If we use the following code,
+
+```
+.attr("height", function(d) {
+	return d * 4;
+});
+```
+our bar chart will size correctly, albeit from the top down. This is due to the nature of SVG, which adheres to a top left, upper left corner, pattern for rendering shapes etc. So, to correct this issue we now need to calculate the top position of our bars relative to the SVG. Therefore, the top of each bar could be expressed as a relationship between the height of the SVG and the corresponding data value,
+
+```
+.attr("y", function(d) {
+	//height minus data value
+	return h - d;
+})
+```
+
+Our bar chart will now display correctly from the bottom upwards. 
+
+##### Adding colour
+Adding a colour per bar, instead of the default black, is simply a matter of setting an attribute for the fill colour,
+
+```
+.attr("fill", "blue");
+```
+
+We can also set more interesting colours, which allows us to use the data itself to determine the colour. For example,
+
+```
+.attr("fill", function(d) {
+	return "rgb(0, 0, " + (d * 10) + ")";
+});
+```
+
+##### Adding text labels
+We can also set dynamic text labels per bar, which reflect the current dataset. So, we can add text to our bars as follows,
+
+```
+svg.selectAll("text")
+.data(dataset)
+.enter()
+.append("text")
+```
+
+We can extend this further by position our text labels correctly, for example
+
+```
+.attr("x", function(d, i) {
+	return i * (w / dataset.length);
+})
+.attr("y", function(d, i) {
+	return h - (d * 4);
+});
+```
+
+We can then position them relative to the applicable bars, add some styling, colours etc.
+
+```
+.attr("font-family", "sans-serif")
+.attr("font-size", "11px")
+.attr("fill", "white");
+```
+
+#### Updates, transitions and motions
+We can now modify our simple barchart to include dynamic updates to the dataset, interesting transitions, and graphical motions to add emphasis and impact to our rendering.
+
+##### Ordinal Scales
+Ordinal scales are used for ordinal data, for example categories with a sense of inherent *order* or organisation to them. For example, an incrementing scale of preference.
+
+For D3, we need to set an input domain for the scale. This could be a hard-coded dataset, or a dynamic set. For example,
+
+```
+.domain(d3.range(dataset.length))
+```
+
+**NB:** for a linear scale, this domain is set as the low and high values of the domain.
+
+It's also worth noting that ordinal values are typically non-numerical. 
+
+*d3.scale.ordinal()* supports **range banding**. Therefore, instead of returning a continuous range, as a quantitative scale (such as *d3.scale.linear(), ordinal scales use *discrete* scales, which means the output values are determined in advanced, thereby allowing numeric and non-numeric alike. For example,
+
+```
+.rangeBands([0, w])
+```
+
+The above code example effectively tells our application to start at *0* and end at *w*, and then set
+the range for the scale to those defined bands.
+
+For example, if we specified 20 values for the domain, D3 would calculate the range for our bars as follows,
+
+```
+(w - 0) / xScale.domain().length
+
+or 
+
+(600 - 0) / 20
+600 / 20
+= 30
+```
+
+In effect, after this calculation each band will now be 30 wide.
+
+We can also supplement the above code by setting a second parameter for spacing between each band.
+This can be set to a percentage of the width of each band,
+
+```
+.rangeBands([0, w], 02.)
+```
+
+which gives us a spacing per band of 20 percent of the width of each band. Due to this addition, we can 
+now ignore setting a value for the `barPadding` as this is now handled by the percentage calculation.
+
+
+
+
+
+
+
+
+
+
+
+

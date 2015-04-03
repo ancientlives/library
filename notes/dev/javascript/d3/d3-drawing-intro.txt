@@ -1,0 +1,87 @@
+### D3 - Drawing - Intro
+
+A brief overview of drawing with data using the [D3](http://d3js.org/) Javascript library.
+
+#### Contents
+* Drawing divs
+  * Setting attributes
+  * Drawing the bars
+  * Benefit of data()
+* Drawing SVGs
+  * Create SVG
+
+##### Drawing divs
+One of the easiest ways to draw a rectangle, for example, is with a HTML *div*. So, we now have an easy way to start drawing a bar chart for our stats.
+
+Although semantically incorrect, we could use this *div* to output our bars for a bar chart. The issue is the use of an empty *div* for purely visual effect.
+
+Using D3, to add a class to an empty element we can use the `selection.attr()` method. 
+
+###### Setting attributes
+`attr()` is used to set an HTML attribute and its value on an element. After selecting the required element in the DOM, we can then assign an attributes as follows,
+
+```
+.attr("class", "barchart")
+```
+
+This will assign a *class* attribute to the selected element.
+
+###### Drawing the bars
+We can use D3 to draw a set of bars in divs as follows,
+
+```
+var dataset = [ 1, 2, 3, 4, 5 ];
+
+d3.select("body").selectAll("div")
+	.data(dataset)
+	.enter()
+	.append("div")
+	.attr("class", "bar");
+
+```
+
+The above sample outputs the values from our dataset with no space between them, effectively as a bar chart of equal height. However, we can modify the height of each representative bar by setting the height of each bar as a function of its corresponding data value. For example, we could append the following to the end of our chain
+
+```
+.style("height", function(d) {
+	return d + "px";
+});
+```
+
+We can also make each bar in our chart more clearly defined by modifying *style* as follows,
+
+```
+.style("height", function(d) {
+	var barHeight = d * 3;
+	return barHeight + "px";
+});
+```
+
+###### Benefit of data()
+The data() function is smart enough to loop through all of the data it is given. For example, pass an array with 100 values, and it will simply loop through the full length of the data. 
+
+As it loops through the data, it will then execute each method following in the chain, and update the context for the methods.
+
+##### Drawing SVGs
+Properties of SVG elements are specified as *attributes*. In effect, they are represented as property/value pairs within each element tag,
+
+```
+<element property="value">...</element>
+```
+
+SVG elements exist in the DOM, so we can still use D3's `append()` and `attr()` methods to create new HTML elements and, of course, set their attributes.
+
+###### Create SVG
+We now need to create an element for our SVG, which will allow us to draw and output all of our required shapes.
+
+```
+d3.select("body").append("svg");
+```
+
+This simply appends to the body an SVG element. However, it might be useful to encapsulate this new DOM element within a variable,
+
+```
+var svg = d3.select("body").append("svg');
+```
+
+This variable effectively works as a reference, which points to the newly created SVG object. This allows us to use this reference anytime we need to access this element in the DOM.
