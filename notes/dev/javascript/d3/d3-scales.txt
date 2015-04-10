@@ -1,0 +1,104 @@
+### D3 - Drawing - Scatterplot
+
+A brief overview of using scales with the [D3](http://d3js.org/) Javascript library. Full documentation for D3's scales can be found at the following URL,
+
+  * [Scales](https://github.com/mbostock/d3/wiki/Scales)
+
+#### Contents
+* Intro
+* Domains and Ranges
+* D3 scale types
+* Building a scale
+* Adding dynamic scales
+
+##### Intro
+In D3, *scales* are defined as follows,
+
+  * *"Scales are functions that map from an input domain to an output range"*
+    * Bostock, M.
+
+In effect, you can specify your own scale for the required dataset. For example, to avoid massive data values that do not translate correctly to a visualisation, you can scale these values to look better within you graphic.
+
+To achieve this result, you simply use the following pattern.
+
+  * define the parameters for the scale function
+  * call the scale function
+    * pass a data value to the function
+  * the scale function returns a scaled output value for rendering
+  
+You can also define and use as many scale functions as necessary for your visualisation.
+
+However, it's important to realise that a scale has no direct relation to the visual output. Instead, it is a mathematical relationship. In effect, we need to consider scales and axes as two separate, and different concepts relative to visualisations.
+
+##### Domains and Ranges
+The *input domain* for a scale is its possible range of input data values. Effectively, this is the initial data values stored in your original dataset. 
+
+The *output range* is the possible range of output values, which we normally use as the pixel representation of the data values. This *output range* is a personal consideration of the designer. We normally set a minimum and maximum *output range* for our scaled data. The scale function then calculates the scaled output based upon the original data and the defined range for the scaled output.
+
+This process of scaling input domain to output range is, effectively, normalisation completed by D3.
+
+##### D3 scale types
+There are many different types of scale available for use in D3. There are three primary types,
+
+  * quantitative
+  * ordinal
+  * time
+
+The *quantitative* scale types also include other built-in scale types.
+
+There are also many methods available for the scale types. Further detailed information is available at the following URL,
+
+  * [Scales](https://github.com/mbostock/d3/wiki/Scales)
+
+##### Building a scale
+To start building our scale in D3, we can use `d3.scale` with our preferred scale type. 
+
+```
+var scale = d3.scale.linear();
+```
+
+To use the scale effectively, we now need to set our input domain,
+
+```
+scale.domain([10, 350]);
+```
+
+Then we set the output range for the scale,
+
+```
+scale.range([1, 100]);
+```
+
+Obviously, for expedient code we can also chain these methods together,
+
+```
+var scale = d3.scale.linear()
+	      .domain([10, 350])
+              .range([1, 100]);
+```
+
+##### Adding dynamic scales
+Whilst we could pre-define values for our scale relative to a given dataset, it makes more sense to abstract these values relative to the defined dataset.
+
+So, we can now use the D3 array functions to help us set these scale values. For example, to find the highest number in our array dataset,
+
+```
+d3.max(dataset, function(d) {
+	return d[0];
+});
+```
+
+This code will return the highest value from the supplied array. Getting the minimum value in the array works in the same manner, with `d3.min()` being called instead.
+
+Using these examples, we can now create a scale function for the `x` and `y` axes.
+
+```
+var scaleX = d3.scale.linear()
+		.domain([0, d3.max(dataset, function(d) { return d[0]; })])
+		.range([0, w]);//set output range from 0 to width of svg
+```
+
+The Y axis scale modifies the above code relative to the provided data, `d[1]`, and range uses height instead of width.
+
+For a scatterplot, for example, we can use these values to set the `cx` ad `cy` values.
+

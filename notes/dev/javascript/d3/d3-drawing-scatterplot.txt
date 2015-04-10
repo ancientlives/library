@@ -1,0 +1,151 @@
+### D3 - Drawing - Scatterplot
+
+A brief overview of drawing a scatterplot using the [D3](http://d3js.org/) Javascript library.
+
+#### Contents
+* Intro
+* Data
+* Create SVG
+* SVG Scatterplot
+  * Dynamic circle size
+  * Calculating dynamic area
+  * Adding colour
+  * Ading labels
+  * Adding axis labels
+  * Adding interaction for labels
+
+##### Intro
+A scatterplot allows us to visualise two sets of values on two different axes. In effect, one set of data against another. We plot one set of data on the *x* axis, and the other on the *y* axis. 
+
+To create our scatterplot we will be using SVG. The first thing we need to do is add our SVG to a seleced element.
+
+##### Data
+The data for the scatterplot is normally stored as a multi-dimensional representation of the comparison *x* and *y* points. For example, we could store this data in a multi-dimensional array
+
+```
+var dataset = [
+		[10, 22], [33, 8], [76, 39], [4, 15]
+	      ];
+```
+
+In such a multi-dimensional array, the inner array stores the comparison data points for our scatterplot. Each inner array stores the *x* and *y* points for the scatterplot diagram.
+
+We could, of course, store such data in many different forms including JSON. We could then simply process the JSON to an array for ease of use with D3.
+
+##### Create SVG
+We now need to create an element for our SVG, which will allow us to draw and output all of our required shapes.
+
+```
+d3.select("body").append("svg");
+```
+
+This simply appends to the body an SVG element. However, it might be useful to encapsulate this new DOM element within a variable,
+
+```
+var svg = d3.select("body").append("svg');
+```
+
+This variable effectively works as a reference, which points to the newly created SVG object. This allows us to use this reference anytime we need to access this element in the DOM.
+
+##### SVG Scatterplot
+As with a barchart, we can set the width and height for our scatterplot,
+
+```
+//width & height
+var w = 750;
+var h = 200;
+```
+
+However, we will need to create circles for use with the scatterplot instead of rectangles. 
+
+```
+svg.selectAll('circle')
+   .data(dataset)
+   .enter()
+   .append('circle');
+```
+
+Corresponding to the drawing of circles, we will also need to set `cx`, the *x* position value of the centre of the circle, `cy`, the *y* position value of the centre of the circle, and `r`, the radius of the circle. 
+
+```
+.attr('cx', function(d) {
+	return d[0]; //get first index value for inner array
+})
+.attr('cy', function(d) {
+	return d[1]; //get second index value for inner array
+})
+.attr('r', 5);
+```
+
+This will output a simple circle for each inner array within our supplied multi-dimensional dataset.
+
+##### Dynamic circle size
+To set a dynamic size for each circle, representative of the data itself, we can modify the circle's area to correspond to its *y* value.
+
+As we create SVG circles, we cannot directly set the area so we need to calculate the radius `r`, and then modify that for each circle.
+
+###### Calculating dynamic area
+Assuming that `d[1]` is the original area value of our circles, we can simply get the square root and set the radius for each circle.
+
+Therefore, instead of setting each circle's radius as a static value, we can now use the following
+
+```
+.attr('r', function(d) {
+	return Math.sqrt(d[1]);
+});
+```
+
+We use the JavaScript `Math.sqrt()` function to help us with this calculation.
+
+###### Adding colour
+As with a barchart, we can also set a dynamic colour relative to a circle's data.
+
+```
+.attr('fill', function (d) {
+	return 'rgb(125,' + (d[1]) + ', ' + (d[1] * 2) + ')';
+});
+```
+
+###### Adding labels
+We can also add labels for each circle, as with our barchart, to show the comparison data points.
+
+```
+//add labels for each circle
+svg.selectAll('text')
+   .data(dataset)
+   .enter()
+   .append('text')
+   .text(function(d) {
+	return d[0] + ', ' + d[1];//set each data point on the text label
+   })
+   .attr('x', function(d) {
+	return d[0];
+   })	
+   .attr('y', function(d) {
+	return d[1];
+   })
+   .attr('font-family', 'serif')
+   .attr('font-size', '12px')
+   .attr('fill', 'navy');
+```
+
+We start by adding text labels for our data, adding new text elements where they do not already exist. We then set the text label itself for each circle, using the data values stored in each inner array. To make the label easier to read, we set the `x` and `y` coordinates relative to the data points for each circle. Finally, we set some styles for the labels.
+
+###### Adding axis labels
+To make the scatterplot easier to read and understand, in particular relative to the data values for the circles, we need to add some axis labels for the `x` and `y` coordinates.
+
+```
+
+```
+
+###### Adding interaction for labels
+Whilst adding labels to the circles is clear and simple, it is not the best way to represent the data values per circle. In particular, if we consider larger datasets such labels often overlap and become unreadable.
+
+A better solution is to show the label per circle in reponse to user interaction with their chosen circle.
+
+```
+
+```
+
+
+
