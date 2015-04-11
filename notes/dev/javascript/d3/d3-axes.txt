@@ -1,0 +1,13 @@
+### D3 - Drawing - SVG Axes
+
+A brief overview of using SVG axes with the [D3](http://d3js.org/) Javascript library. Full documentation for D3's axes can be found at the following URL,
+
+  * [SVG-Axes](https://github.com/mbostock/d3/wiki/SVG-Axes)
+
+#### Contents
+* Intro
+
+
+##### Intro
+In D3, *SVG axes* are, in fact, built-in functions with definable parameters. When we call an axis function in D3, it doesn't simply return a value. Instead, it creates the defined elements for the visual rendering of an axis. This includes lines, labels, and other associated details.
+

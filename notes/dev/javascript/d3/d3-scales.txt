@@ -1,4 +1,4 @@
-### D3 - Drawing - Scatterplot
+### D3 - Drawing - Scales
 
 A brief overview of using scales with the [D3](http://d3js.org/) Javascript library. Full documentation for D3's scales can be found at the following URL,
 
