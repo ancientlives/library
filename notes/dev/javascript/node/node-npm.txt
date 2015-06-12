@@ -5,5 +5,42 @@ A quick introduction to the node package manager (npm) for the [node.js](https:/
 #### Content
 * intro
 * installing
+  * basic
+  * modules
+* importing modules
 
 ##### intro
+**npm** is a package manager for the node.js JavaScript library. Developers can easily use **npm** to share and reuse modules in node.js applications. **npm** can also be used to share complete node.js applications. Example modules might include,
+
+* Markup, YAML etc parsers
+* database connectors
+
+and many more.
+
+##### installing - basic
+`npm` is included with the default installers available at the [node.js](https://nodejs.org) website. For further information, and other install options, please consult the [npmjs](http://npmjs.org) website.
+
+To test whether **npm** is installed, simply issue the following command 
+
+`npm`
+
+This should output some helpfuk information if **npm** is currently installed.
+
+**NB:** on a Unix system, such as OS X or Linux, it is best to avoid installing **npm** with `sudo` privileges.
+
+##### installing - modules
+To install existing **npm** modules, use the following type of command
+
+`npm install express`
+
+This will install the module named `express` in the current directory.
+
+##### importing modules
+To import modules in our node.js code we can use the following,
+
+```
+var module = require('express');
+```
+
+When we run this application, it will look for the required module library and its source code.
+
