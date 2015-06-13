@@ -5,9 +5,14 @@ A quick introduction to the node package manager (npm) for the [node.js](https:/
 #### Content
 * intro
 * installing
-  * basic
+  * npm
   * modules
 * importing modules
+* find modules
+* find module documentation
+* view module bugs
+* edit module source
+* specifying dependencies
 
 ##### intro
 **npm** is a package manager for the node.js JavaScript library. Developers can easily use **npm** to share and reuse modules in node.js applications. **npm** can also be used to share complete node.js applications. Example modules might include,
@@ -17,14 +22,14 @@ A quick introduction to the node package manager (npm) for the [node.js](https:/
 
 and many more.
 
-##### installing - basic
-`npm` is included with the default installers available at the [node.js](https://nodejs.org) website. For further information, and other install options, please consult the [npmjs](http://npmjs.org) website.
+##### installing - npm
+**npm** is included with the default installers available at the [node.js](https://nodejs.org) website. For further information, and other install options, please consult the [npmjs](https://www.npmjs.com) website.
 
 To test whether **npm** is installed, simply issue the following command 
 
 `npm`
 
-This should output some helpfuk information if **npm** is currently installed.
+This should output some helpful information if **npm** is currently installed.
 
 **NB:** on a Unix system, such as OS X or Linux, it is best to avoid installing **npm** with `sudo` privileges.
 
@@ -33,7 +38,13 @@ To install existing **npm** modules, use the following type of command
 
 `npm install express`
 
-This will install the module named `express` in the current directory.
+This will install the module named `express` in the current directory. It will act as a local installation within the current directory, installing in a folder called `node_modules`. This is the default behaviour for current installs.
+
+However, we can also specify a global install for modules. For example, we may wish to install the **express** module with global scope
+
+`npm install -g express`
+
+The `-g` flag specifies the required global install.
 
 ##### importing modules
 To import modules in our node.js code we can use the following,
@@ -43,4 +54,55 @@ var module = require('express');
 ```
 
 When we run this application, it will look for the required module library and its source code.
+
+##### find modules
+The official online search tool for **npm** can be found at [npmjs](https://www.npmjs.com/). Top packages include options such as
+
+* browserify
+* express
+* grunt
+* bower
+* karma
+
+and many more...
+
+We can also search for node modules directly from the terminal using the following command,
+
+`npm search express`
+
+This will return results for module names and descriptions.
+
+##### find module documentation
+Once a module has been installed, we can view its documentation as follows,
+
+`npm docs express`
+
+##### view module bugs
+We can also view the current documented bugs for a module using the following command,
+
+`npm bugs express`
+
+##### edit module source
+If we need to view the source code for a module, we can simply issue the following command
+
+`npm edit express`
+
+##### specifying dependencies
+For node.js applications, we can ease their installation by specifying any required dependencies in an associated `package.json` file. This allows us as developers to simply specify the modules to install for our application, which can then be run using the following command
+
+`npm install`
+
+This helps reduce the need to install each module individually, and helps other users install an application as quickly as possible. Also, our application's dependencies are stored in one place.
+
+An example `package.json` file might be as follows,
+
+```
+{
+"name": "app" 
+"version": "0.0.1"
+"dependencies": {
+  "underscore": "-1.2.1"
+}
+}
+```
 
