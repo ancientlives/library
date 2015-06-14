@@ -5,5 +5,6 @@ A collection of notes on using node.js for application development. Further deta
 #### Contents
 * Introduction
 * Basics
+* NPM
 * Setup
   * Linux
