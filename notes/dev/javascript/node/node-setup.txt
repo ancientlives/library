@@ -1,7 +1,6 @@
 ### Node - Node Setup
 
-Some brief notes on install, configuring, and runing basic node.js. This document currently assumes that you are 
-running a server with Ubuntu Linux 14.04 installed.
+Some brief notes on install, configuring, and running basic node.js.
 
 #### Contents
 * Introduction
@@ -52,7 +51,7 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash
 *NB:*you'll need to modify *v.0.20.0* to match the latest version.
 *NB:*you'll also need to logut of *ssh* and then reconnect before continuing.
 
-Further details can be found at the [NVM Github Repository](https://github.com/creationix/nvm).
+Further details can be found at the [NVM GitHub Repository](https://github.com/creationix/nvm).
 
 You can then use *nvm* (Node Version Manager) to install and maintain node.js. For example,
 

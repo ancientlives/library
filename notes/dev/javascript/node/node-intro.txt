@@ -1,6 +1,6 @@
 ### Node - Introduction
 
-A quick introduction to Node.js. Further details are available at the [node.js](http://nodejs.org) website.
+A quick introduction to Node.js. Further details are available at the [node.js](https://nodejs.org) website.
 
 #### Contents
 * What is node.js?
