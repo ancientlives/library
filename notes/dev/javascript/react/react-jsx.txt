@@ -4,6 +4,159 @@ An introduction to JavaScript XML, and its uses in the [React](http://facebook.g
 
 #### Contents
 * Introduction
-*
+* Pros of JSX
+* Composite components
+  * Custom component definition
+  * Dynamic values
+  * Child nodes
+* Conditionals
+  * ternary operator
+  * variable
+  * function call
+  * double && operator
+* Non-DOM attributes
+  * keys
+  * ref
+  * dangerouslySetInnerHTML
 
 ##### Introduction
+JSX stands for **JavaScript XML**. It follows an XML familiar syntax for developing markup within components in React.
+
+**NB**: JSX is not compulsory within React, but inherently it makes components easier to read and understand. Its sturcture is more succinct and less verbose.
+
+A few defining characteristics of JSX are as follows,
+
+* each JSX node maps to a function in JavaScript
+* JSX does not require a runtime library
+* JSX does not supplement or modify the underlying semantics of JavaScript, instead relying upon simple function calls.
+
+##### Pros of JSX
+Why use JSX, when it simply maps to JavaScript functions?
+
+Many of the inherent benefits of JSX become more apparent as an application, and its code base, grows and becomes more complex. These benefits can include the following,
+
+* a sense of familiarity - easier with experience of XML and DOM manipulation
+  * eg: React components capture all possible representations of the DOM
+* JSX transforms an application's JavaScript code into semantic, meaningful markup
+  * permits declaration of component structure and information flow using a similar syntax to HTML
+  * permits use of pre-defined HTML5 tag names and custom components
+* easy to visualise code and components
+  * considered easier to understand and debug
+* ease of abstraction due to JSX transpiler
+  * abstracts process of converting markup to JavaScript
+* unity of concerns
+  * no need for separation of view and templates
+  * React encourages discrete component for each concern within an application
+    * encapsulates the logic and markup in one definition
+
+##### Composite components
+Examples of creating multiple components.
+
+###### Custom component definition
+An example React component might allow us to output a HTML divider,
+
+```
+var divider = React.createClass( {
+  render: function () {
+    return (
+      <div className="divider">
+      <h2>Hello World</h2><hr />
+      </div>
+    );
+  }
+});
+```
+
+Note, however, that this component is hard coded to simply output the specified heading 'Hello World'.
+
+###### Dynamic values
+JSX considers values dynamic if they are placed between curly brackets `{..}`. Effectively, these curly brackets are treated as a JavaScript context, which means content will be evaluated and the returned results rendered as nodes in the markup.
+
+For example, for text, numbers etc we can simply refer to the appropriate variable for that value.
+
+```
+var heading = 'Hello World';
+<h2>{heading}</h2>
+```
+We can also call functions, which allows us to move a lot of the logic for the component to a standard JavaScript function. We can then call this function, plus any supplied paramters, within the curly brackets of the React component.
+
+React can also evaluate arrays, and then output each value. For example,
+
+```
+var heading = ['hello', 'world'];
+<h2>{text}</h2>
+
+//this will output
+<h2>helloworld</h2>
+```
+###### Child nodes
+React captures child nodes between parent tags in a special component *prop* array, `this.props.children`.
+
+This allows us to add `this.props.children` as the value for the divider, for example, and then simply call the divider element with any required heading. React will then render the heading etc as specified in the divider component.
+
+##### Conditionals
+A component's markup and its logic are inherently linked in React. This naturally includes *conditionals*, *loops* etc. However, adding `if` statements directly to JSX will create invalid JavaScript. Therefore, we can use of the following options,
+
+###### ternary operator
+```
+render: function() {
+  return <div className={
+    this.state.isComplete ? 'is-complete' : ''
+  }>...</div>
+}
+```
+
+###### variable
+```
+getIsComplete: function() {
+  return this.state.isComplete ? 'is-complete' : '';
+},
+render: function() {
+  var isComplete = this.getIsComplete();
+  return <div className = {isComplete}>...</div>
+}
+```
+
+###### function call
+```
+getIsComplete: function() {
+  return this.state.isComplete ? 'is-complete' : '';
+},
+render: function() {
+  return <div className={this.getIsComplete()}>...</div>;
+}
+```
+
+###### double && operator
+To handle React's lack of output for *null* or *false* values, we can use a boolean value and follow it with the desired output.
+
+##### Non-DOM attributes
+In JSX, there are currently three special attribute names,
+
+* `key`
+* `ref`
+* `dangerouslySetInnerHTML`
+
+###### `key`
+In React, this is an optional unique identifier that remains consistent throughout render passes. Effectively, it informs React so it can more efficiently select when to reuse or destroy a component. Naturally, this helps improve the rendering performance of the application.
+
+For example, if two elements already in the DOM need to switch position, React is able to match the keys and move them without any unnecessary re-rendering of the complete DOM.
+
+###### `ref`
+`ref` permits parent components to easily maintain a reference to child components available outside of the render function. To use `ref`, simply set the attribute to the desired reference name.
+
+```
+render: function() {
+  return <div>
+    <input ref="myInput" ... />
+    </div>;
+}
+```
+
+Later, you are able to access this `ref` using the defined `this.refs.myInput` anywhere in the component. The object accessed through this `ref` is known as a *backing instance*.
+
+**NB:** this is not the actual DOM. Instead, it is a description of the component React uses to create the DOM when necessary.
+
+To access the DOM itself for this `ref`, use `this.refs.myInput.getDOMNode()`.
+
+###### `dangerouslySetInnerHTML`
