@@ -18,6 +18,7 @@ An introduction to JavaScript XML, and its uses in the [React](http://facebook.g
   * keys
   * ref
   * dangerouslySetInnerHTML
+* Comments
 
 ##### Introduction
 JSX stands for **JavaScript XML**. It follows an XML familiar syntax for developing markup within components in React.
@@ -160,3 +161,54 @@ Later, you are able to access this `ref` using the defined `this.refs.myInput` a
 To access the DOM itself for this `ref`, use `this.refs.myInput.getDOMNode()`.
 
 ###### `dangerouslySetInnerHTML`
+When absolutely necessary, React can set HTML content as a string using this attribute.
+
+To correctly use this property set it as an object with key `__html`
+
+```
+render: function() {
+  var htmlString = {
+    __html: "<span>...your html string...</span>"
+  };
+  return <div dangerouslySetInnerHTML={htmlString}></div>;
+}
+```
+
+##### Comments
+As JSX is fundamentally JavaScript, we can also add normal comments within our markup. We can also add comments in two places,
+
+* as a child node of an element
+
+```
+<div>
+{/* wrap a child-node comment in brackets, and span
+multiple lines where necessary...*/}
+</div>
+```
+
+* inline with a node's attributes
+Inline comments can follow two patterns, first for single lines and second for multiple lines.
+
+```
+<div>
+/*
+multiple line comments
+*/
+//single line comment...
+</div>
+```
+
+##### Reserved words (special attributes)
+JSX transforms to plain JavaScript functions, which means there are some reserved or special attributes. For example, we can't use `class` or `for`.
+
+Therefore, to create a form label with the `for` attribute we can use `htmlFor` instead. eg:
+
+```
+<label htmlFor="text...">
+```
+
+To create a custom class we can use `className`. eg:
+
+```
+<div className={class...}>
+```
