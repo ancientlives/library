@@ -1,0 +1,22 @@
+### React - Without JSX
+
+An introduction the [React](http://facebook.github.io/react/) JavaScript library without JSX.
+
+#### Contents
+* Introduction
+* Without JSX
+* Create React elements
+
+##### Introduction
+Whilst it is now considered standard practice to use JSX with React, it is not actually necessary for React to work correctly. Therefore, we can use the React JavaScript library without JSX.
+
+One of the perceived inherent benefits of JSX is that it hides some of the complexity of working with React. However, as JSX markup is transformed into plain JavaScript, it is not necessary for using React.
+
+##### Without JSX
+To use React without JSX, there are three primary parts to creating an element in React. These include,
+
+* define component class
+* create a factory for building instances of the component class
+* use this factory to create `ReactElement` instances
+
+##### Creates React elements
