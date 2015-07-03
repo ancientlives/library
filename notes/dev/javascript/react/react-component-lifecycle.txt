@@ -4,6 +4,56 @@ A brief overview of the component lifecycle in the [React](http://facebook.githu
 
 #### Contents
 * Introduction
-*
+* Methods in the lifecycle
+  * Instantiation
+  * Lifetime
+  * Teardown
 
 ##### Introduction
+In the lifecycle of a component, its props or state might change along with any accompanying DOM representation. In effect, a component is a known state machine, and it will always return the same output for a given input.
+
+Following this logic, React provides components with certain *lifecycle* hooks. For example,
+
+* creation
+* lifetime
+* teardown
+
+So, we may consider these hooks first through the instantiation of the component, then its active lifetime, and finally its teardown.
+
+ ##### Methods in the lifecycle
+ React components include a minimal lifecycle API. This provides the developer with enough without being overwhelming, at least in theory.
+
+ Relative to the lifecycle, we can consider the following methods
+
+ ###### Instantiation
+ This includes methods called upon instantiation, and they will be called initially in order for the selected component class.
+
+ * `getDefaultProps`
+   * called only once for the component class. Returned object is used to set default values for any new instances not specified by the parent component.
+ * `getInitialState`
+   * called only once for each instance of a component. It gives us the opportunity to initialise a custom state of each instance. It is, however, called once each time an instance is created. It is also gives us access to `this.props`.
+ * `componentWillMount`
+   * called before the initial `render`. Last chance to change the component state before the render method itself.
+ * `render`
+   * this method builds the virtual DOM itself. It is also the only required method for a component, and has specific rules to follow. These include
+     * only accessible data is `this.props` and `this.state`
+     * can return `null`, `false` or any other React component
+     * cannot return an array of elements, only one top-level component
+     * must be *pure*, which means it cannot change the state or modify the DOM output.
+    * **NB:** the returned result is not the actual DOM, but a virtual representation. This is later compared, using DIFF, with the real DOM to determine if any changes are required.
+ * `componentDidMount`
+   * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavaScript plugin we could use this hook to access the raw DOM. 
+
+ For subsequent component class uses, the above methods, minus `getDefaultProps`, will be called in the above order.
+
+ ###### Lifetime
+ State changes for the application, which affect the component, result in the following methods being called in order.
+
+ * `componentWillReceiveProps`
+ * `shouldComponentUpdate`
+ * `componentWillUpdate`
+ * `render`
+ * `componentDidUpdate`
+
+ ###### Teardown
+ As we finish using a component, the method `componentWillUnmount` is called. This method gives the component the opportunity to tidy up after itself.
