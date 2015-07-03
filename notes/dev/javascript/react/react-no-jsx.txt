@@ -69,4 +69,4 @@ Standard shorthand practices can also be considered for development using React.
 var R = React.DOM;
 ```
 
-Thereby reducing the verbose nature of the code.
+Thereby reducing the verbose nature of the React code.
