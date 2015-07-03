@@ -42,14 +42,17 @@ So, we may consider these hooks first through the instantiation of the component
      * must be *pure*, which means it cannot change the state or modify the DOM output.
     * **NB:** the returned result is not the actual DOM, but a virtual representation. This is later compared, using DIFF, with the real DOM to determine if any changes are required.
  * `componentDidMount`
-   * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavaScript plugin we could use this hook to access the raw DOM. 
+   * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavaScript plugin we could use this hook to access the raw DOM.
 
  For subsequent component class uses, the above methods, minus `getDefaultProps`, will be called in the above order.
 
  ###### Lifetime
+ At this stage, the component has now been rendered to the user for viewing and interaction. So, as a user interacts with the component, they are changing the state of that component or application, which allows us as developers to act on the relevant points in the component tree.
+
  State changes for the application, which affect the component, result in the following methods being called in order.
 
  * `componentWillReceiveProps`
+   * a component's *props* may change at any time due to the parent component. This method is called a result, which gives us an opportunity to change any new *props* object and also update the state. For example, the parent might be an input option. This responds to a state change by the users, which allows us as developers to update the component based upon the parent. If a new boolean is set by the parent, our component can be updated relative to this new value.
  * `shouldComponentUpdate`
  * `componentWillUpdate`
  * `render`
