@@ -6,4 +6,6 @@ A quick introduction to data flow in the [React](http://facebook.github.io/react
 * Introduction
 
 ##### Introduction
-Data flows in one direction in React, namely from parent to the child.
+Data flows in one direction in React, namely from parent to the child. This helps to make components nice and simple, and predictable as well.
+
+In essence, components take *props* from the parent, and then render. 
