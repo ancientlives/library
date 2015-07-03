@@ -6,6 +6,7 @@ An introduction the [React](http://facebook.github.io/react/) JavaScript library
 * Introduction
 * Without JSX
 * Create React elements
+* Using shorthand
 
 ##### Introduction
 Whilst it is now considered standard practice to use JSX with React, it is not actually necessary for React to work correctly. Therefore, we can use the React JavaScript library without JSX.
@@ -19,4 +20,53 @@ To use React without JSX, there are three primary parts to creating an element i
 * create a factory for building instances of the component class
 * use this factory to create `ReactElement` instances
 
-##### Creates React elements
+##### Create React elements
+Using the `React.DOM.*` namespace, provided predefined factories are shorthand for `React.createElement`. Thereby, React provides the first argument for the developer. Therefore, the following two statements produce the same required results,
+
+```
+// type 1
+React.createElement('div');
+// type 2
+React.DOM.div();
+```
+
+For custom components, we must create a factory from our custom component class. Therefore, to create a *divider* class,
+
+```
+var DividerClass = React.createClass({
+  render: function() {
+    return (
+      React.createElement("div", {className: "divider"},
+        React.createElement("h2", null, this.props.children),
+        React.createElement("hr", null)
+      )
+    );
+  }
+});
+```
+
+To use this new `DividerClass` without JSX we a couple of options,
+
+* call `React.createElement` directly
+
+```
+var divider = React.createElement(DividerClass, null, 'Questions');
+```
+
+* create a factory
+
+```
+// create factory
+var Divider = React.createFactory(DividerClass);
+// create an element from the factory
+var divider = Divider(null, 'Questions');
+```
+
+##### Using shorthand
+Standard shorthand practices can also be considered for development using React. For example, we can reference `React.DOM` as follows,
+
+```
+var R = React.DOM;
+```
+
+Thereby reducing the verbose nature of the code.
