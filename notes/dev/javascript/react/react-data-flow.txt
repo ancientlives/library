@@ -26,12 +26,19 @@ We can also use the `setProps` method on a given instance of a component.
 ```
 var classics = [{ title: 'Greek'}];
 var listClassics = React.render (
-	<ListSurveys/>,
+	<ListClassics/>,
 	document.querySelector('body')
 	);
-	listSurveys.setProps({ surveys: surveys });
+	listClassics.setProps({ classics: classics });
 ```
 
 However, this option should only really be used to set `props` on a child component or outside of the component tree.
 
 **NB:** we can access `props` via `this.props`, but it should not be used to write directly to `props`. In effect, a component should not modify its own props.
+
+###### `props` with JSX
+If used with JSX, `props` can be set as a string,
+
+```
+<a href=''>Add
+```
