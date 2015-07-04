@@ -4,4 +4,38 @@ A quick introduction to event handling in the [React](http://facebook.github.io/
 
 #### Contents
 * Introduction
-* 
+* Event handlers
+* Events and state
+* Rendering for state
+
+##### Introduction
+User interface design and implementation needs to consider both rendering and responding to user input. In JavaScript, we are effectively handling user-generated events.
+
+In React, event handling is managed by attaching event handlers to components, and then updating internal states as handlers fire. By updating a component's internal state, React re-renders. Therefore, to correctly reflect these updates in the user interface all React needs to do is read from the internal state of the component's render function.
+
+Whilst it is often sufficient to update state solely based upon the type of event, it may also be necessary to check additional information. This is often needed to determine how to update the state. In this type of case, the Event object that is passed to the handler provides additional information from the event. The handler is then able to use this information to help update the internal state.
+
+##### Event handlers
+In many ways, React responds to the same basic events seen in plain JavaScript. For example, `Change` events as form elements are updated, `MouseEvents` for click handlers, and so on...These events use the same names, and will triggered under the same circumstances.
+
+Therefore, React can attach an `onClick` handler to a button
+
+```
+<button className="button edit" onClick={this.handleEditClicked}>Edit</button>
+```
+
+When a user clicks the *edit* button, its `handleEditClicked` method will run.
+
+**NB:** it might resemble HTML syntax, but it does not use the HTML `onClick` attribute.
+
+Further details on React's handling of event types can be found in the list on the [Event System](http://facebook.github.io/react/docs/events.html) page.
+
+##### Events and state
+This is where a component changes its state, and hence its rendering, based upon known or recorded events. For example, a user clicking a button or dragging an element.
+
+##### Rendering for state
+To be able to render based on state, and its changes, we will often to keep a running list or record of these changes as they happen by the user. To do this, we can use the internal `state` object that every React component contains.
+
+This `state` object begins as `null` by default, but we can initialise it to something else to match our requirements. To do this we can use the method `getInitialState()`.
+
+We can also read from `this.state` in the `render` method. This allows us to display the current set values. 
