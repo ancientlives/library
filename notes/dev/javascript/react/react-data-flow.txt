@@ -80,7 +80,7 @@ var classicRow = React.createClass({
 		}).isRequired,
 		onClick: React.PropTypes.func
 	},
-	//.......
+	//......
 });
 ```
 
@@ -89,3 +89,29 @@ Therefore, if the `propTypes` requirements are not fulfilled upon instantiation 
 If want to set optional `props` we can simply omit the `.isRequired` flag.
 
 **NB:** `propTypes` are not considered a required part of an application, but they provide a useful way to describe the API of a component.
+
+###### getDefaultProps
+We use the `getDefaultProps` function on a component to provide a default set of properties. This is used only for `props` that are not previously defined as required. For example,
+
+```
+var classicTable = React.createClass({
+	getDefaultProps: function() {
+		return {
+			surveys: []
+		};
+	}
+	//......
+});
+```
+
+**NB:** `getDefaultProps` is not called during instantiation of a component. Instead, it is called as soon as `React.createClass` is called to cache the value. Therefore, we are unable to use any instance specific data in this method.
+
+###### State
+A component in React is able to house *state*. *State* is inherently different from `props` because it is internal to the component. However, it is particularly useful for deciding a view state on an element. For example, we could use *state* to track when to show certain options within a hidden list or menu. We can track the current state, change it relative to component requirements, and then show options based upon this amended state.
+
+**NB:** it is considered bad practice to update state directly using `this.state`. Instead, we should use the method `this.setState`.
+
+##### Using state and props
+As developers, try to avoid storing computed values or components directly in *state*. Instead, we should be focusing upon using simple data directly required for the given component to function correctly.
+
+We should also try to avoid duplicating `prop` data into `state`. Use the `props` date instead. 
