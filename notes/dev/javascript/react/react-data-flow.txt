@@ -5,6 +5,11 @@ A quick introduction to data flow in the [React](http://facebook.github.io/react
 #### Contents
 * Introduction
 * Properties (`props`)
+  * `props` with JSX
+  * PropTypes
+	* getDefaultProps
+	* State
+* Using state and props
 
 ##### Introduction
 Data flows in one direction in React, namely from parent to the child. This helps to make components nice and simple, and predictable as well.
@@ -40,5 +45,47 @@ However, this option should only really be used to set `props` on a child compon
 If used with JSX, `props` can be set as a string,
 
 ```
-<a href=''>Add
+<a href='/classics/add'>Add Classics</a>
 ```
+
+We can also set the `props` using the `{}` syntax, which allows us to pass variables of any type via JavaScript injection.
+
+```
+<a href={'/classics/' + classic.id}>{classic.title}</a>
+```
+
+We can also pass event handlers as `props`,
+
+```
+var EditButton = React.createClass({
+	render: function() {
+		return (
+			<a className='button edit' onClick={this.handleClick}>Edit</a>
+		);
+	},
+	handleClick: function() {
+	//handle click...
+	}
+});
+```
+
+###### Proptypes
+We can use React to validate our `props` using a config object defined on a given component. Using `propTypes` we are effectively ensuring that a component matches the given requirements. For example,
+
+```
+var classicRow = React.createClass({
+	propTypes: {
+		classic: React.PropTypes.shape({
+			id: React.PropTypes.number.isRequired
+		}).isRequired,
+		onClick: React.PropTypes.func
+	},
+	//.......
+});
+```
+
+Therefore, if the `propTypes` requirements are not fulfilled upon instantiation of the component, a `console.warn` will be returned and logged.
+
+If want to set optional `props` we can simply omit the `.isRequired` flag.
+
+**NB:** `propTypes` are not considered a required part of an application, but they provide a useful way to describe the API of a component.
