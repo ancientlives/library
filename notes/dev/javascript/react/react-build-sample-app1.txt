@@ -7,6 +7,7 @@ A quick overview of building a basic sample app with the React JavaScript librar
 * Setup
   * server
   * initial HTML
+* First component
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -54,4 +55,34 @@ The default HTML template for this basic app is as follows,
 
 Our React JavaScript code will be added between the script tags in the body. However, we would normally abstract such code to a separate file.
 
-  
+##### First component
+One of the fundamental precepts of React is the development and implementation of modular, composable components.
+
+For the comment box component, we need the following structure
+
+```
+- CommentBox
+  - CommentList
+    - Comment
+  - CommentForm
+```
+
+The `CommentBox` itself is simply a basic `<div>` element
+
+```
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      <div className="commentBox">
+      Hello World
+      </div>
+    );
+  }
+});
+React.render(
+  <CommentBox />,
+  document.getElementById('content')
+);
+```
+
+Again, this is JSX which is then translated by the JSX precompiler to plain JavaScript.
