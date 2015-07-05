@@ -9,6 +9,7 @@ A quick overview of building a basic sample app with the React JavaScript librar
   * initial HTML
 * First component
 * Composing components
+* Working with props
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -144,4 +145,28 @@ var CommentBox = React.createClass({
 ...
 ```
 
-and then we render the parent component as before. 
+and then we render the parent component as before.
+
+**NB:** the above components include regular HTML elements, which React uses as regular components. However, the JSX compiler automatically rewrites these HTML tags to `React.creatElement(tagName)` expressions, and then leaves everything else the same. This is done by React to ensure the global namespace is not polluted.
+
+##### Working with props
+We now need to create the `Comment` component, which depends on data passed from the parent. This data is available in React as a property on the child component.
+
+Such properties are accessed via `this.props`. Using these `props`, we can read the data passed to the `Comment` component from the `commentList` component, and then render some markup.
+
+```
+var Comment = React.createClass({
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        {this.props.children}
+      </div>
+    );
+  }
+});
+```
+
+Here we are accessing named attributes passed to the component as keys on `this.props`. Therefore, `this.props.author`, and then any nested elements as `this.props.children`.
