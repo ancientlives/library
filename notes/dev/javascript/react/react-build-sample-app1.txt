@@ -1,0 +1,34 @@
+### React - Build a Sample App 1
+
+A quick overview of building a basic sample app with the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
+
+#### Contents
+* Introduction
+* Setup
+  * server
+  * initial HTML
+
+##### Introduction
+This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
+
+It follows the example *comments* application available in the React [Tutorial](http://facebook.github.io/react/docs/tutorial.html).
+
+This app includes the following basic features,
+
+* rendered output view of all of the comments
+* a simple form to submit new comments
+* hooks, where applicable, to provide a custom backend for the application
+
+It will also include some quirky test features,
+
+* optimistic commenting - comments will appear in the rendered output view before they're saved to the server
+* live updates - comments created by other users will be added to the rendered output view in real time
+* Markdown formatting - comment creation will support Markdown formatting
+
+##### Setup
+A few quick requirements to setup our basic application.
+
+###### Server
+To run and test this application, in particular the `POST` requirements, we need to setup and use a server. React provides a number of simple example servers, which can be downloaded from their [GitHub repository](https://github.com/reactjs/react-tutorial/). These simple servers are currently available in Node, Python, Ruby, PHP, and Go.
+
+###### Initial HTML
