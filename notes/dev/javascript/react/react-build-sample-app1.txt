@@ -170,3 +170,9 @@ var Comment = React.createClass({
 ```
 
 Here we are accessing named attributes passed to the component as keys on `this.props`. Therefore, `this.props.author`, and then any nested elements as `this.props.children`.
+
+After defining the `Comment` component, we can pass the author's name and comment text. This abstraction allows us to reuse the same code for each unique comment. So, we'll now add some comments to our `CommentList`
+
+```
+var CommentList 
+```
