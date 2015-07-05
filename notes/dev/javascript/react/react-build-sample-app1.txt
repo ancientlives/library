@@ -98,3 +98,50 @@ Again, this is using JSX which is then translated by the JSX precompiler to plai
 Also, it's worth noting that we do not have to return raw HTML. We are, in fact, returning a tree of components.
 
 ##### Composing components
+We now need to build basic outlines for our `CommentList` and `CommentForm` components. These components will also be simple `<div>` elements.
+
+For example, `CommentList`
+
+```
+var CommentList = React.createClass({
+  render: function() {
+    return (
+      <div className="commentList">
+        Hello World - React CommentList.
+      </div>
+    );
+  }
+});
+```
+
+and for `CommentForm`
+
+```
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      <div className="commentForm">
+        Hello World - React CommentForm.
+      </div>
+    );
+  }
+});
+```
+We now need to update the parent component, `CommentBox`, to use these new components.
+
+```
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      <div className="commentBox">
+      <h1>Comments</h1>
+      <CommentList />
+      <CommentForm />
+      </div>
+    );
+  }
+});
+...
+```
+
+and then we render the parent component as before. 
