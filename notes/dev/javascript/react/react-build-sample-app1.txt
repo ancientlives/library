@@ -26,9 +26,32 @@ It will also include some quirky test features,
 * Markdown formatting - comment creation will support Markdown formatting
 
 ##### Setup
-A few quick requirements to setup our basic application.
+A few quick requirements to setup our basic application. This app assumes you have downloaded the latest version of the `react.js` and `JSXTransformer.js` files from the React website.
 
 ###### Server
 To run and test this application, in particular the `POST` requirements, we need to setup and use a server. React provides a number of simple example servers, which can be downloaded from their [GitHub repository](https://github.com/reactjs/react-tutorial/). These simple servers are currently available in Node, Python, Ruby, PHP, and Go.
 
 ###### Initial HTML
+The default HTML template for this basic app is as follows,
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello React</title>
+    <!-- required react files -->
+    <script src="build/react.js"></script>
+    <script src="build/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+      // Your code here
+    </script>
+  </body>
+</html>
+```
+
+Our React JavaScript code will be added between the script tags in the body. However, we would normally abstract such code to a separate file.
+
+  
