@@ -8,6 +8,7 @@ A quick overview of building a basic sample app with the React JavaScript librar
   * server
   * initial HTML
 * First component
+* Composing components
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -85,4 +86,15 @@ React.render(
 );
 ```
 
-Again, this is JSX which is then translated by the JSX precompiler to plain JavaScript.
+Again, this is using JSX which is then translated by the JSX precompiler to plain JavaScript. It works as follows,
+
+* methods passed in a JavaScript object to `React.createClass()`
+  * creates a new React component
+  * most important method is called `render`
+  * `render` returns a tree of React components, which is eventually rendered to HTML
+
+**NB:** the `div` tags are not actually DOM nodes. Instead, they are safe instantiations of pre-defined React `div` components. In effect, they are markers or simply pieces of data that React knows how to handle.
+
+Also, it's worth noting that we do not have to return raw HTML. We are, in fact, returning a tree of components.
+
+##### Composing components
