@@ -174,5 +174,21 @@ Here we are accessing named attributes passed to the component as keys on `this.
 After defining the `Comment` component, we can pass the author's name and comment text. This abstraction allows us to reuse the same code for each unique comment. So, we'll now add some comments to our `CommentList`
 
 ```
-var CommentList 
+var CommentList = React.createClass({
+  render: function() {
+    return (
+      <div className="commentList">
+        <Comment author="ancientlives">This is the first comment...</Comment>
+        <Comment author="fulcanelli">Another comment...</Comment>
+      </div>
+    );
+  }
+});
 ```
+
+We have now passed some data from the parent component, `CommentList`, to the child components, `Comment`. In this example, we have passed
+
+* author names via an attribute, `author`
+* comment text via an XML-like child node, `Another comment...`
+
+Each of the above are passed to the `Comment` component. This component is able to access these properties using `this.props.author` and `this.props.children`.
