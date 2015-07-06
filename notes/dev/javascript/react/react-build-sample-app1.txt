@@ -10,6 +10,7 @@ A quick overview of building a basic sample app with the React JavaScript librar
 * First component
 * Composing components
 * Working with props
+* Add Markdown support
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -192,3 +193,49 @@ We have now passed some data from the parent component, `CommentList`, to the ch
 * comment text via an XML-like child node, `Another comment...`
 
 Each of the above are passed to the `Comment` component. This component is able to access these properties using `this.props.author` and `this.props.children`.
+
+##### Add Markdown support
+Markdown is a quick and easy way to format inline text. To use Markdown in our application, we need to add support via the [marked](http://www.javascriptoo.com/marked) JavaScript library. We can add this in the `<head>` of our application with the usual link.
+
+```
+<script src="build/marked.min.js"></script>
+```
+
+We can now use this library to convert our comment text to Markdown, and then render for viewing.
+
+```
+var Comment = React.createClass({
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 clasName="commentAuthor">
+          {this.props.author}
+        </h2>
+        {marked(this.props.children.toString())}
+      </div>
+    );
+  }
+});
+```
+
+In this example, we call the *marked* library and use it to convert `this.props.children` from React's wrapped text to a raw string that *marked* is able to understand. This is why we use the `toString()` method from the *marked* library.
+
+However, if we now render this output we will see React responding to a perceived XSS attack. It simply render the HTML tags as text and not element tags. There is a way around this, which uses the React option `sanitize`. So, we set `sanitize: true`, which tells *marked* to escape any HTML markup in the source instead of passing it through unchanged as above.
+
+```
+var Comment = React.createClass({
+  render: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.author}
+        </h2>
+        <span dangerouslySetInnerHTML = {{__html: rawMarkup}} />
+      </div>
+    );
+  }
+});
+```
+
+This allows us to now output correct raw HTML for browser rendering.
