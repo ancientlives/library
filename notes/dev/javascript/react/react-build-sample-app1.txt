@@ -308,4 +308,30 @@ React.render(
 );
 ```
 
+However, this is not enough to render the data from the JSON file. We now need to consider and implement state in our application.
+
 ##### Reactive state
+By using `props`, each component has rendered itself once. This is because `props` are considered *immutable*, passed from the parent who is the owner.
+
+To implement interactions, *mutable* `state` needs to be added to the component. React's `this.state` is private to the component, which allows us to change it by calling `this.setState()`. As a result, when this state updates, the component itself re-renders as well.
+
+As the server fetches the data, we need to store it somewhere to allow us to update the comments. We can add an array for this data to the `CommentBox`.
+
+```
+var CommentBox = React.createClass({
+  getInitialState: function() {
+    return {data: []};
+  }
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.state.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+```
+
+**NB:** `getInitialState` executes only once during the lifecycle of the component, thereby setting the initial state of the component.
