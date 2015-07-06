@@ -11,6 +11,9 @@ A quick overview of building a basic sample app with the React JavaScript librar
 * Composing components
 * Working with props
 * Add Markdown support
+* Add a data model
+  * fetch json data from server
+* Reactive State
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -239,3 +242,70 @@ var Comment = React.createClass({
 ```
 
 This allows us to now output correct raw HTML for browser rendering.
+
+##### Add a data model
+Instead of hard-coding our comments, we need to consider a better data model. The first thing to consider is using JSON to store our dynamic list of comments and data.
+
+```
+var data = [
+  {author: "ancientlives", text: "this is JSON comment"},
+  {author: "fulcanelli", text: "this is a second JSON comment"}
+];
+```
+
+To make this data useful in an abstracted manner, we need to add it in a modular way. Therefore, we need to modify our code to allow this data to be passed into `CommentList` via `props`.
+
+```
+var CommentBox = React.createClass({
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.props.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+
+React.render(
+  <CommentBox data={data} />,
+  document.getElementById('content')
+);
+```
+
+Now, we need to update our `CommentList` component to enable correct dynamic rendering of the comment data.
+
+```
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment author={comment.author}>
+          {comment.text}
+        </Comment>
+      );
+    });
+    return (
+      <div className="commentList">
+        {commentNodes}
+      </div>
+    );
+  }
+});
+```
+
+###### Fetch JSON data from server
+We can also abstract our JSON data so it is correctly fetched from the server instead of hard coding the data.
+
+We need to remove the hard-coded `prop` for the data, and replace it with a URL for the JSON.
+
+```
+...
+React.render(
+  <CommentBox url="comments.json" />
+  document.getElementById('content')
+);
+```
+
+##### Reactive state
