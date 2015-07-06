@@ -14,6 +14,7 @@ A quick overview of building a basic sample app with the React JavaScript librar
 * Add a data model
   * fetch json data from server
 * Reactive State
+  * updating state
 
 ##### Introduction
 This note focuses on how to build a basic sample application with the [React](http://facebook.github.io/react/) JavaScript library.
@@ -335,3 +336,59 @@ var CommentBox = React.createClass({
 ```
 
 **NB:** `getInitialState` executes only once during the lifecycle of the component, thereby setting the initial state of the component.
+
+###### Updating state
+To update the data from the server, we can use a standard JSON file. Normally, dynamic data would be retrieved from the server directly.
+
+Our JSON might be as follows,
+
+```
+[
+	{"author": "ancientlives", "text": "this is a JSON comment"},
+	{"author": "fulcanelli", "text": "this is the second JSON comment"}
+]
+```
+
+To query the server for this JSON file, we can use JQuery's implementation of AJAX. In addition to basic querying of the file on the server, we can also add polling to ensure that our rendered comments are current.
+
+```
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.state.data} />
+        <CommentForm />
+      </div>
+    );
+  }
+});
+React.render(
+  <CommentBox url="comments.json" pollInterval={1000} />,
+  document.getElementById('content')
+);
+```
+
+The `componentDidMount` method is called automatically by React as a component is rendered. This allows us to call the local `loadCommentsFromServer` method, which uses `this.setState` to ensure dynamic updates. In effect, we are replacing the previous static array of data with a dynamic set of data from the server.
+
+We have also added live updates, set to poll the server every 1 second, in the `render` method.
