@@ -10,3 +10,6 @@ Development notes for building a very basic To-Do app using the [React](http://f
 This is the first sample code for the To-Do app built using React.
 
 ##### Component Outline
+Our basic to-do list app includes the following defined initial components,
+
+*  
