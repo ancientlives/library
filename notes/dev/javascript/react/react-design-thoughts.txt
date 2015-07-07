@@ -32,3 +32,7 @@ Whether we choose to write this app from top-down or bottom-up is often personal
 
 * smaller apps can be built top-down
 * larger, more complex apps normally benefit from a bottom-up pattern. This allows us to test each smaller component as we develop.
+
+So, by the end of this step you should have a library of reusable components to render your data model. As you might expect, each component, where applicable, will only have `render()` methods due to the current static nature of the app.
+
+For example, the top component, or the parent for the app, should take the defined data model as a `prop`. This is a reflection of React's **one-way data flow**, sometimes also known as **one-way binding**. It inherently helps to keep an application's design and development modular and fast.
