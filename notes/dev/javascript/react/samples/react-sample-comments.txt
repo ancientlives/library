@@ -1,4 +1,4 @@
-### React - Build a Sample App 1
+### React - Samples - Comments App
 
 A quick overview of building a basic sample app with the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
 
