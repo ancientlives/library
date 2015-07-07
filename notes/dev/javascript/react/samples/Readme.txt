@@ -5,4 +5,4 @@ A collection of notes on sample apps for the client-side JavaScript library Reac
 #### Contents
 * Design thoughts for a basic app
 * To-Do app
-	* basic
+	* basic1
