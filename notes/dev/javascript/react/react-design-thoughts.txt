@@ -1,0 +1,34 @@
+### React - Design Thoughts
+
+A quick introduction to thinking in React terms. Further details are available at the [React](http://facebook.github.io/react/) website.
+
+#### Contents
+* Introduction
+* Mockup
+* Divide
+* Static
+
+##### Introduction
+This is quick overview of thinking about app design suitable for working with and using the [React](http://facebook.github.io/react/) JavaScript library. This note also follows the outline and overview on the React tutorial, [Thinking in React](http://facebook.github.io/react/docs/thinking-in-react.html)
+
+##### Mockup
+As with any app's design, begin with a simple lo-fi mockup. With React, this helps us consider how best to divide the app, and of course its interface, into components for further development.
+
+##### Divide
+So, we now need to break our mockup into workable components, and their potential sub-components. It also makes sense to give each component a logical name, which we can then use in the coding and for later identification.
+
+Choosing components is very similar to deciding upon where we should create a new function or object. One concept is known as the **single responsibility principle**, which states that a component should ideally only do one thing. If it then begins to grows further, it should oncemore be divided into smaller sub-components.
+
+It is also often good practice to ensure that your data and component structures match, and thereby map to one another. This is because we normally consider the UI and data models as adhering to the same *information architecture*. Therefore, we can often simply consider a component reflecting one piece of the data model. For example, a product table as a component, or product category row, or the product row itself, and so on.
+
+We can then consider these components as part of an overall hierarchy, parent to child etc.
+
+##### Static
+After dividing our app into components, we can now consider developing a static example using React. Our static example can still read from data etc, but we do not include any interactivity in the UI at this stage.
+
+To be able to correctly render the data model, for example JSON, we need to consider components that reuse other components and thereby pass data using `props`. We do not require state at this time, as this is normally reserved for working with interactivity within our UI and application.
+
+Whether we choose to write this app from top-down or bottom-up is often personal preference, but a good rule of thumb is normally as follows,
+
+* smaller apps can be built top-down
+* larger, more complex apps normally benefit from a bottom-up pattern. This allows us to test each smaller component as we develop.
