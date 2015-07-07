@@ -6,4 +6,4 @@ This directory includes a collection of notes on Javascript and various librarie
 * Angular
 * D3
 * Node
-
+* React
