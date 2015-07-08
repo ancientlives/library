@@ -1,0 +1,13 @@
+### React - Samples - ToDo App - Basic2
+
+Development notes, part 2, for building a very basic To-Do app using the [React](http://facebook.github.io/react/) JavaScript library.
+
+#### Contents
+* Introduction
+* Components
+	*
+
+##### Introduction
+This is the second sample code for the To-Do app built using React.
+
+#####
