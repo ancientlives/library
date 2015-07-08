@@ -7,6 +7,10 @@ Development notes for building a very basic To-Do app using the [React](http://f
 * Components
 	* Outline
 	* TodoRow
+	* TodoCategoryRow
+	* TodoTable
+	* FullTodoTable
+* Render
 
 ##### Introduction
 This is the first sample code for the To-Do app built using React.
@@ -19,9 +23,73 @@ Our basic to-do list app includes the following defined initial components,
 
 *  FullTodoTable
 	* TodoTable
-		* TodoCategoryRow
 		* TodoRow
 
 Working bottom-up for the development of these components, we can start with the `todorow` component.
 
 ###### TodoRow
+Simply renders each row in our table. Includes two variables for the name of the to-do item and its priority setting. These are props from the parent, derived originally from the JSON for the to-do application.
+
+```
+var TodoRow = React.createClass({
+	render: function() {
+		var name = this.props.todo.name;
+		var priority = this.props.todo.priority;
+		return (
+			<tr>
+				<td>{name}</td>
+				<td>{priority}</td>
+		);
+	}
+});
+```
+This component uses the `props` *todo* pushed in the parent `TodoTable`.
+
+###### TodoTable
+This component controls the overall rendering of the table itself, and provides `props` to the to-do items detailed above. We use a defined `sort()` method on the JSON objects to ensure we initially render an order list based on the category names in the data.
+Then we provide `props` to the `TodoRow` in the loop.
+
+```
+var TodoTable = React.createClass({
+	render: function() {
+		var sortItems = this.props.tableitems;
+			//initial sort JSON objects by category before loop and render table...
+			sortItems.sort(function(a, b) {
+				var catA=a.category.toLowerCase(), catB=b.category.toLowerCase()
+				if (catA < catB) //sort string ascending
+					return -1
+				if (catA > catB)
+					return 1
+					return 0 //default return value (no sorting)
+				})
+		var rows = [];
+			sortItems.forEach(function(todo) {
+				rows.push(<TodoRow todo={todo} />);
+			});
+		return (
+			<table>
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Name</th>
+						<th>Priority</th>
+					</tr>
+				</thead>
+				<tbody>{rows}</tbody>
+			</table>
+		);
+	}
+});
+```
+
+This component uses data passed as `props` from the parent component, `FullTodoTable`, to check each to-do list item as stored in the JSON for the application. It loops through this data, and prepares the data for rendering in the table as defined rows.
+
+###### FullTodoTable
+This is the application's parent component, and renders the overall `TodoTable`. It passes as `props` to the `TodoTable` component the JSON data. This starts the cascading component nature of the render output, from parent to child in the application.
+
+##### Render
+The final part of this simple React application is to render to the user. We call `React.render()` using the parent component `FullYodoTable` which receives the raw JSON data as a property with a property to define where to render within the HTML body.
+
+```
+React.render(<FullTodoTable todoitems={TODOITEMS} />, document.body);
+```
