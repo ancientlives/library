@@ -4,12 +4,24 @@ Development notes for building a very basic To-Do app using the [React](http://f
 
 #### Contents
 * Introduction
-* Component Outline
+* Components
+	* Outline
+	* TodoRow
 
 ##### Introduction
 This is the first sample code for the To-Do app built using React.
 
-##### Component Outline
+##### Components
+For React applications, we need to clearly identify components and sub-components of the UI for easier development. We will also be using a bottom-up development pattern for these components, which tends to make component testing easier as we scale our applications.
+
+###### Outline
 Our basic to-do list app includes the following defined initial components,
 
-*  
+*  FullTodoTable
+	* TodoTable
+		* TodoCategoryRow
+		* TodoRow
+
+Working bottom-up for the development of these components, we can start with the `todorow` component.
+
+###### TodoRow
