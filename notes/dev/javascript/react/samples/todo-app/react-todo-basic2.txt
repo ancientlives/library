@@ -43,3 +43,10 @@ var FilterOption = React.createClass({
 ```
 
 This will show the checkbox and accompanying text, but it won't actually filter the table. We need to handle user input for the selection of the checkbox, and then update the table.
+
+##### FullTodoTable
+As the overall parent for the app, we can also set `state` for the app in this component. We now need to add the following
+* `getInitialState()` method - sets initial state of the application for the filter
+	* set `priorityLevel` to default to show both high and low priority list items
+* then pass `priorityLevel` to `TodoTable` as a `prop`
+* finally, we need to use this `prop` to filter the rows in `TodoTable`
