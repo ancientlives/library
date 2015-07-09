@@ -12,6 +12,7 @@ A quick introduction to thinking in React terms. Further details are available a
 	* how state works
 	* in state
 	* out of state
+*
 
 ##### Introduction
 This is quick overview of thinking about app design suitable for working with and using the [React](http://facebook.github.io/react/) JavaScript library. This note also follows the outline and overview on the React tutorial, [Thinking in React](http://facebook.github.io/react/docs/thinking-in-react.html)
@@ -50,6 +51,8 @@ However, as we work with users, add interactivity, and query and respond to serv
 ##### State - ([Docs](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html))
 React considers user interfaces, UIs, as simple state machines, acting in various states and then rendering as required. This means that in React, we simply update a component's state and then render the new corresponding UI.
 
+Therefore, to make a UI interactive, we can trigger data changes using React's `state`.
+
 ###### How state works
 If there is a change in data in the application, perhaps due to a server update or user interaction, we can quickly and easily inform React by calling `setState(data, callback)`. This method allows us to easily merge `data` into `this.state`, which then re-renders the component. As the re-rendering is finished, the optional `callback` is available and is called by React. However, this `callback` will often be unnecessary but it's still useful to know it is available.
 
@@ -64,3 +67,8 @@ In React, `this.state` should only contain the minimal data necessary to represe
 * computed value
 * React components
 * duplicated data from `props`
+
+##### Minimal state
+As noted above, to help make our UI interactive we can use React's `state` to trigger changes to the underlying data model of an application. We need to keep a minimal set of mutable state. **DRY**, or *don't repeat yourself', is often cited as a good rule of thumb for this minimal set.
+
+Effectively, we need to decide upon an absolute minimal representation of the `state` of the application, and then compute everything else as required.
