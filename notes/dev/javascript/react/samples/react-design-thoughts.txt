@@ -58,4 +58,9 @@ Try to keep data in `state` to a minimum, in effect considering the minimal poss
 
 Such properties should also normally only be stored in `this.state`. Then, as we render the updated UI, we can simply compute any other required information in the `render()` method based on this `state`. This is beneficial as we can avoid the need to keep computed values in sync in state, instead relying on React to compute them for us.
 
- 
+ ###### Out of state
+In React, `this.state` should only contain the minimal data necessary to represent an application's UI state. Therefore, this should not contain the following
+
+* computed value
+* React components
+* duplicated data from `props`
