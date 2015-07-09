@@ -8,14 +8,14 @@ Development notes, part 2, for building a very basic To-Do app using the [React]
 	*FilterOption
 
 ##### Introduction
-This is the second sample code for the To-Do app built using React. This update includes a basic table filter
+This is the second sample code for the To-Do app built using React. This update includes a basic table filter.
 
 ##### Components
 In addition to the basic components of version 1, we can add the following
 
 * FilterOption
 
-This allows a user to select whether they want to see all of the to-do list items or just those marked *high priority*.
+This allows a user to select whether they want to see all of the to-do list items or just those marked *Completed*.
 
 Within our overall component hierarchy, it fits as follows
 
@@ -25,7 +25,7 @@ Within our overall component hierarchy, it fits as follows
 		* TodoRow
 
 ##### FilterOption
-We can add a simple filter option using a form with a checkbox to allow a user to only show high priority to-do items.
+We can add a simple filter option using a form with a checkbox to allow a user to only show completed to-do items.
 
 ```
 //filter option
@@ -35,7 +35,7 @@ var FilterOption = React.createClass({
       <form>
         <input type="checkbox" />
         {' '}
-        Show High-Priority Items
+        Show Completed Items
       </form>
     );
   }
@@ -48,6 +48,6 @@ This will show the checkbox and accompanying text, but it won't actually filter 
 As the overall parent for the app, we can also set `state` for the app in this component. We now need to add the following
 
 * `getInitialState()` method - sets initial state of the application for the filter
-	* set `priorityLevel` to default to show both high and low priority list items
+	* set `priorityLevel` to `false` to show initial list items - effectively, turn off the filter
 * then pass `priorityLevel` to `TodoTable` as a `prop`
 * finally, we need to use this `prop` to filter the rows in `TodoTable`
