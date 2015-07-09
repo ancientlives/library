@@ -51,3 +51,118 @@ As the overall parent for the app, we can also set `state` for the app in this c
 	* set `priorityLevel` to `false` to show initial list items - effectively, turn off the filter
 * then pass `priorityLevel` to `TodoTable` as a `prop`
 * finally, we need to use this `prop` to filter the rows in `TodoTable`
+
+```
+var FullTodoTable = React.createClass({
+      //set inital state for filter
+      getInitialState: function() {
+        return {
+          completeOnly: false
+        }
+      },
+      //handle user input (checkbox etc...)
+      handleUserInput: function(completeOnly) {
+        this.setState ({
+          completeOnly: completeOnly
+        });
+      },
+        render: function() {
+            return (
+                <div>
+                  <FilterOption
+                  completeOnly={this.state.completeOnly}
+                  onUserInput={this.handleUserInput}
+                  />
+                  <TodoTable
+                  tableitems={this.props.todoitems}
+                  completeOnly={this.state.completeOnly}
+                  />
+                </div>
+            );
+        }
+    });
+```
+
+We've now added new methods for `getInitialState()` and `handleUserInput`, and modified the `render` method.
+
+`getInitialState()` allows us to set the app's defined default state for the filter. In this example, we are setting it to false, which is then passed as `props` to the child components `FilterOption` and `TodoTable`.
+
+`handleUserInput()` sets the app's state for the user defined *completed items* in the checkbox. It works as a callback method for the `FilterOption` component. This leads back to the `render` method, which then updates the output via the `TodoTable` component.
+
+##### Updated FilterOption
+We need to update the `FilterOption` component to handle the user selecting the checkbox, and requesting only the completed to-do items.
+
+```
+//filter option
+	var FilterOption = React.createClass({
+		//handle changes to filter check option
+		handleChange: function(){
+			this.props.onUserInput(
+				this.refs.completeOnlyInput.getDOMNode().checked
+			);
+		},
+		render: function() {
+			return (
+				<form>
+					<input
+					type="checkbox"
+					checked={this.props.completeOnly}
+					ref="completeOnlyInput"
+					onChange={this.handleChange}
+					/>
+					{' '}
+					Show Completed Items
+				</form>
+			);
+		}
+	});
+```
+
+This is the component that responds to the change in the checkbox by the user. It sets its own state via the parent component `FullTodoTable`, which then re-renders the whole app.
+
+##### TodoTable
+In this component, we need to actually check for the request user action, and then filter the data to only show the correct to-do items.
+
+```
+//to-do table
+    var TodoTable = React.createClass({
+        render: function() {
+          var completeFilter = this.props.completeOnly;
+          var sortItems = this.props.tableitems;
+          //initial sort JSON objects by category before loop and render table...
+          sortItems.sort(function(a, b) {
+          var catA=a.category.toLowerCase(), catB=b.category.toLowerCase()
+            if (catA < catB) //sort string ascending
+              return -1
+            if (catA > catB)
+              return 1
+            return 0 //default return value (no sorting)
+          })
+            var rows = [];
+            sortItems.forEach(function(todo) {
+              //check completeOnly props and then filter to-do items to remove uncompleted items from data
+              if (completeFilter == true && todo.completed == false) {
+                return;
+              }
+                rows.push(<TodoRow todo={todo} />);
+            });
+            return (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Name</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>{rows}</tbody>
+                </table>
+            );
+        }
+    });
+```
+
+This component has been updated to filter the to-do list items based on the user selected option in the checkbox. Therefore, there is a simple conditional check for `this.props.completeOnly`. This is then used to either push a row or not to the `rows` array for rendering the table. 
+
+##### Overall
+So, the user clicks the checkbox to request or remove *completed items* for the to-do list. This fires the `handleChange` method in the `FilterOption` component, which checks the specified DOM element for the checkbox. This is then passed to the `props`, which is the defined `handleUserInput` method in the parent `FullTodoTable` component. This method updates the state relative to the user input for the checkbox, and React re-renders the whole app. This new state, derived from the user input, leads to the table being re-rendered with the correct to-do items, either completed or all items.
