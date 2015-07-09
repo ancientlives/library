@@ -71,4 +71,4 @@ In React, `this.state` should only contain the minimal data necessary to represe
 ##### Minimal state
 As noted above, to help make our UI interactive we can use React's `state` to trigger changes to the underlying data model of an application. We need to keep a minimal set of mutable state. **DRY**, or *don't repeat yourself', is often cited as a good rule of thumb for this minimal set.
 
-Effectively, we need to decide upon an absolute minimal representation of the `state` of the application, and then compute everything else as required.
+Effectively, we need to decide upon an absolute minimal representation of the `state` of the application, and then compute everything else as required. For example, if we maintain an array of items, it is React common practice to calculate the length of this array as needed instead of maintaining a counter.
