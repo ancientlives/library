@@ -8,6 +8,10 @@ A quick introduction to thinking in React terms. Further details are available a
 * Divide
 * Static
 	* props vs state
+* State
+	* how state works
+	* in state
+	* out of state
 
 ##### Introduction
 This is quick overview of thinking about app design suitable for working with and using the [React](http://facebook.github.io/react/) JavaScript library. This note also follows the outline and overview on the React tutorial, [Thinking in React](http://facebook.github.io/react/docs/thinking-in-react.html)
@@ -39,3 +43,15 @@ So, by the end of this step you should have a library of reusable components to 
 For example, the top component, or the parent for the app, should take the defined data model as a `prop`. This is a reflection of React's **one-way data flow**, sometimes also known as **one-way binding**. It inherently helps to keep an application's design and development modular and fast.
 
 ###### props vs state
+In React, we can often consider two types of *model* data, which include `props` and `state`. Most components will normally take their data from `props`, which allow them to render the required data.
+
+However, as we work with users, add interactivity, and query and respond to servers, we also need to consider the `state` of the application. Whilst `state` is very useful and important in React, it's also important to try and keep many of our components *stateless*.
+
+##### State - ([Docs](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html))
+React considers user interfaces, UIs, as simple state machines, acting in various states and then rendering as required. This means that in React, we simply update a component's state and then render the new corresponding UI.
+
+###### How state works
+If there is a change in data in the application, perhaps due to a server update or user interaction, we can quickly and easily inform React by calling `setState(data, callback)`. This method allows us to easily merge `data` into `this.state`, which then re-renders the component. As the re-rendering is finished, the optional `callback` is available and is called by React. However, this `callback` will often be unnecessary but it's still useful to know it is available.
+
+###### In state
+Try to keep data in `state` to a minimum, in effect considering the minimal possible representation of an application's state to help build a *stateful* component. Therefore, this `state` should try to just contain data that is required by a component's event handlers to help trigger a UI update, if and when they are modified.
