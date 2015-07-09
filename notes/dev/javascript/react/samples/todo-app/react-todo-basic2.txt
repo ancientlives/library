@@ -5,9 +5,23 @@ Development notes, part 2, for building a very basic To-Do app using the [React]
 #### Contents
 * Introduction
 * Components
-	*
+	*FilterOption
 
 ##### Introduction
-This is the second sample code for the To-Do app built using React.
+This is the second sample code for the To-Do app built using React. This update includes a basic table filter
 
-#####
+##### Components
+In addition to the basic components of version 1, we can add the following
+
+* FilterOption
+
+This allows a user to select whether they want to see all of the to-do list items or just those marked *high priority*.
+
+Within our overall component hierarchy, it fits as follows
+
+*  FullTodoTable
+	* FilterOption
+	* TodoTable
+		* TodoRow
+
+##### FilterOption
