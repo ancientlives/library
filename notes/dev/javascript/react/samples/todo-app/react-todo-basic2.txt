@@ -25,3 +25,21 @@ Within our overall component hierarchy, it fits as follows
 		* TodoRow
 
 ##### FilterOption
+We can add a simple filter option using a form with a checkbox to allow a user to only show high priority to-do items.
+
+```
+//filter option
+var FilterOption = React.createClass({
+  render: function() {
+    return (
+      <form>
+        <input type="checkbox" />
+        {' '}
+        Show High-Priority Items
+      </form>
+    );
+  }
+});
+```
+
+This will show the checkbox and accompanying text, but it won't actually filter the table. We need to handle user input for the selection of the checkbox, and then update the table.
