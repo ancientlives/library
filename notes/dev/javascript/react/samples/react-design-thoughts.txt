@@ -72,3 +72,18 @@ In React, `this.state` should only contain the minimal data necessary to represe
 As noted above, to help make our UI interactive we can use React's `state` to trigger changes to the underlying data model of an application. We need to keep a minimal set of mutable state. **DRY**, or *don't repeat yourself', is often cited as a good rule of thumb for this minimal set.
 
 Effectively, we need to decide upon an absolute minimal representation of the `state` of the application, and then compute everything else as required. For example, if we maintain an array of items, it is React common practice to calculate the length of this array as needed instead of maintaining a counter.
+
+As we develop an application, we should start dividing our data into logical pieces. We can then start to consider which is state. For example,
+
+* is it from `props` - if yes, this is probably not `state` in React
+* does it update or change over time? (eg: due to API updates etc) - if yes, this is probably not `state`
+* can you compute the data based upon other `state` or `props` in a component? - if yes, it is not state
+
+Again, if data is parred as `props` it is not `state` in React.
+
+We also need to decide upon our minimal set of components that mutate, or *own* state. As React is based on the premise of one-way data flow down the hierarchy of components, this can often be quite tricky to determine. To helps us, we can initially check the following,
+
+* each component that renders something based on state
+* determine the parent component that needs the state in the hierarchy
+* a common or parent component should own the state
+	* *NB:* if this can't be determined, simply create a basic component to hold this state at the top of the state hierarchy
