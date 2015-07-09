@@ -55,3 +55,7 @@ If there is a change in data in the application, perhaps due to a server update 
 
 ###### In state
 Try to keep data in `state` to a minimum, in effect considering the minimal possible representation of an application's state to help build a *stateful* component. Therefore, this `state` should try to just contain data that is required by a component's event handlers to help trigger a UI update, if and when they are modified.
+
+Such properties should also normally only be stored in `this.state`. Then, as we render the updated UI, we can simply compute any other required information in the `render()` method based on this `state`. This is beneficial as we can avoid the need to keep computed values in sync in state, instead relying on React to compute them for us.
+
+ 
