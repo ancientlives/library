@@ -20,7 +20,13 @@ A quick introduction to React JavaScript library. Further details are available 
 **React** is best perceived as a *view* library, and has no definite requirements or restrictions on storage, data structure, routing, and so on. This allows developers the freedom to incorporate **React** code into a broad scope of applications and frameworks.
 
 ##### Why use React?
+React is often considered the *V* in the traditional *MVC*. As defined in the React [docs](http://facebook.github.io/react/docs/why-react.html), it was designed to solve one problem,
 
+  *building large applications with data that changes over time.*
+
+React, therefore, can best be considered as addressing the following
+
+* simple - 
 
 ##### Speed
 **React** leverages its built-in, powerful rendering system to produce quick, responsive rendering of the DOM in response to received state changes. It uses a virtual DOM, which enables **React** to maintain and update the DOM without the lag of reading it as well.
