@@ -26,7 +26,9 @@ React is often considered the *V* in the traditional *MVC*. As defined in the Re
 
 React, therefore, can best be considered as addressing the following
 
-* simple - 
+* simple - define how your app should look at any given point in time, and React handles all UI changes and updates in response to data changes
+* declarative - as this data changes, React effectively refreshes your app and is sufficiently aware to only update those parts that have changed
+* components - a fundamental principle of React is building re-usable components. These components are so encapsulated in their design and concepts, they make it simple for code *re-use*, *testing*, and the separation of design and app concerns in general.
 
 ##### Speed
 **React** leverages its built-in, powerful rendering system to produce quick, responsive rendering of the DOM in response to received state changes. It uses a virtual DOM, which enables **React** to maintain and update the DOM without the lag of reading it as well.
