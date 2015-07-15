@@ -11,6 +11,7 @@ Development notes for building a very basic To-Do app using the [React](http://f
 	* TodoTable
 	* FullTodoTable
 * Render
+* JSON sample data
 
 ##### Introduction
 This is the first sample code for the To-Do app built using React.
@@ -33,10 +34,12 @@ Simply renders each row in our table. Includes two variables for the name of the
 ```
 var TodoRow = React.createClass({
 	render: function() {
+	  var category = this.props.todo.category;
 		var name = this.props.todo.name;
 		var priority = this.props.todo.priority;
 		return (
 			<tr>
+			  <td>{category}</td>
 				<td>{name}</td>
 				<td>{priority}</td>
 		);
@@ -87,9 +90,36 @@ This component uses data passed as `props` from the parent component, `FullTodoT
 ###### FullTodoTable
 This is the application's parent component, and renders the overall `TodoTable`. It passes as `props` to the `TodoTable` component the JSON data. This starts the cascading component nature of the render output, from parent to child in the application.
 
+```
+//full todo table
+	var FullTodoTable = React.createClass({
+			render: function() {
+					return (
+							<div>
+									<TodoTable tableitems={this.props.todoitems} />
+							</div>
+					);
+			}
+	});
+```
+
 ##### Render
 The final part of this simple React application is to render to the user. We call `React.render()` using the parent component `FullYodoTable` which receives the raw JSON data as a property with a property to define where to render within the HTML body.
 
 ```
 React.render(<FullTodoTable todoitems={TODOITEMS} />, document.body);
+```
+
+##### JSON sample data
+For testing this basic app, we can use static JSON data. For example,
+
+```
+var TODOITEMS = [
+      {category: 'Personal', name: 'Finish reading book', completed: true, priority: 'Low'},
+      {category: 'Work', name: 'Finish programming notes', completed: true, priority: 'High'},
+      {category: 'Personal', name: 'Check Holiday quotes', completed: true, priority: 'High'},
+      {category: 'Work', name: 'Send email replies', completed: false, priority: 'High'},
+      {category: 'Work', name: 'Read through notes', completed: true, priority: 'Low'},
+      {category: 'Personal', name: 'Organise library', completed: true, priority: 'Low'}
+    ];
 ```

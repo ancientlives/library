@@ -13,10 +13,9 @@ This directory includes a collection of disparate notes collected by language, t
   * Angular
   * D3
   * Node
+  * React
 * Markdown
 * Python
 * Site Building
   * Jekyll
 * Twitter
-
-
