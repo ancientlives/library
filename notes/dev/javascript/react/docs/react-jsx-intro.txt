@@ -1,0 +1,80 @@
+### React - JSX Introduction
+
+A quick introduction to JSX in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website. These notes are based in part on the online [docs](http://facebook.github.io/react/docs/jsx-in-depth.html).
+
+#### Contents
+* Intro to JSX
+* HTML vs Components
+* JSX transform
+* Namespaced components
+
+##### Intro to JSX
+JSX is not compulsory for using React, plain JavaScript can be used as well. JSX provides a concise and familiar syntax for tree structures with attributes.
+
+Syntactic structure follows other tree-based markup languages, such as XML. JSX does not alter the semantics of JavaScript.
+
+##### HTML vs Components
+React can render HTML (strings) by using lower-case tag names in JSX
+
+```
+var htmlElement = <div className="foo" />
+React.render(htmlElement, document.getElementId('example'));
+```
+
+or React components (classes) using a local variable name starting with an upper-case letter
+
+```
+var Component = React.createClass({
+  render: function() {
+  ....//do something
+  };
+});
+var myElement = <Component aProperty={...};
+React.render(myElement, document.getElementById('example'));
+```
+
+and so on.
+
+##### JSX Transform
+JSX transforms from XML-like syntax to plain JavaScript. These XML elements, attributes, and children are transformed into arguments that are passed to `React.createElement`.
+
+```
+var Nav;
+//JSX input
+var app = <Nav color="blue" />;
+//JS output
+var app = React.createElement(Nav, {color:"blue"});
+```
+
+JSX allows specification of children using XML-like syntax
+
+```
+var Nav, Profile;
+//JSX input
+var app = <Nav color="blue"><Profile>click</Profile></Nav>;
+//JS output
+var app = React.createElement(
+  Nav,
+  {color:"blue"},
+  React.createElement(Profile, null, "click")
+);
+```
+
+##### Namespaced components
+To avoid many variable declarations for a component, such as a form with many children, it can be easier and simpler to use *namespaced components*. This means we can use one component, the form, which has other components as attributes.
+
+```
+var Form = MyFormComponent;
+
+var App = (
+
+);
+```
+
+To create this type of component, we just need to create *sub-components* as attributes of the main component.
+
+```
+var MyFormComponent = React.createClass({...});
+
+MyFormComponent.Row = React.createClass({...});
+```
