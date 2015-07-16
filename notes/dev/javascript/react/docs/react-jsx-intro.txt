@@ -12,6 +12,7 @@ A quick introduction to JSX in the React JavaScript library. Further details are
   * boolean attributes
   * child expressions
   * JS comments
+* Spread attributes
 
 ##### Intro to JSX
 JSX is not compulsory for using React, plain JavaScript can be used as well. JSX provides a concise and familiar syntax for tree structures with attributes.
@@ -140,3 +141,40 @@ var content = (
 </Nav>
 );
 ```
+
+##### Spread attributes
+In JSX, adding initial multiple component properties is easy
+
+```
+var component = <Component foo={x} bar="{y}" />;
+```
+
+However, if these properties are initially unknown it might be tempting to assign them later. However, *mutating props* is considered an anti-pattern, as it does not help React check the correct `propTypes` until much later. This can lead to errors in the `propTypes` with a cryptic stack trace.
+
+`props` should be considered immutable. Instead, we can use a new feature known as *spread attributes*.
+
+```
+var props = {};
+props.foo = x;
+props.bar = y;
+var component = <Component {...props} />;
+```
+
+So, the properties of the object passed are copied onto the component's `props`. We can use this multiple times or combine it with other attributes. By using this spread attributes notation we can safely update a transferred/passed `props`, override the prop value etc.
+
+**NB:** `...` is a spread operator. It has been introduced in the ES6 standard. It allows an expression to be expanded in places where multple arguments (functions etc) or multiple elements (array literals) are expected. For example, we might want to create a new array with values from an existing array. With spread operators this is now more succinct,
+
+```
+var parts = ['shoulders', 'knees'];
+var lyrics = ['head', ...parts, 'and', 'toes'];
+```
+
+We can also use this spread operator with `push`,
+
+```
+var arr1 = [0,1,2];
+var arr2 = [3,4,5];
+arr1.push(...arr2);
+```
+
+**NB:** this new spread operator in ES6 is currently supported by Chrome, Firefox, and Safari. IE and Opera does not support this new ES6 feature.
