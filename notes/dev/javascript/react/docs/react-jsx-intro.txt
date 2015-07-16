@@ -7,6 +7,7 @@ A quick introduction to JSX in the React JavaScript library. Further details are
 * HTML vs Components
 * JSX transform
 * Namespaced components
+* Using JavaScript expressions
 
 ##### Intro to JSX
 JSX is not compulsory for using React, plain JavaScript can be used as well. JSX provides a concise and familiar syntax for tree structures with attributes.
@@ -67,14 +68,34 @@ To avoid many variable declarations for a component, such as a form with many ch
 var Form = MyFormComponent;
 
 var App = (
-
+  <Form>
+    <Form.Row>
+      <Form.Label />
+      <Form.Input />
+    </Form.Row>
+  </Form>
 );
 ```
 
-To create this type of component, we just need to create *sub-components* as attributes of the main component.
+To create this type of component, we need to create *sub-components* as attributes of the main component.
 
 ```
 var MyFormComponent = React.createClass({...});
 
 MyFormComponent.Row = React.createClass({...});
+MyFormComponent.Label = React.createClass({...});
+MyFormComponent.Input = React.createClass({...});
+```
+
+##### Using JavaScript expressions
+We can also use JavaScript expressions with JSX to help with additional native functionality.
+
+For example,
+
+###### Attribute expressions
+We can use a JavaScript expression as an attribute value in JSX by wrapping it in curly braces `{}` instead of the standard quotes `""''.
+
+```
+//JSX input with ternary check...
+var person = <Person name={window.isLoggedIn ? window.name : ''} />;
 ```
