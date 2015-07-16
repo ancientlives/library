@@ -9,8 +9,8 @@ A quick introduction to interactive and dynamic UIs in the React JavaScript libr
 * State machines
 * How state works
 * Components and state
-* In state?
-* Out of state?
+* What to put in state?
+* What to leave out of state?
 
 ##### Introduction
 React is particularly useful for developing and handling interactive user interfaces (Uis).
