@@ -8,6 +8,10 @@ A quick introduction to JSX in the React JavaScript library. Further details are
 * JSX transform
 * Namespaced components
 * Using JavaScript expressions
+  * attribute expressions
+  * boolean attributes
+  * child expressions
+  * JS comments
 
 ##### Intro to JSX
 JSX is not compulsory for using React, plain JavaScript can be used as well. JSX provides a concise and familiar syntax for tree structures with attributes.
@@ -98,4 +102,41 @@ We can use a JavaScript expression as an attribute value in JSX by wrapping it i
 ```
 //JSX input with ternary check...
 var person = <Person name={window.isLoggedIn ? window.name : ''} />;
+```
+
+###### Boolean attributes
+No attribute value is interpreted by JSX as `true` by default. To use `false`, we must use an attribute expression. For example, we may need this for HTML `form` elements.
+
+```
+//JSX set a button to disabled
+<input type="button" disabled />;
+//JSX set a button to disabled - verbose
+<input type="button" disabled={true} />;
+
+//JSX true is default - but we can also be explicit
+<input type="button" disabled={false} />;
+```
+
+###### Child expressions
+We can also use JS expressions to express children.
+
+```
+//JSX input - ternary check and output either Nav or Login
+var content = <Container>{window.isLoggedIn ? <Nav /> : <login />}</Container>
+```
+
+###### JS comments
+JavaScript comments can be added to JSX. They're simply interpreted as JS expressions. Therefore, they also need to be wrapped in braces `{}` if the comment is within the child section of a tag.
+
+```
+var content = (
+<Nav>
+{/* child comment, use {} */}
+  <User
+/* multi-line
+   comment */
+   name={window.name} //end of line single comment
+  />
+</Nav>
+);
 ```
