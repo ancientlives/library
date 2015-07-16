@@ -9,6 +9,8 @@ A quick introduction to interactive and dynamic UIs in the React JavaScript libr
 * State machines
 * How state works
 * Components and state
+* In state?
+* Out of state?
 
 ##### Introduction
 React is particularly useful for developing and handling interactive user interfaces (Uis).
@@ -46,3 +48,15 @@ In most instances, we can simply inform React of a data change by calling `setSt
 Most components simply take data from `props`, and then render. However, interactive UIs naturally require the ability and option to respond to user input, server requests etc. To manage this type of interactive requirement, we use *state*.
 
 However, we should also try to keep most components *stateless* unless explicitly required. A standard pattern for such stateless design is to maintain several *stateless* components that simply render data, and then implement a *stateful* component higher in the app hierarchy. This *stateful* component is able to pass its state using `props` to its children. This *stateful* component normally also encapsulates the interaction logic for the app, whilst the other *stateless* components manage data rendering in a declarative way.
+
+##### What to put in state?
+State should be used to store data, which can then be modified by a component's event handlers to trigger a UI update.
+
+As we build a *stateful* component, we can therefore consider the minimal possible representation of its state, and then store only those properties in `this.state`. We can then use `render()` to simply compute any other necessary information based on this state. If we add redundant or computed values to state, instead of using `render()`, we will need to explicitly keep them in *sync* rather than relying on React to compute them for us.
+
+##### What to leave out of state?
+With the above in mind, `this.state` should contain the minimal amount of necessary data to represent an app's UI state. Therefore, it should not contain the following
+
+* computed data (as noted above)
+* any React components
+* any duplicated data from `props`
