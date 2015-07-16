@@ -4,5 +4,45 @@ A quick introduction to interactive and dynamic UIs in the React JavaScript libr
 
 #### Contents
 * Introduction
+* Event handling
+* Autobinding and event delegation
+* State machines
+* How state works
+* Components and state
 
 ##### Introduction
+React is particularly useful for developing and handling interactive user interfaces (Uis).
+
+##### Event handling
+Pass an event handler as a *camelCased* `prop`, similar to HTML examples. It is useful to know that React handles compatibilty with IE8 etc through a synthetic event system. For example,
+
+```
+//...
+<textarea class="editor" onChange={this.handleTextChange} />
+```
+
+We can also enable React for touch devices, such as a phone or tablet, simple by calling
+
+```
+React.initializeTouchEvents(true);
+```
+
+This enables touch event handling.
+
+##### Autobinding and event delegation
+React *autobinds* every method to its component instance. It then caches the bound method to help improve CPU and memory efficiency.
+
+React does not attach event handlers to the nodes. Instead, as it starts up, it begins listening for *all* events at the top level using a single event listener. Required event handlers are added or removed as a component is mounted or unmounted. Using an internal mapping, React knows how to despatch an event, if an when one occurs. If there are no event handlers left in this mapping, React's event handlers become simple no-ops.
+
+##### State machines
+UIs in React can simply be considered as state machines. Therefore, we can think of React UIs as being in various states at given times, and then render as appropriate. This helps to keep a UI consistent.
+
+In effect, with React we simply update a component's state, and then render a new UI based on the new, required state. React updates the DOM as needed.
+
+##### How state works
+In most instances, we can simply inform React of a data change by calling `setState(data, callback)`. This method will merge the passed data into `this.state`, and then re-render the component. Then, once the component has finished re-rendering, the optional `callback` will be called. Also, a lot of the time a `callback` will not be necessary as React helps maintain an up-to-date UI for the application.
+
+##### Components and state
+Most components simply take data from `props`, and then render. However, interactive UIs naturally require the ability and option to respond to user input, server requests etc. To manage this type of interactive requirement, we use *state*.
+
+However, we should also try to keep most components *stateless* unless explicitly required. A standard pattern for such stateless design is to maintain several *stateless* components that simply render data, and then implement a *stateful* component higher in the app hierarchy. This *stateful* component is able to pass its state using `props` to its children. This *stateful* component normally also encapsulates the interaction logic for the app, whilst the other *stateless* components manage data rendering in a declarative way.
