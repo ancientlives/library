@@ -35,17 +35,17 @@ This abstract button can contain all elements, traits, and functionality common 
 We can then use the parent, abstract button to create s specialised child butto. This button effectively inherits and extends the parent.
 
 ```
-var AbstractButton = React.createClass({
+var RealButton1 = React.createClass({
     propTypes: {
-        onClick: React.PropTypes.func
+        caption: React.PropTypes.string.isRequired
     },
-    handleClick: function(e) {
-        if (this.props.onClick) {
-            this.props.onClick.call(this, e);
-        }
-    },
+
     render: function() {
-       return <button onClick={this.handleClick}>{this.props.caption}</button>;
+        return <AbstractButton onClick={ this.clicked } caption={ this.props.caption } />;
+    },
+
+    clicked: function(e) {
+        console.log('clicked ' + this.props.caption);
     }
 
 });
