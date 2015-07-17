@@ -1,0 +1,54 @@
+### React - Create an abstract button component
+
+A quick overview of how to create an abstracted button, which can then be inherited and re-used as the basis for other specific buttons. This has been built using the [React](http://facebook.github.io/react/) JavaScript library.
+
+#### Contents
+* Intro
+* Abstract button
+* Child button
+
+##### Intro
+Using a compositional pattern, we can create an *abstract* button as a parent component for other buttons. This works in a similar manner to traditional inheritance.
+
+So, we create an abstracted, parent button that contains basic functionality and behavour.
+
+```
+var AbstractButton = React.createClass({
+    propTypes: {
+        onClick: React.PropTypes.func
+    },
+    handleClick: function(e) {
+        if (this.props.onClick) {
+            this.props.onClick.call(this, e);
+        }
+    },
+    render: function() {
+       return <button onClick={this.handleClick}>{this.props.caption}</button>;
+    }
+
+});
+```
+
+This abstract button can contain all elements, traits, and functionality common to required buttons.
+
+##### Child button
+We can then use the parent, abstract button to create s specialised child butto. This button effectively inherits and extends the parent.
+
+```
+var AbstractButton = React.createClass({
+    propTypes: {
+        onClick: React.PropTypes.func
+    },
+    handleClick: function(e) {
+        if (this.props.onClick) {
+            this.props.onClick.call(this, e);
+        }
+    },
+    render: function() {
+       return <button onClick={this.handleClick}>{this.props.caption}</button>;
+    }
+
+});
+```
+
+Each additional child button can behave differently, yet still inherit the parent abstracted button.
