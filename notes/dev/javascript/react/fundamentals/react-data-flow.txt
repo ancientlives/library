@@ -12,11 +12,11 @@ A quick introduction to data flow in the [React](http://facebook.github.io/react
 * Using state and props
 
 ##### Introduction
-Data flows in one direction in React, namely from parent to the child. This helps to make components nice and simple, and predictable as well.
+Data flows in one direction in React, namely from parent to child. This helps to make components nice and simple, and predictable as well.
 
 In essence, components take *props* from the parent, and then render. If a *prop* has been changed, for whatever reason, React will update the component tree for that change, and then re-render any components that used that property.
 
-Internal state also exists for each component, and this should only be updated within the component itself.
+Internal state also exists for each component, and should only be updated within the component itself.
 
 ##### Properties (`props`)
 Properties, or `props`, can hold any data and are passed to a component for usage. As developers, we can set `props` on a component during instantiation
@@ -29,17 +29,26 @@ var classics = [{ title: 'Greek'}];
 We can also use the `setProps` method on a given instance of a component.
 
 ```
+var ListClassics = React.createClass({
+  render: function() {
+    return (
+      <li>{this.props.classics}</li>
+    );
+  }
+});
+
 var classics = [{ title: 'Greek'}];
 var listClassics = React.render (
-	<ListClassics/>,
-	document.querySelector('body')
-	);
-	listClassics.setProps({ classics: classics });
+  <ListClassics/>,
+	document.getElementById('example')
+);
+
+listClassics.setProps({ classics: classics });
 ```
 
 However, this option should only really be used to set `props` on a child component or outside of the component tree.
 
-**NB:** we can access `props` via `this.props`, but it should not be used to write directly to `props`. In effect, a component should not modify its own props.
+**NB:** we can access `props` via `this.props`, as noted above, but it should not be used to write directly to `props`. In effect, a component should not modify its own props.
 
 ###### `props` with JSX
 If used with JSX, `props` can be set as a string,
@@ -65,6 +74,7 @@ var EditButton = React.createClass({
 	},
 	handleClick: function() {
 	//handle click...
+  alert('edit button clicked...');
 	}
 });
 ```
