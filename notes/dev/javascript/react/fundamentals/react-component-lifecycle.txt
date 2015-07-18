@@ -54,6 +54,8 @@ An example for `componentDidMount` might be as follows,
 componentDidMount: function() {
       var text = React.findDOMNode(this).textContent;
       alert('text = '+text);
+      //use some JQuery...
+      $(this.getDOMNode()).empty().append('some new text...');
 }
 ```
 
@@ -71,16 +73,6 @@ State changes for the application, which affect the component, result in the fol
 * `render`
 * `componentDidUpdate`
   * this method gives us the opportunity to update the rendered DOM.
-
-An example for `componentDidMount` might be as follows,
-
-```
-componentDidMount: function() {
-// eg: $(this.getDOMNode()).empty().append('some new text...');
-$(this.getDOMNode()).append('some new text...');
-  }
-});
-```
 
 ###### Teardown
 As React is finished with a component it must be unmounted from the DOM and destroyed. There is a single hook for this moment, which provides an opportunity to perform any cleanup and teardown as necessary.
