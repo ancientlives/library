@@ -8,6 +8,7 @@ A brief overview of the component lifecycle in the [React](http://facebook.githu
   * Instantiation
   * Lifetime
   * Teardown
+* Anti-pattern
 
 ##### Introduction
 In the lifecycle of a component, its props or state might change along with any accompanying DOM representation. In effect, a component is a known state machine, and it will always return the same output for a given input.
@@ -79,3 +80,8 @@ As React is finished with a component it must be unmounted from the DOM and dest
 
 * `componentWillUnmount`
   * as the life of a component ends, it is removed from the component hierarchy. This method gives us a chance to clean up just before the component is removed. For example, any custom work performed using `componentDidMount` needs to be undone here.
+
+##### Anti-pattern - calculated values
+React is particularly concerned with maintaining a single source of truth. In effect, one point where `props` and `state` are derived.
+
+If we consider calculated values derived from `props`, it is considered an anti-pattern to store these calculated values as state. For example, if we needed to convert a `props` date to a string for rendering, this is not state and should simply be calculated at the time of `render`.
