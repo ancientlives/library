@@ -4,3 +4,13 @@ A collection of notes on the client-side JavaScript library React. Further detai
 
 #### Contents
 * Introduction
+* Getting started
+* Fundamentals
+	* JSX
+  	* no JSX
+	* Component lifecycle
+	* Data flow
+	* Event handling
+	* Composing components
+	* Mixins
+* Advanced
