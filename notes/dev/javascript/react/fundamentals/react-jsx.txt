@@ -1,4 +1,4 @@
-### React - JSX
+### React - Fundamentals - JSX
 
 An introduction to JavaScript XML, and its uses in the [React](http://facebook.github.io/react/) JavaScript library.
 

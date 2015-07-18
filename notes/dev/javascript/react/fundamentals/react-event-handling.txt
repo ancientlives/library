@@ -1,4 +1,4 @@
-### React - Event Handling
+### React - Fundamentals - Event Handling
 
 A quick introduction to event handling in the [React](http://facebook.github.io/react/) JavaScript library.
 

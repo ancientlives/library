@@ -1,4 +1,4 @@
-### React - Getting Started
+### React - Fundamentals - Getting Started
 
 A quick introduction to getting started with the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
 

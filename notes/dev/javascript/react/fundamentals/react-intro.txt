@@ -1,4 +1,4 @@
-### React - Introduction
+### React - Fundamentals - Introduction
 
 A quick introduction to React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
 

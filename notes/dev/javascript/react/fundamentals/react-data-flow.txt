@@ -1,4 +1,4 @@
-### React - Data Flow
+### React - Fundamentals - Data Flow
 
 A quick introduction to data flow in the [React](http://facebook.github.io/react/) JavaScript library.
 
@@ -114,4 +114,4 @@ A component in React is able to house *state*. *State* is inherently different f
 ##### Using state and props
 As developers, try to avoid storing computed values or components directly in *state*. Instead, we should be focusing upon using simple data directly required for the given component to function correctly.
 
-We should also try to avoid duplicating `prop` data into `state`. Use the `props` date instead. 
+We should also try to avoid duplicating `prop` data into `state`. Use the `props` date instead.

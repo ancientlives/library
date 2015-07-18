@@ -1,4 +1,4 @@
-### React - Without JSX
+### React - Fundamentals - Without JSX
 
 An introduction the [React](http://facebook.github.io/react/) JavaScript library without JSX.
 
