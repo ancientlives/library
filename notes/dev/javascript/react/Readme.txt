@@ -3,9 +3,9 @@
 A collection of notes on the client-side JavaScript library React. Further details are available at the [React](http://facebook.github.io/react/) website.
 
 #### Contents
-* Introduction
-* Getting started
 * Fundamentals
+	* Introduction
+	* Getting started
 	* JSX
   	* no JSX
 	* Component lifecycle

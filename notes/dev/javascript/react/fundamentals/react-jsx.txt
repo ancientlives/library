@@ -32,7 +32,7 @@ A few defining characteristics of JSX are as follows,
 * JSX does not supplement or modify the underlying semantics of JavaScript, instead relying upon simple function calls.
 
 ##### Pros of JSX
-Why use JSX, when it simply maps to JavaScript functions?
+Why use JSX, in particular when it simply maps to JavaScript functions?
 
 Many of the inherent benefits of JSX become more apparent as an application, and its code base, grows and becomes more complex. These benefits can include the following,
 
@@ -57,11 +57,11 @@ Examples of creating multiple components.
 An example React component might allow us to output a HTML divider,
 
 ```
-var divider = React.createClass( {
-  render: function () {
+var Heading = React.createClass({
+  render: function() {
     return (
-      <div className="divider">
-      <h2>Hello World</h2><hr />
+      <div className="heading">
+      <h2>Hello World</h2>
       </div>
     );
   }
@@ -76,27 +76,39 @@ JSX considers values dynamic if they are placed between curly brackets `{..}`. E
 For example, for text, numbers etc we can simply refer to the appropriate variable for that value.
 
 ```
-var heading = 'Hello World';
-<h2>{heading}</h2>
+var Heading = 'Hello World';
+<h2>{Heading}</h2>
 ```
-We can also call functions, which allows us to move a lot of the logic for the component to a standard JavaScript function. We can then call this function, plus any supplied paramters, within the curly brackets of the React component.
+We can also call functions, which allows us to move a lot of the logic for the component to a standard JavaScript function. We can then call this function, plus any supplied parameters, within the curly brackets of the React component.
 
 React can also evaluate arrays, and then output each value. For example,
 
 ```
-var heading = ['hello', 'world'];
-<h2>{text}</h2>
+var Heading = React.createClass({
+  render: function() {
+    var text = ['hello', 'world'];
+      return (
+        <h3>{text}</h3>
+      );
+    }
+});
 
-//this will output
-<h2>helloworld</h2>
+React.render(<Heading />, document.getElementById('example'));
 ```
+
+This will output
+
+```
+helloworld
+```
+
 ###### Child nodes
 React captures child nodes between parent tags in a special component *prop* array, `this.props.children`.
 
-This allows us to add `this.props.children` as the value for the divider, for example, and then simply call the divider element with any required heading. React will then render the heading etc as specified in the divider component.
+This allows us to add `this.props.children` as the value for the *heading*, for example, and then simply call the *heading* element with any required children. React will then render the heading etc as specified in the component plus the children.
 
 ##### Conditionals
-A component's markup and its logic are inherently linked in React. This naturally includes *conditionals*, *loops* etc. However, adding `if` statements directly to JSX will create invalid JavaScript. Therefore, we can use of the following options,
+A component's markup and its logic are inherently linked in React. This naturally includes *conditionals*, *loops* etc. However, adding `if` statements directly to JSX will create invalid JavaScript. Therefore, we can use the following options,
 
 ###### ternary operator
 ```
@@ -114,7 +126,7 @@ getIsComplete: function() {
 },
 render: function() {
   var isComplete = this.getIsComplete();
-  return <div className = {isComplete}>...</div>
+  return <div className={isComplete}>...</div>
 }
 ```
 
@@ -158,7 +170,7 @@ Later, you are able to access this `ref` using the defined `this.refs.myInput` a
 
 **NB:** this is not the actual DOM. Instead, it is a description of the component React uses to create the DOM when necessary.
 
-To access the DOM itself for this `ref`, use `this.refs.myInput.getDOMNode()`.
+To access the DOM itself for this `ref`, use `this.refs.myInput.getDOMNode()`, where *myInput* is the name of the previously defined ref.
 
 ###### `dangerouslySetInnerHTML`
 When absolutely necessary, React can set HTML content as a string using this attribute.
