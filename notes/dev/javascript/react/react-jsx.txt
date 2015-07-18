@@ -23,7 +23,7 @@ An introduction to JavaScript XML, and its uses in the [React](http://facebook.g
 ##### Introduction
 JSX stands for **JavaScript XML**. It follows an XML familiar syntax for developing markup within components in React.
 
-**NB**: JSX is not compulsory within React, but inherently it makes components easier to read and understand. Its sturcture is more succinct and less verbose.
+**NB**: JSX is not compulsory within React, but inherently it makes components easier to read and understand. Its structure is more succinct and less verbose.
 
 A few defining characteristics of JSX are as follows,
 
