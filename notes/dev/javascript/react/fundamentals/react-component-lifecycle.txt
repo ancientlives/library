@@ -48,7 +48,7 @@ So, we may consider these hooks first through the instantiation of the component
 
 For subsequent component class uses, the above methods, minus `getDefaultProps`, will be called in the above order.
 
-An example might be as follows,
+An example for `componentDidMount` might be as follows,
 
 ```
 componentDidMount: function() {
@@ -71,6 +71,12 @@ State changes for the application, which affect the component, result in the fol
 * `render`
 * `componentDidUpdate`
   * this method gives us the opportunity to update the rendered DOM.
+
+An example for `componentWillReceiveProps` might be as follows,
+
+```
+
+```
 
 ###### Teardown
 As React is finished with a component it must be unmounted from the DOM and destroyed. There is a single hook for this moment, which provides an opportunity to perform any cleanup and teardown as necessary.
