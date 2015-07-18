@@ -44,7 +44,7 @@ So, we may consider these hooks first through the instantiation of the component
  * `componentDidMount`
    * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavScript plugin we could use this hook to access the raw DOM.
 
-   **NB:** `getDOMNode` now appears to be deprecated, and replaced with `findDOMNode` instead...
+   **NB:** `getDOMNode` now appears to be deprecated, in React usage, and replaced with `findDOMNode` instead for certain examples...
 
 For subsequent component class uses, the above methods, minus `getDefaultProps`, will be called in the above order.
 
@@ -72,10 +72,14 @@ State changes for the application, which affect the component, result in the fol
 * `componentDidUpdate`
   * this method gives us the opportunity to update the rendered DOM.
 
-An example for `componentWillReceiveProps` might be as follows,
+An example for `componentDidMount` might be as follows,
 
 ```
-
+componentDidMount: function() {
+// eg: $(this.getDOMNode()).empty().append('some new text...');
+$(this.getDOMNode()).append('some new text...');
+  }
+});
 ```
 
 ###### Teardown
