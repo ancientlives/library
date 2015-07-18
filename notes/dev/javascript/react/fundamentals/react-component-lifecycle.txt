@@ -42,9 +42,20 @@ So, we may consider these hooks first through the instantiation of the component
      * must be *pure*, which means it cannot change the state or modify the DOM output.
     * **NB:** the returned result is not the actual DOM, but a virtual representation. This is later compared, using DIFF, with the real DOM to determine if any changes are required.
  * `componentDidMount`
-   * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavaScript plugin we could use this hook to access the raw DOM.
+   * access the actual rendered DOM using this method via `this.getDOMNode`. This is the hook used to access the raw rendered DOM. For example, to use a custom JavScript plugin we could use this hook to access the raw DOM.
+
+   **NB:** `getDOMNode` now appears to be deprecated, and replaced with `findDOMNode` instead...
 
 For subsequent component class uses, the above methods, minus `getDefaultProps`, will be called in the above order.
+
+An example might be as follows,
+
+```
+componentDidMount: function() {
+      var text = React.findDOMNode(this).textContent;
+      alert('text = '+text);
+}
+```
 
 ###### Lifetime
 At this stage, the component has now been rendered to the user for viewing and interaction. So, as a user interacts with the component, they are changing the state of that component or application, which allows us as developers to act on the relevant points in the component tree.
@@ -52,7 +63,7 @@ At this stage, the component has now been rendered to the user for viewing and i
 State changes for the application, which affect the component, result in the following methods being called in order.
 
 * `componentWillReceiveProps`
-  * a component's *props* may change at any time due to the parent component. This method is called a result, which gives us an opportunity to change any new *props* object and also update the state. For example, the parent might be an input option. This responds to a state change by the users, which allows us as developers to update the component based upon the parent. If a new boolean is set by the parent, our component can be updated relative to this new value.
+  * a component's *props* may change at any time due to the parent component. This method is called as a result, which gives us an opportunity to change any new *props* object and also update the state. For example, the parent might be an input option. This responds to a state change by the users, which allows us as developers to update the component based upon the parent. If a new boolean is set by the parent, our component can be updated relative to this new value.
 * `shouldComponentUpdate`
   * we can make React even faster by using this method to specify exactly when a component renders in the lifecycle. For example, if we are certain that new *props* or a state change will not require certain components to render we can set their render value to `false`. By setting `false`, we also ensure that the associated methods, `componentWillUpdate` and `componentDidUpdate`, are not called before and after the rendering of our component. **NB:** this method is not called during the initial render or after a `forceUpdate`.
 * `componentWillUpdate`
