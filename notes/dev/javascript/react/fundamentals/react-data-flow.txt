@@ -32,7 +32,7 @@ We can also use the `setProps` method on a given instance of a component.
 var ListClassics = React.createClass({
   render: function() {
     return (
-      <li>{this.props.classics}</li>
+      <li className="classic">{this.props.classics}</li>
     );
   }
 });
@@ -76,7 +76,7 @@ var EditButton = React.createClass({
 	//handle click...
   alert('edit button clicked...');
   //add some JQuery
-  $('#example').empty().append('Roman...');
+  $('li.classics').empty().append('Roman');
 	}
 });
 ```
@@ -121,9 +121,37 @@ var classicTable = React.createClass({
 ###### State
 A component in React is able to house *state*. *State* is inherently different from `props` because it is internal to the component. However, it is particularly useful for deciding a view state on an element. For example, we could use *state* to track when to show certain options within a hidden list or menu. We can track the current state, change it relative to component requirements, and then show options based upon this amended state.
 
-**NB:** it is considered bad practice to update state directly using `this.state`. Instead, we should use the method `this.setState`.
+**NB:** it is considered bad practice to update state directly using `this.state`. Instead, we should use the method `this.setState`. For example,
+
+```
+var EditButton = React.createClass({
+  getInitialState: function() {
+    return {
+      editShow: true
+    };
+  },
+  render: function() {
+    if (this.state.editShow == false) {
+      alert('edit button will be turned off...');
+      $('button.edit').fadeOut();
+    }
+    return (
+      <button className="button edit" onClick={this.handleClick}>Edit</button>
+    );
+  },
+  handleClick: function() {
+  //handle click...
+  alert('edit button clicked');
+  $('li.classic').empty().append('Roman');
+  //set state after button click
+  this.setState({ editShow: false });
+  }
+});
+```
 
 ##### Using state and props
 As developers, try to avoid storing computed values or components directly in *state*. Instead, we should be focusing upon using simple data directly required for the given component to function correctly.
+
+It is considered better practice to perform required calculations in the `render` function.
 
 We should also try to avoid duplicating `prop` data into `state`. Use the `props` date instead.
