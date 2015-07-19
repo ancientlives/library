@@ -76,7 +76,7 @@ var EditButton = React.createClass({
 	//handle click...
   alert('edit button clicked...');
   //add some JQuery
-  $('#example').empty().append('some new text...');
+  $('#example').empty().append('Roman...');
 	}
 });
 ```
