@@ -24,10 +24,10 @@ In many ways, React responds to the same basic events seen in plain JavaScript. 
 Therefore, React can attach an `onClick` handler to a button
 
 ```
-<button className="button edit" onClick={this.handleEditClicked}>Edit</button>
+<button className="button edit" onClick={this.handleEdit}>Edit</button>
 ```
 
-When a user clicks the *edit* button, its `handleEditClicked` method will run.
+When a user clicks the *edit* button, its `handleEdit` method will run.
 
 **NB:** it might resemble HTML syntax, but it does not use the HTML `onClick` attribute. Therefore, it does not encourage the poor habit of specifying event handlers in HTML using attributes...
 
