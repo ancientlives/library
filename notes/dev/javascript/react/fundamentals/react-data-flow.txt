@@ -75,6 +75,8 @@ var EditButton = React.createClass({
 	handleClick: function() {
 	//handle click...
   alert('edit button clicked...');
+  //add some JQuery
+  $('#example').empty().append('some new text...');
 	}
 });
 ```
@@ -107,7 +109,7 @@ We use the `getDefaultProps` function on a component to provide a default set of
 var classicTable = React.createClass({
 	getDefaultProps: function() {
 		return {
-			surveys: []
+			classics: []
 		};
 	}
 	//......
