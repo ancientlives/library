@@ -44,3 +44,4 @@ This `state` object begins as `null` by default, but we can initialise it to som
 We can also read from `this.state` in the `render` method. This allows us to display the current set values.
 
 ##### Updating state
+Put simply, updating a component's internal `state` will cause the component to re-render. So, when `render` runs again, it will now read from `this.state` to display the updated available `state` values.
