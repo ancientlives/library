@@ -8,6 +8,7 @@ A quick introduction to event handling in the [React](http://facebook.github.io/
 * Events and state
 * Rendering for state
 * Updating state
+* Event objects
 
 ##### Introduction
 User interface design and implementation needs to consider both rendering and responding to user input. In JavaScript, we are effectively handling user-generated events.
@@ -59,3 +60,5 @@ this.state.editInProgress = false
 ```
 
 is considered very bad practice, as it fails to inform React that is may be necessary to re-render the app. An unexpected knock-on effect may be encountered when `setState` is next called.
+
+##### Event objects
