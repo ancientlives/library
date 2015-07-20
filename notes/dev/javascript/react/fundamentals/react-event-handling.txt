@@ -51,3 +51,11 @@ There are two ways to correctly update a component's state. We can use the compo
 **NB:** `replaceState` will overwrite the entire state object with a new `state` object. Useful for an immutable data structure etc, but rarely used.
 
 `setState` merges the updated object into the existing `state` object. Therefore, we can update a single value without replacing the whole `state` object. If we used `replaceState` without also updating the other values, the object would be erased and replaced with a new object containing just the new single value.
+
+**NB:** In React, it is important to never alter the `state` object except by calling either `setState` or `replaceState` methods. Therefore, something such as
+
+```
+this.state.editInProgress = false
+```
+
+is considered very bad practice, as it fails to inform React that is may be necessary to re-render the app. An unexpected knock-on effect may be encountered when `setState` is next called.
