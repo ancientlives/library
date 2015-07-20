@@ -62,3 +62,16 @@ this.state.editInProgress = false
 is considered very bad practice, as it fails to inform React that is may be necessary to re-render the app. An unexpected knock-on effect may be encountered when `setState` is next called.
 
 ##### Event objects
+Some handlers in React will simply be called to output a result or send data one way etc. However, you'll often also need these handlers to collect information about the user's input etc.
+
+In React, event handler functions are always passed an event object, which follows the same pattern as plain JavaScript. For example,
+
+```
+...
+handleComplete: function(event) {
+	this.callMethodOnProps('onCompleted', event.target.value);
+}
+...
+```
+
+Here, the `handleComplete` method accepts an event object. This allows it to then extract the current value of the user input, for example a `textarea`, by accessing `event.target.value`. This is often common practice when extracting a value from a form input, in particular if we consider an `onChange` handler.
