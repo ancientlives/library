@@ -45,3 +45,9 @@ We can also read from `this.state` in the `render` method. This allows us to dis
 
 ##### Updating state
 Put simply, updating a component's internal `state` will cause the component to re-render. So, when `render` runs again, it will now read from `this.state` to display the updated available `state` values.
+
+There are two ways to correctly update a component's state. We can use the component's `setState` and `replaceState` methods.
+
+**NB:** `replaceState` will overwrite the entire state object with a new `state` object. Useful for an immutable data structure etc, but rarely used.
+
+`setState` merges the updated object into the existing `state` object. Therefore, we can update a single value without replacing the whole `state` object. If we used `replaceState` without also updating the other values, the object would be erased and replaced with a new object containing just the new single value.
