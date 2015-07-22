@@ -1,0 +1,29 @@
+### React - Introduction to reusable components
+
+A quick introduction to reusable components in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website. These notes are based in part on the online [docs](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html).
+
+#### Contents
+* Introduction
+* Validating props
+* Default prop values
+* JSX spread - transferring props
+
+##### Introduction
+A simple concept that allows us to divide common design elements, such as buttons, form fields etc, in re-usable components within our applications.
+
+##### Validating props
+This is a simple way to ensure that components are used correctly. We can use `React.propTypes` validators to ensure that received data is valid and as expected. When invalid data is received, a warning will be shown in the JavaScript console.
+
+**NB:** `propTypes` is only checked in development mode...
+
+##### Default prop values
+In React, we can define default values for our `props`, which will be cached to ensure that `this.props.value` holds a value if it was not otherwise specified by the parent component.
+
+##### JSX spread - transferring props
+One of the common tasks in a React component is to simply extend a basic HTML element. For example, copying HTML attributes passed to a component to the underlying HTML elements. A quick and easy way to achieve this result is to use the *JSX spread* syntax.
+
+For example,
+
+```
+
+```
