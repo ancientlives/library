@@ -4,4 +4,5 @@ A quick introduction to multiple components in the React JavaScript library. Fur
 
 #### Contents
 * Introduction
-*
+* Example composition
+* 
