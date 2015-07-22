@@ -7,8 +7,7 @@ A quick introduction to multiple components in the React JavaScript library. Fur
 * Ownership
   * Children
 	* Reconciliation
-* Example composition
-*
+* Data flow
 
 ##### Introduction
 Considered one of React's best features, composability allows a developer to build modular components that re-use other components. This gives a developer many of the same benefits as functions or classes. In effect, we can *separate different concerns* within an application simply by building new components.
@@ -51,3 +50,17 @@ In React, this is the process that updates the DOM with each new render pass. Fo
 ```
 
 Whilst we can see that `<p>Para 1</p>` has been removed, React reconciles the DOM by changing the text content of the first child, and then deleting the second child. It's the order that determines the reconciliation.
+
+###### Dynamic
+To handle new items added to the DOM, or shuffled in order, we can add unique identifiers using a `key`. This allows us to maintain the identity and state of each child across multiple render passes.
+
+As React reconciles these keyed children, it ensures that any child with a `key` will be re-ordered or destroyed to ensure the integrity of the DOM.
+
+**NB:** the `key` should *always* be supplied directly to the components in the array etc, and not to the container HTML.
+
+##### Data flow
+Data flows in one direction in React, namely from parent to child. This helps to make components nice and simple, and predictable as well.
+
+In essence, components take *props* from the parent, and then render. If a *prop* has been changed, for whatever reason, React will update the component tree for that change, and then re-render any components that used that property.
+
+Internal state also exists for each component, and should only be updated within the component itself.
