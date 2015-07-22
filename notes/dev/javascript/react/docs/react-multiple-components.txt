@@ -4,5 +4,18 @@ A quick introduction to multiple components in the React JavaScript library. Fur
 
 #### Contents
 * Introduction
+* Ownership
 * Example composition
-* 
+*
+
+##### Introduction
+Considered one of React's best features, composability allows a developer to build modular components that re-use other components. This gives a developer many of the same benefits as functions or classes. In effect, we can *separate different concerns* within an application simply by building new components.
+
+##### Ownership
+With React, ownership allows a defined parent component to use other components as children. In effect, the parent component becomes a way to unite disparate components to build an app etc.
+
+The parent or owner is the component that sets `props` of the other components. For example, in React if a component *A* is created in another component's, component *B*, `render()` method, then *B* owns *A*.
+
+This ownership also means that component *A* cannot mutate its own `props`, they should always be consisten with what its owners sets. This is one of the key aspects that helps React guarantee consistent UIs.
+
+In this context, ownership is a React specific context. The standard *parent/child* relationship still exists in a traditional tree structure, such as the DOM. For example, a standard HTML `div` will be the parent to its child elements, such as a `p` or `span`.
