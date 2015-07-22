@@ -6,6 +6,7 @@ A quick introduction to multiple components in the React JavaScript library. Fur
 * Introduction
 * Ownership
   * Children
+	* Reconciliation
 * Example composition
 *
 
@@ -33,3 +34,20 @@ When we instantiate a React component, we can also include additional components
 The `Parent` is then able to read the children by using the specific `this.props.children` property.
 
 **NB:** `this.props.children` is an *opaque data structure*, and we can use *React.Children* utilities to manipulate them.
+
+###### Reconciliation
+In React, this is the process that updates the DOM with each new render pass. For *children*, they are reconciled according to the order in which they are rendered. For example,
+
+```
+//Render 1
+<Text>
+	<p>Para 1</p>
+	<p>Para 2</p>
+</Text>
+//Render 2
+<Text>
+	<p>Para 2</p>
+</Text>
+```
+
+Whilst we can see that `<p>Para 1</p>` has been removed, React reconciles the DOM by changing the text content of the first child, and then deleting the second child. It's the order that determines the reconciliation.
