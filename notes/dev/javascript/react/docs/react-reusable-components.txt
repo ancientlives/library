@@ -7,6 +7,8 @@ A quick introduction to reusable components in the React JavaScript library. Fur
 * Validating props
 * Default prop values
 * JSX spread - transferring props
+* Single child
+* Mixins
 
 ##### Introduction
 A simple concept that allows us to divide common design elements, such as buttons, form fields etc, in re-usable components within our applications.
@@ -25,5 +27,56 @@ One of the common tasks in a React component is to simply extend a basic HTML el
 For example,
 
 ```
+var ListTitles = React.createClass({
+  render: function () {
+    var props = this.props;
+    var titles = props.titles;
+    //loop through titles...
+    var items = titles.map(function (item) {
+      return (
+        <li {...props}>
+          { item.author }
+        </li>
+      );
+    });
+
+    return (
+      <div className="list">
+        { items }
+      </div>
+    );
+  }
+});
+
+React.render (
+    <ListTitles
+    titles={titles}
+    className="li-title"
+    style={{color: '#779eab'}}
+    />,
+	  document.getElementById('library')
+	  );
+```
+
+##### Single child
+In React, with `React.PropTypes.element` we can specofy that only a single child may be passed to a component as its child.
+
+For example,
 
 ```
+var TitleComponent = React.createClass({
+  propTypes: {
+    children: React.PropTypes.element.isRequired
+  },
+
+  render: function() {
+    return (
+      <li>
+        {this.props.children} //must be one child or React will throw an error...
+      </li>
+    );
+  }
+});
+```
+
+##### Mixins
