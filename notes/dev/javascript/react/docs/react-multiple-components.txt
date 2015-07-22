@@ -5,6 +5,7 @@ A quick introduction to multiple components in the React JavaScript library. Fur
 #### Contents
 * Introduction
 * Ownership
+  * Children
 * Example composition
 *
 
@@ -19,3 +20,16 @@ The parent or owner is the component that sets `props` of the other components. 
 This ownership also means that component *A* cannot mutate its own `props`, they should always be consisten with what its owners sets. This is one of the key aspects that helps React guarantee consistent UIs.
 
 In this context, ownership is a React specific context. The standard *parent/child* relationship still exists in a traditional tree structure, such as the DOM. For example, a standard HTML `div` will be the parent to its child elements, such as a `p` or `span`.
+
+###### Children
+When we instantiate a React component, we can also include additional components or JavaScript expression as children. For example,
+
+```
+<Parent>
+	<Child />
+</Parent>
+```
+
+The `Parent` is then able to read the children by using the specific `this.props.children` property.
+
+**NB:** `this.props.children` is an *opaque data structure*, and we can use *React.Children* utilities to manipulate them.
