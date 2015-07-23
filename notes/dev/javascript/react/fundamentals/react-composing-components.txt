@@ -5,6 +5,8 @@ A quick introduction to the concept of composing components in the [React](http:
 #### Contents
 * Introduction
 * Beyond HTML
+* Example composition
+  * assemble HTML
 
 ##### Introduction
 As we use elements to build a basic page in HTML, so we use components with React plus the expressive benefits of JavaScript. In effect, with React the *only* thing we actually do is build components.
@@ -18,7 +20,7 @@ Instead of using inheritance, in its traditional form, React favours the concept
 
 Therefore, with React we are able to combine various child components to create an intricate, and ultimately powerful, resultant new component.
 
-##### An example composition
+##### Example composition
 A simple app that shows composition for a basic app.
 
 * list of items (authors...) and render to the user
@@ -34,3 +36,29 @@ So, our hierarchy will initially resemble the following outline
 * ListItems -> Item -> ItemLink
 
 Each arrow can be considered representative of containing the following component. Therefore, ListItems has an Item, which has an ItemLink.
+
+###### Assemble HTML
+We need to assemble the components from the bottom-up. So, the first thing we need is a component for links.
+
+For example, we can abstract HTML links as follows
+
+```
+var Link = React.createClass({
+  render: function() {
+    var props = this.props;
+    var linkText = this.props.linkText;
+    return (
+      //<a href={link} title={title} alt={alt}>
+      <a {...props}>
+      {linkText}
+      </a>
+    );
+  }
+});
+```
+
+We can use JSX spread to output all of the required `props` for our HTML link. We can add the standard `href`, `title`, and `alt` for any of our links in any component. We can also pass as `props` the list item as the text for our link. We might also consider being strict in our definition of a link for our app using `propTypes`.
+
+```
+
+```
