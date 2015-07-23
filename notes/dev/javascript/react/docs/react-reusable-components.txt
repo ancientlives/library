@@ -81,3 +81,5 @@ var TitleComponent = React.createClass({
 
 ##### Mixins
 React considers components the best way to reuse code. However, it may sometimes be necessary for disparate components to share common functionality. Sometimes known as *cross-cutting concerns*, React provides *mixins* to try and solve this problem.
+
+A perceived good feature of mixins is that if a given component is using multiple mixins, and several of these mixins define the same lifecycle method, eg: cleanup when a component is destroyed, all of the lifecycle methods will be guaranteed to be called. It's also important to note that methods defined on mixins run in the listed order of the mixins, followed by a method call on the component.
