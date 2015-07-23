@@ -62,14 +62,14 @@ For example, we might want to specify the following
 
 * `href` - required
 * `title`
-* `target`
+* `className`
 
 ```
 ...
 propTypes: {
 	href: React.PropTypes.string.isRequired,
 	title: React.PropTypes.string,
-	target: React.PropTypes.string
+	className: React.PropTypes.string
 }
 ...
 ```
@@ -84,7 +84,7 @@ var Link = React.createClass({
 	getDefaultProps: function() {
 		return {
 			title: 'a list link',
-			alt: ''
+			className: 'list-link'
 		}
 	},
 ...
