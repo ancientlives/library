@@ -80,3 +80,4 @@ var TitleComponent = React.createClass({
 ```
 
 ##### Mixins
+React considers components the best way to reuse code. However, it may sometimes be necessary for disparate components to share common functionality. Sometimes known as *cross-cutting concerns*, React provides *mixins* to try and solve this problem.
