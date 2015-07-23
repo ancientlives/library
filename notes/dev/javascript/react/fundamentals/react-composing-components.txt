@@ -73,4 +73,4 @@ propTypes: {
 }
 ```
 
-With the exception of the `href`, we can set a few basic defaults where a value is not passed as `props`.
+With the exception of the `href`, we can set a few basic defaults where a value is not passed as `props`. If we try to pass `props` to this component without `href` an error will be thrown in the *console* specifying the missing required `prop`. However, the rendering will still output the HTML assuming there isn't a render error as well.
