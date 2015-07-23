@@ -27,6 +27,7 @@ One of the common tasks in a React component is to simply extend a basic HTML el
 For example,
 
 ```
+...
 var ListTitles = React.createClass({
   render: function () {
     var props = this.props;
@@ -59,7 +60,7 @@ React.render (
 ```
 
 ##### Single child
-In React, with `React.PropTypes.element` we can specofy that only a single child may be passed to a component as its child.
+In React, with `React.PropTypes.element` we can specify that only a single child may be passed to a component as its child.
 
 For example,
 
