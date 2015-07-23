@@ -48,7 +48,6 @@ var Link = React.createClass({
     var props = this.props;
     var linkText = this.props.linkText;
     return (
-      //<a href={link} title={title} alt={alt}>
       <a {...props}>
       {linkText}
       </a>
@@ -63,14 +62,31 @@ For example, we might want to specify the following
 
 * `href` - required
 * `title`
-* `alt`
+* `target`
 
 ```
+...
 propTypes: {
 	href: React.PropTypes.string.isRequired,
 	title: React.PropTypes.string,
-	alt: React.PropTypes.string
+	target: React.PropTypes.string
 }
+...
 ```
 
-With the exception of the `href`, we can set a few basic defaults where a value is not passed as `props`. If we try to pass `props` to this component without `href` an error will be thrown in the *console* specifying the missing required `prop`. However, the rendering will still output the HTML assuming there isn't a render error as well.
+With the exception of the `href`, we can set a few basic defaults where a value is not passed as `props`. If we try to pass `props` to this component without `href` an error will be thrown in the *console* specifying the missing required `prop`. However, the rendering will still output the HTML assuming there isn't a render error as well. Useful for debugging...
+
+To help with the `props`, we need to specify our default properties. We add these to the `getDefaultProps` method as follows
+
+```
+var Link = React.createClass({
+	propTypes: {...},
+	getDefaultProps: function() {
+		return {
+			title: 'a list link',
+			alt: ''
+		}
+	},
+...
+});
+```
