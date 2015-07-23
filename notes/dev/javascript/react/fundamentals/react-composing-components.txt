@@ -12,3 +12,25 @@ As we use elements to build a basic page in HTML, so we use components with Reac
 With React, an application is built using components. Basically, a component is a JavaScript function that accepts `props` and `state` as arguments, and outputs rendered HTML. Conceptually, they are normally designed to express and render a piece of data within an application, thereby acting as an extension of HTML.
 
 ##### Beyond HTML
+Whilst React and JSX allow us to create custom elements using a syntax similar to HTML, they actually extend well beyond plain HTML. They allow us to control the behaviour of a component throughout its lifetime. The starting point for this is `React.createClass()`.
+
+Instead of using inheritance, in its traditional form, React favours the concept of *composition*. This allows us to combine small, simple components and data objects, into larger and complex components. Therefore, instead of the MVC notion of extension, we compose our components to create an application.
+
+Therefore, with React we are able to combine various child components to create an intricate, and ultimately powerful, resultant new component.
+
+##### An example composition
+A simple app that shows composition for a basic app.
+
+* list of items (authors...) and render to the user
+	* initial data loaded from static array
+	* then JSON file
+* user can select an item (author)
+	* titles per author rendered to information panel
+	* titles loaded from JSON file
+	* then loaded from API etc
+
+So, our hierarchy will initially resemble the following outline
+
+* ListItems -> Item -> ItemLink
+
+Each arrow can be considered representative of containing the following component. Therefore, ListItems has an Item, which has an ItemLink.
