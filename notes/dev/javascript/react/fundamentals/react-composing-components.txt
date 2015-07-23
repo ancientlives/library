@@ -59,6 +59,18 @@ var Link = React.createClass({
 
 We can use JSX spread to output all of the required `props` for our HTML link. We can add the standard `href`, `title`, and `alt` for any of our links in any component. We can also pass as `props` the list item as the text for our link. We might also consider being strict in our definition of a link for our app using `propTypes`.
 
-```
+For example, we might want to specify the following
+
+* `href` - required
+* `title`
+* `alt`
 
 ```
+propTypes: {
+	href: React.PropTypes.string.isRequired,
+	title: React.PropTypes.string,
+	alt: React.PropTypes.string
+}
+```
+
+With the exception of the `href`, we can set a few basic defaults where a value is not passed as `props`.
