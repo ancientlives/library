@@ -4,6 +4,11 @@ A quick introduction to the concept of composing components in the [React](http:
 
 #### Contents
 * Introduction
-*
+* Beyond HTML
 
 ##### Introduction
+As we use elements to build a basic page in HTML, so we use components with React plus the expressive benefits of JavaScript. In effect, with React the *only* thing we actually do is build components.
+
+With React, an application is built using components. Basically, a component is a JavaScript function that accepts `props` and `state` as arguments, and outputs rendered HTML. Conceptually, they are normally designed to express and render a piece of data within an application, thereby acting as an extension of HTML.
+
+##### Beyond HTML
