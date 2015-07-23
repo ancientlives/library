@@ -84,7 +84,7 @@ var Link = React.createClass({
 	getDefaultProps: function() {
 		return {
 			title: 'a list link',
-			className: 'list-link'
+			className: 'list_link'
 		}
 	},
 ...
