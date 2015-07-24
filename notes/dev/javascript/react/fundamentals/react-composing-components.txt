@@ -7,6 +7,8 @@ A quick introduction to the concept of composing components in the [React](http:
 * Beyond HTML
 * Example composition
   * assemble HTML
+  * set props
+  * drag and drop
 
 ##### Introduction
 As we use elements to build a basic page in HTML, so we use components with React plus the expressive benefits of JavaScript. In effect, with React the *only* thing we actually do is build components.
@@ -55,7 +57,7 @@ var Link = React.createClass({
   }
 });
 ```
-
+###### Set `props`
 We can use JSX spread to output all of the required `props` for our HTML link. We can add the standard `href`, `title`, and `alt` for any of our links in any component. We can also pass as `props` the list item as the text for our link. We might also consider being strict in our definition of a link for our app using `propTypes`.
 
 For example, we might want to specify the following
@@ -90,3 +92,6 @@ var Link = React.createClass({
 ...
 });
 ```
+
+###### Drag and drop
+We can now add extra functionality allowing a user to drag and drop their preferred list item.
