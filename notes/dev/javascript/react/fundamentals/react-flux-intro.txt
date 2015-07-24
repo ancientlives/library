@@ -43,4 +43,4 @@ Therefore, the *dispatcher* is considered the first, initial step in accessing t
 ###### Store
 This is used to retrieve, update, or create the data once a given action has been submitted. The store's constructor will provide a callback function, via the dispatcher's register method, to all the required one-way access to the store. The requested type of action is then checked by the store and, if applicable, the appropriate method will be executed.
 
-##### Basic example
+##### Basic To-Do example
