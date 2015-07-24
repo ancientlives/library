@@ -32,3 +32,8 @@ This process can be considered to contain the following components
 * event emitter
 
 ###### Dispatcher
+This is responsible for receiving the action requests from the view, and then passing to the required data store or stores. Each applicable data store registers with the *dispatcher* to be able to receive updates when an action is sent. The *constructor* for a data store will register a callback with the *dispatcher*.
+
+In effect, when an action is *dispatched*, the callback will be executed. However, only the actions pertinent to this given *dispatcher* will ever get executed.
+
+**NB:** the React *Bower* package provides a *dispatcher* class ready for use...
