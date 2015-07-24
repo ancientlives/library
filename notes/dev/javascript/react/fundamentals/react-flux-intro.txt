@@ -4,7 +4,9 @@ A quick introduction to Flux in the React JavaScript library. Further details ar
 
 #### Contents
 * Introduction
-*
+* Components
+  * dispatcher
+  * store
 
 ##### Introduction
 Flux is a useful way to retrieve data from a server API or other data store, whilst maintaining a perceived decoupling of components on the client side. It employs a one-way, uni-directional protocol for communication, which helps maintain this separation of concerns.
@@ -20,3 +22,13 @@ In effect, Flux works as follows
   * event open to all listening
 * listeners receive the event
   * update views accordingly
+
+##### Components
+This process can be considered to contain the following components
+
+* view
+* dispatcher
+* store
+* event emitter
+
+###### Dispatcher
