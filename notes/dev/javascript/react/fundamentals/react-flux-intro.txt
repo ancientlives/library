@@ -7,6 +7,16 @@ A quick introduction to Flux in the React JavaScript library. Further details ar
 *
 
 ##### Introduction
-Flux is a useful way to retrieve data from a server API or other data store, whilst maintaining a perceived decoupling of components on the client side. It employs a one-way protocol for communication, which helps maintain this separation of concerns.
+Flux is a useful way to retrieve data from a server API or other data store, whilst maintaining a perceived decoupling of components on the client side. It employs a one-way, uni-directional protocol for communication, which helps maintain this separation of concerns.
 
 Flux has become the preferred option for retrieving server data using React. They are not reliant on each other, but they were designed to work together.
+
+In effect, Flux works as follows
+
+* user initiates an action in the view
+  * view handles by sending request for data
+* the data store executes the request
+  * event is emitted when data is retrieved
+  * event open to all listening
+* listeners receive the event
+  * update views accordingly
