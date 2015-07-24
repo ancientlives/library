@@ -37,3 +37,7 @@ This is responsible for receiving the action requests from the view, and then pa
 In effect, when an action is *dispatched*, the callback will be executed. However, only the actions pertinent to this given *dispatcher* will ever get executed.
 
 **NB:** the React *Bower* package provides a *dispatcher* class ready for use...
+
+Therefore, the *dispatcher* is considered the first, initial step in accessing the required data on the client side.
+
+###### Store
