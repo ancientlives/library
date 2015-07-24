@@ -1,46 +1,12 @@
-### React - Fundamentals - Introduction
+### React - Fundamentals - Flux
 
-A quick introduction to React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
+A quick introduction to Flux in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
 
 #### Contents
-* Overview
-* Why use React?
-* Speed
-* State changes
-* Benefits
+* Introduction
+*
 
-##### Overview
-**React** began life as a port of a custom PHP framework called XHP, which was developed internally at Facebook. XHP, as a PHP framework, was designed to render the full page for each request. **React** developed from this concept, thereby creating a client-side implementation of loading the full page.
+##### Introduction
+Flux is a useful way to retrieve data from a server API or other data store, whilst maintaining a perceived decoupling of components on the client side. It employs a one-way protocol for communication, which helps maintain this separation of concerns.
 
-**React** can, therefore, be perceived as a type of *state machine*, thereby allowing a developer to control and manage the inherent complexity of state as it changes over time. It is able to achieve this by concentrating on a narrow scope for development,
-
-* maintaining and updating the DOM
-* responding to events
-
-**React** is best perceived as a *view* library, and has no definite requirements or restrictions on storage, data structure, routing, and so on. This allows developers the freedom to incorporate **React** code into a broad scope of applications and frameworks.
-
-##### Why use React?
-React is often considered the *V* in the traditional *MVC*. As defined in the React [docs](http://facebook.github.io/react/docs/why-react.html), it was designed to solve one problem,
-
-  *building large applications with data that changes over time.*
-
-React, therefore, can best be considered as addressing the following
-
-* simple - define how your app should look at any given point in time, and React handles all UI changes and updates in response to data changes
-* declarative - as this data changes, React effectively refreshes your app and is sufficiently aware to only update those parts that have changed
-* components - a fundamental principle of React is building re-usable components. These components are so encapsulated in their design and concepts, they make it simple for code *re-use*, *testing*, and the separation of design and app concerns in general.
-
-##### Speed
-**React** leverages its built-in, powerful rendering system to produce quick, responsive rendering of the DOM in response to received state changes. It uses a virtual DOM, which enables **React** to maintain and update the DOM without the lag of reading it as well.
-
-##### State Changes
-As **React** is informed of a state change, it re-runs render functions. This enables it to determine a new representation of the page in its virtual DOM. This is then automatically translated into the necessary changes for the new DOM, which is reflected in the new rendering of the view.
-
-This may, at first glance, appear inherently slow. However, **React** uses an efficient algorithm to check and determine the differences between the current page in the virtual DOM and the new virtual one. From these differences it makes the minimal set of necessary updates to the rendered DOM.
-
-This creates speed benefits and gains as it minimises the usual reflows and DOM manipulations. It also minimises the effect of cascading updates caused by frequent DOM changes and updates.
-
-##### Benefits
-One of the main benefits of this virtual approach is the avoidance of micro-managing any updates to the DOM. Instead, a developer simply informs **React** of any changes, such as user input, and it is able to process those passed changes and updates.
-
-**React** has the inherent benefit of delegating all events to a single event handler, which naturally gives **React** an associated performance boost.
+Flux has become the preferred option for retrieving server data using React. They are not reliant on each other, but they were designed to work together.
