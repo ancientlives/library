@@ -1,0 +1,18 @@
+### React - Fundamentals - State and Stateless
+
+A quick introduction to the concept of state and stateless in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website.
+
+#### Contents
+* Introduction
+* Stateless child components
+
+##### Introduction
+When designing React apps, we often think about stateless children and a stateful parent. As noted in the React documentation,
+
+> A common pattern is to create several stateless components that just render data,
+> and have a stateful component above them in the hierarchy that passes its state to
+> its children via props.
+
+So, we need to carefully consider how to identify and implement this type of component hierarchy.
+
+##### Stateless child components
