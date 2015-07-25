@@ -8,7 +8,7 @@ A quick introduction to the concept of composing components in the [React](http:
 * Example composition
   * assemble HTML
   * set props
-  * drag and drop
+  * drag and drop - HTML5
 
 ##### Introduction
 As we use elements to build a basic page in HTML, so we use components with React plus the expressive benefits of JavaScript. In effect, with React the *only* thing we actually do is build components.
@@ -93,9 +93,9 @@ var Link = React.createClass({
 });
 ```
 
-###### Drag and drop
+###### Drag and drop - HTML5
 We can now add extra functionality allowing a user to drag and drop their preferred list item. To achieve this, we can add native HTML5 *drag and drop* to the app.
 
 So, HTML5 drag and drop is based upon an attribute flag and associated events such as dragstart, dragend, drop, and so on.
 
-We need to provide a function, `onDragStart`, for an initiated drag event. The passed event object will also contain an important property, 'dataTransfer'. It's important to realise that, unlike most browser events, `dataTransfer` must be modified before the end of the function.
+We need to provide a function, such as `onDragStart`, for an initiated drag event. The passed event object will also contain an important property, 'dataTransfer'. It's important to realise that, unlike most browser events, `dataTransfer` must be modified before the end of the function.
