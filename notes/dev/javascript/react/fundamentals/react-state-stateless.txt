@@ -16,3 +16,11 @@ When designing React apps, we often think about stateless children and a statefu
 So, we need to carefully consider how to identify and implement this type of component hierarchy.
 
 ##### Stateless child components
+These components should be passed data via `props` from the parent. More importantly, to remain *stateless* they should not manipulate their `state`.
+
+Instead, they should send a callback to the parent informing it of a change, update etc. The parent will then decide whether should result in a `state` change, and a re-rendering of the DOM.
+
+##### Stateful parent component
+A *stateful* parent component can exist at any level of the hierarchy. It does not have to be the root component for the app, but instead can exist as a child to other parents.
+
+We use the parent component to pass `props` to its children, and maintain and update state for the applicable components.
