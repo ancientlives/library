@@ -28,3 +28,4 @@ A *stateful* parent component can exist at any level of the hierarchy. It does n
 We use the parent component to pass `props` to its children, and maintain and update state for the applicable components.
 
 ##### An example app
+The following is a simple app to allow us to test the concept of stateful parent and stateless child components. The resultant app outputs two parallel `div` elements, which allow a user to select one of the available categories, and then view all of the available *authors*.
