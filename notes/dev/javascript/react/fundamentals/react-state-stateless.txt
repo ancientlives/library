@@ -81,3 +81,32 @@ var CategoryList = React.createClass({
 		}
 });
 ```
+
+This component is accepting `props` from the parent component, and then informing this parent of a required change in state via a callback to the `onCategorySelected` method. It does not change `state` itself, it simply handles the passed data as required for a React app.
+
+We now need to consider our second `stateless` child component, which renders the user's chosen authors per category. In effect, a user clicks on their chosen category, and a list of applicable authors is output to the right side div.
+
+```
+var AuthorList = React.createClass({
+	render: function() {
+    return (
+      <div id="right-titles" className="col-md-6 col-sm-6 col-xs-6">
+        <ul>
+          {this.props.authors.map(function(item) {
+            return (
+              <li key={item.id}>
+                {item.author}
+              </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    );
+  }
+});
+```
+
+Again, this component does not set any state. It is simply rendering the passed `props` data for viewing.
+
+To handle updates to the DOM, we need to consider our `stateful` parent. This component passes the app's data as `props` to the children, and handles the setting and updating of the `state` for app as well.
