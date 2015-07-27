@@ -109,14 +109,16 @@ var AuthorList = React.createClass({
 
 Again, this component does not set any state. It is simply rendering the passed `props` data for viewing.
 
-To handle updates to the DOM, we need to consider our `stateful` parent. This component passes the app's data as `props` to the children, and handles the setting and updating of the `state` for app as well.
+To handle updates to the DOM, we need to consider our `stateful` parent. This component passes the app's data as `props` to the children, and handles the setting and updating of the `state` for app as well. As noted in the React documentation,
+
+> State should contain data that a component's event handler may change to trigger a UI update.
+
+In this case, we only need to store the `selectedCategoryAuthors` in `state` to be able to update the UI for our app.
 
 ```
 var Container = React.createClass({
 	getInitialState: function() {
-  	var data = this.props.data;
     	return {
-      	data: data,
       	selectedCategoryAuthors: this.getCategoryAuthors(this.props.defaultCategoryId)
     	};
   	},
@@ -129,7 +131,7 @@ var Container = React.createClass({
   render: function() {
     return (
       <div className="container col-md-12 col-sm-12 col-xs-12">
-      <CategoryList data={this.state.data} onCategorySelected={this.onCategorySelected} />
+      <CategoryList data={this.props.data} onCategorySelected={this.onCategorySelected} />
       <AuthorList authors={this.state.selectedCategoryAuthors} />
       </div>
     );
@@ -145,3 +147,13 @@ var Container = React.createClass({
 Our `stateful` parent component sets its initial state, including passed data and the app's selected category for authors. This helps set a default state for the app, which we can then modify as a user selects their chosen category.
 
 The callback for this user selected category is handled in the `onCategorySelected` method, which updates the app's state for the chosen `categoryId`. This then leads to the app re-rendering the DOM for any changes.
+
+However, we still have computed data in the app's `state`. As noted in the React documentation,
+
+> `this.state` should only contain the minimal amount of data needed to represent your UIs state...
+
+Therefore, we should now move our computations to the `render` method of the parent component, and update `state` accordingly.
+
+```
+
+```
