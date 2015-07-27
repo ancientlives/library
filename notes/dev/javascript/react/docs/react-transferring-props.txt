@@ -1,0 +1,15 @@
+### React - Transferring Props
+
+A quick introduction to transferring `props` in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website. These notes are based in part on the online [docs](http://facebook.github.io/react/docs/jsx-in-depth.html).
+
+#### Contents
+* Intro
+* Manual transfer
+
+##### Intro
+A common pattern in React is to wrap a component in an abstraction. The outer component is used to expose a simple property for use in the app, which can then be used for more complex implementation.
+
+According to the React online [docs](https://facebook.github.io/react/docs/transferring-props.html), here are a few best practices for working with `props`.
+
+##### Manual transfer
+  
