@@ -155,5 +155,28 @@ However, we still have computed data in the app's `state`. As noted in the React
 Therefore, we should now move our computations to the `render` method of the parent component, and update `state` accordingly.
 
 ```
-
+var Container = React.createClass({
+	getInitialState: function() {
+  	return {
+      selectedCategoryId: this.props.defaultCategoryId
+    };
+  },
+  render: function() {
+  	var data = this.props.data;
+    var selectedCategoryAuthors = data.filter(function(item){
+      return item.categoryId === this.state.selectedCategoryId;
+    }, this);
+  	return (
+    	<div className="container col-md-12 col-sm-12 col-xs-12">
+    	<CategoryList data={this.props.data} onCategorySelected={this.onCategorySelected} />
+    	<AuthorList authors={selectedCategoryAuthors} />
+    	</div>
+  	);
+  },
+	onCategorySelected: function(categoryId) {
+    this.setState({selectedCategoryId: categoryId});
+  }
+});
 ```
+
+`state` is now solely storing the `categoryId` for our app, which can be modified and the DOM re-rendered correctly. 
