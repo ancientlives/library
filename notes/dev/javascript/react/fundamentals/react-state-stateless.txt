@@ -141,3 +141,7 @@ var Container = React.createClass({
   }
 });
 ```
+
+Our `stateful` parent component sets its initial state, including passed data and the app's selected category for authors. This helps set a default state for the app, which we can then modify as a user selects their chosen category.
+
+The callback for this user selected category is handled in the `onCategorySelected` method, which updates the app's state for the chosen `categoryId`. This then leads to the app re-rendering the DOM for any changes.
