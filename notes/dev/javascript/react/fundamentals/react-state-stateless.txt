@@ -29,3 +29,55 @@ We use the parent component to pass `props` to its children, and maintain and up
 
 ##### An example app
 The following is a simple app to allow us to test the concept of stateful parent and stateless child components. The resultant app outputs two parallel `div` elements, which allow a user to select one of the available categories, and then view all of the available *authors*.
+
+**NB:** the simple grid layout uses Bootstrap.
+
+```
+//static test data...
+var AUTHORS = [
+	{id:1, category: 'greek', categoryId:1, author: 'Plato'},
+  {id:2, category: 'greek', categoryId:1, author: 'Aristotle'},
+  {id:3, category: 'greek', categoryId:1, author: 'Aeschylus'},
+  {id:4, category: 'roman', categoryId:2, author: 'Livy'},
+  {id:5, category: 'greek', categoryId:1, author: 'Euripides'},
+  {id:6, category: 'roman', categoryId:2, author: 'Ptolemy'},
+  {id:7, category: 'greek', categoryId:1, author: 'Sophocles'},
+  {id:8, category: 'roman', categoryId:2, author: 'Virgil'},
+  {id:9, category: 'roman', categoryId:2, author: 'Juvenal'}
+];
+```
+
+We'll start with some static data to help populate our app. `categoryId` will be used to filter unique categories, and again to help get all of our authors per category.
+
+For `stateless` child components, we need to be able to output a list of filtered, unique categories, and then a list of authors for each selected category.
+
+Our first child component is the `CategoryList`, which filters and renders our list of unique categories. The `onClick` attribute is included, and state is therefore passed via callback to the `stateful` parent.
+
+```
+//output unique categories from passed data...
+var CategoryList = React.createClass({
+	render: function() {
+		var category = [];
+			return (
+				<div id="left-titles" className="col-md-6 col-sm-6 col-xs-6">
+					<ul>
+						{this.props.data.map(function(item) {
+						//JQuery get unique values for category...
+						//if ($.inArray(item.category, category) > -1) {
+						//plain JS - no support for legacy browsers...
+						if (category.indexOf(item.categoryId) > -1) {
+						} else {
+							category.push(item.categoryId);
+								return (
+									<li key={item.id} onClick={this.props.onCategorySelected.bind(null, item.categoryId)}>
+										{item.category}
+									</li>
+								);
+							}
+						}, this)}
+					</ul>
+				</div>
+			);
+		}
+});
+```
