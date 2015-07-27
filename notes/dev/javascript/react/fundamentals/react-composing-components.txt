@@ -92,17 +92,3 @@ var Link = React.createClass({
 ...
 });
 ```
-
-###### Drag and drop - HTML5
-We can now add extra functionality allowing a user to drag and drop their preferred list item. To achieve this, we can add native HTML5 *drag and drop* to the app.
-
-So, HTML5 drag and drop is based upon an attribute flag and associated events such as dragstart, dragend, drop, and so on.
-
-We need to provide a function, such as `onDragStart`, for an initiated drag event. The passed event object will also contain an important property, 'dataTransfer'. It's important to realise that, unlike most browser events, `dataTransfer` must be modified before the end of the function.
-
-We need to add some event handlers for the drag event, which requires an updated render method for the list items we want to drag. Therefore, we start by adding the following `props` to our list items
-
-```
-...
-
-```
