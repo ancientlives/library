@@ -110,3 +110,34 @@ var AuthorList = React.createClass({
 Again, this component does not set any state. It is simply rendering the passed `props` data for viewing.
 
 To handle updates to the DOM, we need to consider our `stateful` parent. This component passes the app's data as `props` to the children, and handles the setting and updating of the `state` for app as well.
+
+```
+var Container = React.createClass({
+	getInitialState: function() {
+  	var data = this.props.data;
+    	return {
+      	data: data,
+      	selectedCategoryAuthors: this.getCategoryAuthors(this.props.defaultCategoryId)
+    	};
+  	},
+  getCategoryAuthors: function(categoryId) {
+    	var data = this.props.data;
+    	return data.filter(function(item) {
+    		return item.categoryId === categoryId;
+    	});
+  	},
+  render: function() {
+    return (
+      <div className="container col-md-12 col-sm-12 col-xs-12">
+      <CategoryList data={this.state.data} onCategorySelected={this.onCategorySelected} />
+      <AuthorList authors={this.state.selectedCategoryAuthors} />
+      </div>
+    );
+  },
+  onCategorySelected: function(categoryId) {
+    this.setState({
+      selectedCategoryAuthors: this.getCategoryAuthors(categoryId)
+    });
+  }
+});
+```
