@@ -7,6 +7,8 @@ A quick introduction to working with forms in the React JavaScript library. Furt
 * Interactive props
   * callbacks
 * Controlled components
+* Uncontrolled components
+  * default
 
 ##### Intro
 Aspects of form design and usage necessitate user interaction, which often leads to change and updates for the app itself. In React, form components such as `input`, `textarea`, and `option` provide interfaces to help us manage forms in response to these updates and interactions.
@@ -62,3 +64,19 @@ render: function() {
 ```
 
 This example is simply accepting a user input, processing, and then setting as the new value of the input. This model allows us to easily respond or validate user interaction.
+
+##### Uncontrolled components
+If an `input` is set to `null`, or simply does not supply a value, it is known as an *uncontrolled* component. So, the following example will render an empty input,
+
+```
+render: function() {
+  return <input type="text" />;
+}
+```
+
+If we now want to listen to user interaction and updates to the value, we can user an `onChange` event, as noted above.
+
+###### Default
+We can also set default values for the `input`, similar to the controlled components.
+
+**NB:** `input` also supports `defaultChecked` and `select` supports `defaultValue`.
