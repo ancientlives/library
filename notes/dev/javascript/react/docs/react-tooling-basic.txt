@@ -1,0 +1,34 @@
+### React - Tooling - Basic
+
+A quick introduction to basic tooling with the *browser* in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website. These notes are based in part on the online [docs](http://facebook.github.io/react/docs/jsx-in-depth.html).
+
+#### Contents
+* Intro
+* React files
+* JSX
+
+##### Intro
+React has been designed to be as environment-agnostic as possible to allow developers to use their preferred JavaScript toolchain where possible.
+
+However, there are some basic tools that make working with React a little bit easier.
+
+##### React files
+There are two primary sources for the latest React JavaScript and tools.
+
+* CDN hosting
+	CDN hosted versions are available on the React [download](https://facebook.github.io/react/downloads.html) page. These downloads include various versions, and options for both development and production usage.
+* Master
+	Build from *master* using the instructions included in React's [GitHub repository](https://github.com/facebook/react).
+
+##### JSX
+JSX can be used either with in-browser transformation or using a production alternative pre-compiled form.
+
+The in-browser option simply requires a `script` tag and link to the jsx file. For example,
+
+```
+<script src="build/JSXTransformer.js"></script>
+```
+
+However, for production ready apps and projects its better to use the `react-tools` to translate JSX syntax compatible files to plain JavaScript. These will then run natively in the browser without the need for the above JSX transformer.
+
+The other benefit is that the tools will also watch directories in the project, and automatically transform any changed files.
