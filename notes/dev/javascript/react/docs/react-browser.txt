@@ -4,7 +4,13 @@ A quick introduction to working with the *browser* in the React JavaScript libra
 
 #### Contents
 * Intro
-*
+* Work with the DOM
 
 ##### Intro
 A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
+
+The speed of React is due to this lack of direct DOM manipulation or interaction. Instead, it maintains an in-memory representation of the DOM. A component's `render` method returns a *description* of the DOM, which React will *diff* with the in-memory representation to compute the minimum necessary updates for the browser.
+
+React also provides the benefit of a full event system, which guarantees all event objects will conform to the W3C spec in spite of browser issues. In effect, everything *bubbles* consistently and efficiently across a broad variety of web browsers. Again, these are some of the benefits and reasons to remain within React's virtual DOM...
+
+##### Work with the DOM (if you must...)
