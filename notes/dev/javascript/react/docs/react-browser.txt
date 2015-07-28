@@ -1,0 +1,10 @@
+### React - Forms
+
+A quick introduction to working with the *browser* in the React JavaScript library. Further details are available at the [React](http://facebook.github.io/react/) website. These notes are based in part on the online [docs](http://facebook.github.io/react/docs/jsx-in-depth.html).
+
+#### Contents
+* Intro
+*
+
+##### Intro
+A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
