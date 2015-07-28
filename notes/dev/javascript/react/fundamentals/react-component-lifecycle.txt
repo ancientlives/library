@@ -24,6 +24,11 @@ So, we may consider these hooks first through the instantiation of the component
  ##### Methods in the lifecycle
  React components include a minimal lifecycle API. This provides the developer with enough without being overwhelming, at least in theory.
 
+ React provides what are known as *will* and *did* methods. These work as follows,
+
+ * *will* - called right before something happens
+ * *did* - called right after something happens
+
  Relative to the lifecycle, we can consider the following methods
 
  ###### Instantiation (mounting)
