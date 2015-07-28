@@ -6,6 +6,7 @@ A quick introduction to working with the *browser* in the React JavaScript libra
 * Intro
 * Work with the DOM
 * Component lifecycle
+* Browser support
 
 ##### Intro
 A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
@@ -32,3 +33,10 @@ This will get the text content for the current element in the DOM.
 
 ##### Component lifecycle
 ...See note in *fundamentals/react-component-lifecycle.txt
+
+##### Browser support
+React includes support for legacy browsers, including IE8. Developed internally at Facebook, *polyfills* allow developers to avoid traditional browser hacks to ensure support. However, these polyfills are not included natively in the distributed React code.
+
+Therefore, to include legacy support for older browsers we can use something such as [es5-shim](https://github.com/es-shims/es5-shim). By including *es5-shim*, we can use its available functions with React to help address many of the common legace browser issues.
+
+**NB:** IE8 does not support `onScroll` due to a lack of event bubbling, which means there is no way for React to listen to these events. Further information can be found at the [GitHub issue page](https://github.com/facebook/react/issues/631).
