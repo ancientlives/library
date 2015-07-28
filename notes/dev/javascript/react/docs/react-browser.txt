@@ -5,6 +5,7 @@ A quick introduction to working with the *browser* in the React JavaScript libra
 #### Contents
 * Intro
 * Work with the DOM
+* Component lifecycle
 
 ##### Intro
 A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
@@ -20,4 +21,14 @@ To be able to work directly with the DOM, we need a reference to a node in the D
 React.findDOMNode(component)
 ```
 
-to get a reference to the requested DOM node. As with other DOM manipulation, this will only work on elements already loaded in the DOM.
+to get a reference to the requested DOM node. As with other DOM manipulation, this will only work on elements already loaded in the DOM. For example,
+
+```
+...
+var text = React.findDOMNode(this).textContent;
+```
+
+This will get the text content for the current element in the DOM.
+
+##### Component lifecycle
+...See note in *fundamentals/react-component-lifecycle.txt
