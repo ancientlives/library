@@ -6,6 +6,7 @@ A quick introduction to working with forms in the React JavaScript library. Furt
 * Intro
 * Interactive props
   * callbacks
+* Controlled components
 
 ##### Intro
 Aspects of form design and usage necessitate user interaction, which often leads to change and updates for the app itself. In React, form components such as `input`, `textarea`, and `option` provide interfaces to help us manage forms in response to these updates and interactions.
@@ -33,3 +34,31 @@ We can listen for changes in form components by setting a *callback* to the `onC
 * `value` of `input` or `textarea` changes
 * `checked` state of `input` changes
 * `selected` state of `option` changes
+
+**NB:** `onChange` prop can be used to listen to bubbled change events in React. Also, `onChange` should normally be used for `input` and `textarea` instead of the built-in `oninput` DOM event handler
+
+##### Controlled components
+In React, an `input` with `value` set is considered a *controlled* component. So, when `input` is rendered its value will always output the `value` prop. For example,
+
+```
+render: function() {
+  return <input type="text" value="the hobbit" />;
+}
+```
+
+This input would, therefore, always show a value of "the hobbit", and user input would not affect this value. To change it, based on user input, you'd need to use the `onChange` event. For example,
+
+```
+getInitialState: function() {
+  return {value: "the hobbit"}
+},
+handleChange: function(event) {
+  this.setState({value: event.target.value});
+},
+render: function() {
+  var value = this.state.value;
+  return <input type="text" value={value} onChange={this.handleChange} />
+}
+```
+
+This example is simply accepting a user input, processing, and then setting as the new value of the input. This model allows us to easily respond or validate user interaction.
