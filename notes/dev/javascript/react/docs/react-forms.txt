@@ -5,8 +5,31 @@ A quick introduction to working with forms in the React JavaScript library. Furt
 #### Contents
 * Intro
 * Interactive props
+  * callbacks
 
 ##### Intro
 Aspects of form design and usage necessitate user interaction, which often leads to change and updates for the app itself. In React, form components such as `input`, `textarea`, and `option` provide interfaces to help us manage forms in response to these updates and interactions.
 
 ##### Interactive props
+There are a few `props` affected by user interactions,
+
+For `input`,
+
+* `checked` and `value`
+
+For `option`,
+
+* `selected`
+
+For `textarea`,
+
+* `value`
+
+**NB:** in standard HTML the value of a `textarea` is set via children. However, in React we should use the `value` prop instead.
+
+###### Callbacks
+We can listen for changes in form components by setting a *callback* to the `onChange` prop. This prop fires in response to user interactions as follows,
+
+* `value` of `input` or `textarea` changes
+* `checked` state of `input` changes
+* `selected` state of `option` changes
