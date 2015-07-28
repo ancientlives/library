@@ -29,7 +29,7 @@ to get a reference to the requested DOM node. As with other DOM manipulation, th
 var text = React.findDOMNode(this).textContent;
 ```
 
-This will get the text content for the current element in the DOM.
+This will get the text content for the current element in the DOM. This function can be invoked once `componentDidMount` has run. Again, we need the elements in the DOM before we can access them.
 
 ##### Component lifecycle
 ...See note in *fundamentals/react-component-lifecycle.txt
