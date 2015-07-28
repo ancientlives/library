@@ -4,6 +4,39 @@ A quick introduction to DOM manipulation in the React JavaScript library. Furthe
 
 #### Contents
 * Intro
-*
+* Work with the DOM
+* Component lifecycle
+* Browser support
 
 ##### Intro
+A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
+
+The speed of React is due to this lack of direct DOM manipulation or interaction. Instead, it maintains an in-memory representation of the DOM. A component's `render` method returns a *description* of the DOM, which React will *diff* with the in-memory representation to compute the minimum necessary updates for the browser.
+
+React also provides the benefit of a full event system, which guarantees all event objects will conform to the W3C spec in spite of browser issues. In effect, everything *bubbles* consistently and efficiently across a broad variety of web browsers. Again, these are some of the benefits and reasons to remain within React's virtual DOM...
+
+##### Work with the DOM (if you must...)
+To be able to work directly with the DOM, we need a reference to a node in the DOM. In React, we can use the function,
+
+```
+React.findDOMNode(component)
+```
+
+to get a reference to the requested DOM node. As with other DOM manipulation, this will only work on elements already loaded in the DOM. For example,
+
+```
+...
+var text = React.findDOMNode(this).textContent;
+```
+
+This will get the text content for the current element in the DOM. This function can be invoked once `componentDidMount` has run. Again, we need the elements in the DOM before we can access them.
+
+##### Component lifecycle
+...See note in *fundamentals/react-component-lifecycle.txt
+
+##### Browser support
+React includes support for legacy browsers, including IE8. Developed internally at Facebook, *polyfills* allow developers to avoid traditional browser hacks to ensure support. However, these polyfills are not included natively in the distributed React code.
+
+Therefore, to include legacy support for older browsers we can use something such as [es5-shim](https://github.com/es-shims/es5-shim). By including *es5-shim*, we can use its available functions with React to help address many of the common legace browser issues.
+
+**NB:** IE8 does not support `onScroll` due to a lack of event bubbling, which means there is no way for React to listen to these events. Further information can be found at the [GitHub issue page](https://github.com/facebook/react/issues/631).
