@@ -6,6 +6,8 @@ A quick introduction to transferring `props` in the React JavaScript library. Fu
 * Intro
 * Manual transfer
 * Abstracting & Destructuring
+* Consume & Transfer
+* Rest & Spread
 
 ##### Intro
 A common pattern in React is to wrap a component in an abstraction. The outer component is used to expose a simple property for use in the app, which can then be used for more complex implementation.
@@ -35,4 +37,15 @@ return (
     ...
   </li>
 );
+```
+
+##### Rest & Spread Props
+Rest properties are a useful way to extract any remaining properties from an object into a new object. This excludes every other `prop` explicitly listed in the defined destructuring pattern. For example,
+
+```
+var { a, b, ...other} = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+...
+a; //will be 1
+b; //2
+other; //will include { c: 3, d: 4, e: 5 }
 ```
