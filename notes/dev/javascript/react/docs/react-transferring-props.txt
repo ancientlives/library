@@ -5,6 +5,7 @@ A quick introduction to transferring `props` in the React JavaScript library. Fu
 #### Contents
 * Intro
 * Manual transfer
+* Abstracting & Destructuring
 
 ##### Intro
 A common pattern in React is to wrap a component in an abstraction. The outer component is used to expose a simple property for use in the app, which can then be used for more complex implementation.
@@ -12,4 +13,26 @@ A common pattern in React is to wrap a component in an abstraction. The outer co
 According to the React online [docs](https://facebook.github.io/react/docs/transferring-props.html), here are a few best practices for working with `props`.
 
 ##### Manual transfer
-  
+For most code examples, it will be sufficient to simply pass `props` down. This has the inherent benefit of only exposing a specific subset of the inner API, and a specific one we know will work.
+
+##### Abstracting & Destructuring
+Whilst manual transfer will become commonplace for many apps, it can also quickly become fragile and tedious for some `props`. We can specify `props` to consume within a component, and then pass along `other`. For example,
+
+```
+var { title, author, ...other } = this.props;
+```
+
+With the above example, we are explicitly consuming `title, author`, and then we're able to pass along the `other` props. React requires that we always use this style of destructuring pattern when passing along unknown `other` props.
+
+##### Consume & transfer same `prop`
+We can also explicitly consume and pass a `prop` without using the standard `this.props`. For example,
+
+```
+var title = this.props.title;
+...
+return (
+  <li title={title}>
+    ...
+  </li>
+);
+```
