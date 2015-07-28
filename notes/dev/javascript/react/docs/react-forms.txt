@@ -79,4 +79,4 @@ If we now want to listen to user interaction and updates to the value, we can us
 ###### Default
 We can also set default values for the `input`, similar to the controlled components.
 
-**NB:** `input` also supports `defaultChecked` and `select` supports `defaultValue`.
+**NB:** `input` also supports `defaultChecked` and `select` supports `defaultValue`. Also, the props `defaultChecked` and `defaultValue` are only used in React during an app's initial render. If it is necessary to update the value in a re-render, we need to use a *controlled component*.
