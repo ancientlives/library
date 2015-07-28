@@ -5,9 +5,9 @@ A brief overview of the component lifecycle in the [React](http://facebook.githu
 #### Contents
 * Introduction
 * Methods in the lifecycle
-  * Instantiation
-  * Lifetime
-  * Teardown
+  * Instantiation (mounting)
+  * Lifetime (updating)
+  * Teardown (unmounting)
 * Anti-pattern
 
 ##### Introduction
@@ -15,9 +15,9 @@ In the lifecycle of a component, its props or state might change along with any 
 
 Following this logic, React provides components with certain *lifecycle* hooks. For example,
 
-* creation
-* lifetime
-* teardown
+* instantiation - mounting
+* lifetime - updating
+* teardown - unmounting
 
 So, we may consider these hooks first through the instantiation of the component, then its active lifetime, and finally its teardown.
 
@@ -26,7 +26,7 @@ So, we may consider these hooks first through the instantiation of the component
 
  Relative to the lifecycle, we can consider the following methods
 
- ###### Instantiation
+ ###### Instantiation (mounting)
  This includes methods called upon instantiation, and they will be called initially in order for the selected component class.
 
  * `getDefaultProps`
@@ -60,7 +60,7 @@ componentDidMount: function() {
 }
 ```
 
-###### Lifetime
+###### Lifetime (updating)
 At this stage, the component has now been rendered to the user for viewing and interaction. So, as a user interacts with the component, they are changing the state of that component or application, which allows us as developers to act on the relevant points in the component tree.
 
 State changes for the application, which affect the component, result in the following methods being called in order.
@@ -75,7 +75,7 @@ State changes for the application, which affect the component, result in the fol
 * `componentDidUpdate`
   * this method gives us the opportunity to update the rendered DOM.
 
-###### Teardown
+###### Teardown (unmounting)
 As React is finished with a component it must be unmounted from the DOM and destroyed. There is a single hook for this moment, which provides an opportunity to perform any cleanup and teardown as necessary.
 
 * `componentWillUnmount`
