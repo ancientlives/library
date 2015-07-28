@@ -4,6 +4,9 @@ A quick introduction to working with forms in the React JavaScript library. Furt
 
 #### Contents
 * Intro
-*
+* Interactive props
 
 ##### Intro
+Aspects of form design and usage necessitate user interaction, which often leads to change and updates for the app itself. In React, form components such as `input`, `textarea`, and `option` provide interfaces to help us manage forms in response to these updates and interactions.
+
+##### Interactive props
