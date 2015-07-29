@@ -17,3 +17,33 @@ So, if we consider a HTML form we can certainly see that it works differently to
 An *Uncontrolled* component is also of little use unless we can access the value. However, in order to access this value we need to add a `ref` to the `input`, and then access the `DOMNode` value.
 
 A `ref` is a special *non-DOM* attribute, which we can use to identify a component within its local context `this`. Also, all `refs` are added to `this.refs` for easier access.
+
+For example,
+
+```
+//basic input and output to alert...
+  var BasicForm = React.createClass({
+    formSubmit: function(e) {
+      e.preventDefault();
+      var basicText = React.findDOMNode(this.refs.basicInput).value;
+      alert(basicText);
+    },
+    render: function() {
+      return (
+        <form onSubmit={this.formSubmit}>
+          <input
+          ref="basicInput"
+          type="text"
+          defaultValue="basic input..." />
+          <br />
+          <button
+            type="submit">
+            Speak
+          </button>
+        </form>
+      );
+    }
+  });
+
+  React.render(<BasicForm />, document.getElementById('example'));
+```
