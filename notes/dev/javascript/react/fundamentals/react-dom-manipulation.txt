@@ -7,6 +7,7 @@ A quick introduction to DOM manipulation in the React JavaScript library. Furthe
 * Work with the DOM
 * Component lifecycle
 * Browser support
+* Accessing DOM nodes
 
 ##### Intro
 A fundamental concept of React is the lack of direct interaction with the DOM. Its abstractions remove the need to directly manipulate the DOM for most cases. However, there will be occasions when working with the DOM is simply unavoidable, such as third party libraries.
@@ -14,6 +15,35 @@ A fundamental concept of React is the lack of direct interaction with the DOM. I
 The speed of React is due to this lack of direct DOM manipulation or interaction. Instead, it maintains an in-memory representation of the DOM. A component's `render` method returns a *description* of the DOM, which React will *diff* with the in-memory representation to compute the minimum necessary updates for the browser.
 
 React also provides the benefit of a full event system, which guarantees all event objects will conform to the W3C spec in spite of browser issues. In effect, everything *bubbles* consistently and efficiently across a broad variety of web browsers. Again, these are some of the benefits and reasons to remain within React's virtual DOM...
+
+##### Accessing DOM nodes
+For DOM nodes managed by React, we need to be able to access our app's components for the applicable node. This is achieved using the `ref` attribute, which is added to the child component for the parent. For example,
+
+```
+...
+var ChildCanvas = React.createClass({
+  render: function() {
+    return <canvas ref="parentCanvas" />;
+  }
+});
+```
+
+This will now make the `canvas` element accessible via `this.refs.parentCanvas`.
+
+**NB:** `refs` for a child component need to be unique.
+
+Now, after accessing the required child component, we can call its `getDOMNode()` method to access its underlying DOM node. We can't call this in the `render` method, instead we'll need to wait for the DOM to load. Then, we can use
+
+```
+...
+componentDidMount: function() {
+  var childNode = this.refs.parentCanvas.getDOMNode()
+}
+```
+
+`componentDidMount()` is not the only method where we can call `getDOMNode()`. We can use event handlers etc as well, as they are fired once the DOM is loaded.
+
+**NB:** So, we can create a child component, associate it to the parent component, and then call it from other components via the parent. eg: a child text container outputs rendered text for an editor (the parent). Our text editor can get the text itself via the parent component.
 
 ##### Work with the DOM (if you must...)
 To be able to work directly with the DOM, we need a reference to a node in the DOM. In React, we can use the function,
@@ -40,3 +70,18 @@ React includes support for legacy browsers, including IE8. Developed internally 
 Therefore, to include legacy support for older browsers we can use something such as [es5-shim](https://github.com/es-shims/es5-shim). By including *es5-shim*, we can use its available functions with React to help address many of the common legace browser issues.
 
 **NB:** IE8 does not support `onScroll` due to a lack of event bubbling, which means there is no way for React to listen to these events. Further information can be found at the [GitHub issue page](https://github.com/facebook/react/issues/631).
+
+##### findDOMNode vs getDOMNode
+As a quick reminder, `getDOMNode()` has new been marked for deprecation. Its preferred replacement is the function, `findDOMNode()`.
+
+Therefore, we should now start migrating from
+
+```
+var editor = this.refs.editableDiv.getDOMNode();
+```
+
+to
+
+```
+var editor = React.findDOMNode(this.refs.editableDiv);
+```
