@@ -4,6 +4,16 @@ A quick introduction to using forms in the React JavaScript library. Further det
 
 #### Contents
 * Intro
-*
+* Uncontrolled components
 
 ##### Intro
+As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
+
+##### Uncontrolled components
+In a strange way, *uncontrolled* can be considered a type of anti-pattern for how many other components are constructed in React.
+
+So, if we consider a HTML form we can certainly see that it works differently to React components. For example, HTML `input` may be given a value, which can then be mutated by the `input`. This is where the name originates, effectively because the form component's value is *Uncontrolled* by a React component.
+
+An *Uncontrolled* component is also of little use unless we can access the value. However, in order to access this value we need to add a `ref` to the `input`, and then access the `DOMNode` value.
+
+A `ref` is a special *non-DOM* attribute, which we can use to identify a component within its local context `this`. Also, all `refs` are added to `this.refs` for easier access.
