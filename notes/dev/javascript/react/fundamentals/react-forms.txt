@@ -52,3 +52,12 @@ For example,
 Uncontrolled components are particularly useful for basic forms. In particular, those forms that do not require special validation or input controls.
 
 ##### Controlled components
+As you might imagine, *controlled* components follow the same pattern as standard React components. In effect, the state of the form component is controlled by React, with its value stored in `state`.
+
+So, we can now store the value of a form's `input` in the `state` of the parent component. We can modify the above example, and use the following data flow
+
+* `getInitialState` sets the `defaultValue`
+* `input` value is set during `render`
+* `onChange` of the `input` value causes the defined change handler to be called
+* this change handler now updates the app's `state`
+* `input` value is then updates duing the app's render
