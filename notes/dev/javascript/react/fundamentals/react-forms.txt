@@ -47,3 +47,5 @@ For example,
 
   React.render(<BasicForm />, document.getElementById('example'));
 ```
+
+Uncontrolled components are particularly useful for basic forms. In particular, those forms that do not require special validation or input controls.
