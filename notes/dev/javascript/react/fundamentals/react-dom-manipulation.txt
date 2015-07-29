@@ -85,3 +85,5 @@ to
 ```
 var editor = React.findDOMNode(this.refs.editableDiv);
 ```
+
+The base class for ES6-based components will not include `getDOMNode()`.
