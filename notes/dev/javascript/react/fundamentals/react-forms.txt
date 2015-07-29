@@ -5,6 +5,7 @@ A quick introduction to using forms in the React JavaScript library. Further det
 #### Contents
 * Intro
 * Uncontrolled components
+* Controlled components
 
 ##### Intro
 As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
@@ -49,3 +50,5 @@ For example,
 ```
 
 Uncontrolled components are particularly useful for basic forms. In particular, those forms that do not require special validation or input controls.
+
+##### Controlled components
