@@ -38,7 +38,7 @@ For example,
           <br />
           <button
             type="submit">
-            Speak
+            Submit
           </button>
         </form>
       );
