@@ -32,7 +32,7 @@ This will now make the `canvas` element accessible via `this.refs.parentCanvas`.
 
 **NB:** `refs` for a child component need to be unique.
 
-Now, after accessing the required child component, we can call its `getDOMNode()` method to access its underlying DOM node. We can't call this in the `render` method, instead we'll need to wait for the DOM to load. Then, we can use
+Now, after accessing the required child component, we can call its `getDOMNode()` (upcoming change to findDOMNode()..) method to access its underlying DOM node. We can't call this in the `render` method, instead we'll need to wait for the DOM to load. Then, we can use
 
 ```
 ...
