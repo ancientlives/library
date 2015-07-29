@@ -61,3 +61,51 @@ So, we can now store the value of a form's `input` in the `state` of the parent 
 * `onChange` of the `input` value causes the defined change handler to be called
 * this change handler now updates the app's `state`
 * `input` value is then updates duing the app's render
+
+For example,
+
+```
+//basic input and output to alert...
+    var BasicForm = React.createClass({
+      getInitialState: function() {
+        return {
+          formText: "ask me a question..."
+        };
+      },
+      formChange: function(e) {
+        this.setState({
+            formText: e.target.value
+        });
+      },
+      formSubmit: function(e) {
+        e.preventDefault();
+        alert(this.state.formText);
+      },
+      render: function() {
+        return (
+          <form onSubmit={this.formSubmit}>
+            <input
+              type="text"
+              value={this.state.formText}
+              onChange={this.formChange} />
+            <br />
+            <button type="submit">
+              Submit
+            </button>
+          </form>
+        );
+      }
+    });
+
+    React.render(<BasicForm />, document.getElementById('example'));
+```
+
+Whilst this is more code than the `uncontrolled` version above, its inherent benefit is that it allows us to control the data flow and alter the `state` as the data is being entered by the user etc.
+
+Therefore, we might want to change the case of the text from lower to upper in the `handleChange` function. We could also use this same technique to check form input, restrict characters entered, dynamically show how many characters are left in an input, add the text to a render div as its being typed, and so on...
+
+For example,
+
+```
+
+```
