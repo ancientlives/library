@@ -65,7 +65,7 @@ So, we can now store the value of a form's `input` in the `state` of the parent 
 For example,
 
 ```
-//basic input and output to alert...
+    //basic input and output to alert...
     var BasicForm = React.createClass({
       getInitialState: function() {
         return {
@@ -107,5 +107,40 @@ Therefore, we might want to change the case of the text from lower to upper in t
 For example,
 
 ```
+    //basic input and output to alert...
+    var BasicForm = React.createClass({
+      getInitialState: function() {
+        return {
+          formText: "ask me a question..."
+        };
+      },
+      formChange: function(e) {
+        this.setState({
+          //add option to update or check the value from input before setting state - eg: modify text to upper case...
+            //formText: e.target.value
+            //converts user input to upper case on the fly...
+            formText: e.target.value.toUpperCase()
+        });
+      },
+      formSubmit: function(e) {
+        e.preventDefault();
+        alert(this.state.formText);
+      },
+      render: function() {
+        return (
+          <form onSubmit={this.formSubmit}>
+            <input
+              type="text"
+              value={this.state.formText}
+              onChange={this.formChange} />
+            <br />
+            <button type="submit">
+              Submit
+            </button>
+          </form>
+        );
+      }
+    });
 
+    React.render(<BasicForm />, document.getElementById('example'));
 ```
