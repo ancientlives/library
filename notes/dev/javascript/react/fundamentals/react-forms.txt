@@ -144,3 +144,9 @@ For example,
 
     React.render(<BasicForm />, document.getElementById('example'));
 ```
+
+The primary update here is storing the value of the `input` in the state of the parent component. As noted in the React documentation,
+
+> State should contain data that a component's event handler may change to trigger a UI update.
+
+In this example, as a user enters text we are updating the data in `state`. which triggers a UI update and re-render.
