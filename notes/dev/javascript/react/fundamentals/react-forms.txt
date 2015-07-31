@@ -225,5 +225,38 @@ As with standard HTML, checkboxes and radio buttons behave slightly differently 
 For example,
 
 ```
+//basic checkbox with state and output to alert...
+    var BasicForm = React.createClass({
+      getInitialState: function() {
+        return {
+          checked: true
+        };
+      },
+      formChange: function(e) {
+        this.setState({
+          checked: e.target.checked
+        });
+      },
+      formSubmit: function(e) {
+        e.preventDefault();
+        alert(this.state.checked);
+      },
+      render: function() {
+        return (
+          <form onSubmit={this.formSubmit}>
+            <input
+              type="checkbox"
+              value="1"
+              checked={this.state.checked}
+              onChange={this.formChange} />
+            <br />
+            <button type="submit">
+              Submit
+            </button>
+          </form>
+        );
+      }
+    });
 
+    React.render(<BasicForm />, document.getElementById('example'));
 ```
