@@ -21,3 +21,21 @@ So, what can we actually do with animations in React? For example, we can now
 * fall back to `setTimeout` when `requestAnimationFrame` is not a viable option
 
 ##### CSS transition groups
+Too be able to use *transition group* with our app, we need to initally include our animation add-on near the top of our component file. For example,
+
+```
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
+```
+
+This add-on automatically handles re-rendering of the component at appropriate times by altering the transition group's class to fit the correct situation within the transition. So, this connects an element to four CSS classes,
+
+* ...-enter
+* ...-enter-active
+* ...-leave
+* ...-leave-active
+
+The *CSSTransitionGroup* add-on will automatically add and remove these classes, prefixed with the value of the `transitionName` attribute, as child components enter or leave the *ReactCSSTransitionGroup* component. For example,
+
+```
+
+```
