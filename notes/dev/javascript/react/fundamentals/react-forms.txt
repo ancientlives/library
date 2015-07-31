@@ -6,6 +6,7 @@ A quick introduction to using forms in the React JavaScript library. Further det
 * Intro
 * Uncontrolled components
 * Controlled components
+* Form events
 
 ##### Intro
 As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
@@ -160,3 +161,17 @@ In this example, as a user enters text we are updating the data in `state`. whic
 Therefore, this update to a controlled component allows us to control updating the `state`, and manipulate values, text etc dynamically as the user types, for example.
 
 Another interesting point is that as we dynamically re-render the UI for the state change in the input, there is no discernible flicker in the browser. This is because React is intercepting the native browser change event. We can use a similar pattern for many different updates including, for example, counting characters, checking input again certain values etc...
+
+##### Form events
+React supports all of the events produced by HTML. It follows *camel case* naming conventions, and converts these events to *synthetic events*. Thankfully, they are also standardised, thereby creating a useful common interface for cross-browser development.
+
+Therefore, all synthetic events give us acces to the originating `DOMNode` for the event via `event.target`. For example,
+
+```
+handleEvent: function(synthE) {
+  var DOMNode = synthE.target;
+  var updatedValue = DOMNode.value;
+}
+```
+
+This is often an easy way to access the value of the *controlled* components.
