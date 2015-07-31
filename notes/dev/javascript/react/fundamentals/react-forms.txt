@@ -9,6 +9,7 @@ A quick introduction to using forms in the React JavaScript library. Further det
 * Form events
 * Label
 * Textarea and Select
+* Names and form elements
 
 ##### Intro
 As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
@@ -259,4 +260,24 @@ For example,
     });
 
     React.render(<BasicForm />, document.getElementById('example'));
+```
+
+In the above example, the value of `input` will remain `1`. We are not changing the value but the checked `state`.
+
+##### Names and form elements
+In React, for *controlled* components names on form elements carry less significance when a form's values are stored in `state`, and the form submit is being intercepted. This is because these form names are no longer required to access the form's values.
+
+For *uncontrolled* form elements, we can use `refs` to access the form element directly.
+
+However, importantly this does not mean we can dismiss `names` on form elements just because we are using React. They are still useful for the following general reasons,
+
+* allow third party form serialisers to work within React
+* required if the form is natively submitted
+* used by the client's browser to complete autofill of common fields such as addresses etc...
+
+##### Multiple form elements and change handlers
+In React, with *controlled* form elements it is not necessary to create a change handler for each form element. There are a few different ways to achieve this type of re-use, but we'll look at using `bind` in the following example
+
+```
+
 ```
