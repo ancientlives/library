@@ -13,4 +13,11 @@ Unlike most animation libraries or plugins, which traditionally use an imperativ
 
 CSS *transition groups* enable css animations for transitions, effectively modifying classes during appropriate timed renders and re-renders.
 
+##### Animation options
+So, what can we actually do with animations in React? For example, we can now
+
+* animate transitions between states using CSS3 and Transition Groups
+* animate outside CSS, such as scroll position and Canvas drawing by using `requestAnimationFrame`
+* fall back to `setTimeout` when `requestAnimationFrame` is not a viable option
+
 ##### CSS transition groups
