@@ -8,6 +8,7 @@ A quick introduction to using forms in the React JavaScript library. Further det
 * Controlled components
 * Form events
 * Label
+* Textarea and Select
 
 ##### Intro
 As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
@@ -192,4 +193,26 @@ This is rendered to HTML as follows,
 ```
 //HTML
 <label for="this is label...">...</label>
+```
+
+##### Textarea and select
+When using React, we need to be aware of a few changes it makes to the interface of `textarea` and `select`. This is done to increase consistency and make it easier to manipulate.
+
+For example, `textarea` has been modified to more closely resemble `input`. As developers, this allows us to specify `value` and a `defaultValue`. A controlled example is as follows,
+
+```
+<textarea
+  value={this.state.textValue}
+  onChange={this.handleChange} />
+```
+
+Likewise, `select` now accepts `value` and `defaultValue`. This allows us to set which option has been selected in the form, and allows for easier manipulation of the value. For example, controlled is as follows
+
+```
+<select
+  value={this.state.selectValue}
+  onChange={this.handleChange}>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+</select>
 ```
