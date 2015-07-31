@@ -216,3 +216,14 @@ Likewise, `select` now accepts `value` and `defaultValue`. This allows us to set
     <option value="2">Option 2</option>
 </select>
 ```
+
+Another useful feature, React supports multi select using an array.
+
+##### Checkbox and radio buttons
+As with standard HTML, checkboxes and radio buttons behave slightly differently with React. The main difference is that, in general, the value of a checkbox or radio button does not change. Instead, it is the `state` that is updated. Therefore, to control a checkbox or radio button input, we need to control the `checked` attribute. We can also use `defaultChecked` with an uncontrolled checkbox or radio input.
+
+For example,
+
+```
+
+```
