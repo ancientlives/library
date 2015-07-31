@@ -279,5 +279,52 @@ However, importantly this does not mean we can dismiss `names` on form elements 
 In React, with *controlled* form elements it is not necessary to create a change handler for each form element. There are a few different ways to achieve this type of re-use, but we'll look at using `bind` in the following example
 
 ```
+//basic form with multiple elements and output to alert...
+    var BasicForm = React.createClass({
+      getInitialState: function() {
+        return {
+          nick_name: "",
+          first_name: ""
+        };
+      },
+      formChange: function(name, e) {
+        var newState= {};
+        newState[name] = e.target.value;
+        this.setState(newState);
+      },
+      formSubmit: function(e) {
+        e.preventDefault();
+        var names = [
+          this.state.nick_name,
+          this.state.first_name
+        ];
+        alert(names.join(" or "))
+      },
+      render: function() {
+        return (
+          <form onSubmit={this.formSubmit}>
+            <label htmlFor="nick_name">Nick Name:</label>
+            <br />
+            <input
+              type="text"
+              name="nick_name"
+              value={this.state.nick_name}
+              checked={this.state.checked}
+              onChange={this.formChange.bind(this, 'nick_name')} />
+            <br />
+            <label htmlFor="first_name">First name:</label>
+            <br />
+            <input
+              type="text"
+              name="first_name"
+              value={this.state.first_name}
+              onChange={this.formChange.bind(this, 'first_name')}/>
+              <br />
+            <button type="submit">Submit</button>
+          </form>
+        );
+      }
+    });
 
+    React.render(<BasicForm />, document.getElementById('example'));
 ```
