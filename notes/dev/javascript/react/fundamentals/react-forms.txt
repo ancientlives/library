@@ -7,6 +7,7 @@ A quick introduction to using forms in the React JavaScript library. Further det
 * Uncontrolled components
 * Controlled components
 * Form events
+* Label
 
 ##### Intro
 As with other aspects of one-page applications, React helps to manage `state` for forms. There are two types of form components in React, which include *controlled* and *uncontrolled*.
@@ -175,3 +176,20 @@ handleEvent: function(synthE) {
 ```
 
 This is often an easy way to access the value of the *controlled* components.
+
+##### Label
+We can also add labels on form elements, which naturally helps with communication and accessibility for radios, checkboxes etc.
+
+However, due to a reserved word conflict with JavaScript, React and JSX uses `htmlFor` to define the `for` attribute for such elements. For example,
+
+```
+//JSX
+<label htmlFor="this is a label...">...</label>
+```
+
+This is rendered to HTML as follows,
+
+```
+//HTML
+<label for="this is label...">...</label>
+```
