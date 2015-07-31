@@ -149,4 +149,10 @@ The primary update here is storing the value of the `input` in the state of the 
 
 > State should contain data that a component's event handler may change to trigger a UI update.
 
-In this example, as a user enters text we are updating the data in `state`. which triggers a UI update and re-render.
+In this example, as a user enters text we are updating the data in `state`. which triggers a UI update and re-render. Our data flow can now be defined as follows,
+
+* `getInitialState` sets the `defaultValue`
+* `input` value is set in `render`
+* value change in `input` causes handler `onChange` to be invoked with method `formChange`
+* change handler method `formChange` updates `state`
+* `input` value is now updated during the `render`
