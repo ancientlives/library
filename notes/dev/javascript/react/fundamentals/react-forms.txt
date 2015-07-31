@@ -339,3 +339,11 @@ We could also solve the above issue using *React.addons.LinkedStateMixin*, which
 However, this mixin makes it harder to add custom modifications to the data flow. Therefore, it should normally only be used in limited circumstances.
 
 ##### Focus
+Focus allows us to highlight to our users where they should direct their attention, or *focus*, within a form. React has implemented `autoFocus` for initial component loading to add focus assuming no other form input already has focus. React will then place focus on that input. For example,
+
+```
+//jsx
+<input type="text" name="given_name" autoFocus="true" />
+```
+
+We can also set focus manually by calling `focus()` on the DOMNode for a given form field.
