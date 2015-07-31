@@ -156,3 +156,7 @@ In this example, as a user enters text we are updating the data in `state`. whic
 * value change in `input` causes handler `onChange` to be invoked with method `formChange`
 * change handler method `formChange` updates `state`
 * `input` value is now updated during the `render`
+
+Therefore, this update to a controlled component allows us to control updating the `state`, and manipulate values, text etc dynamically as the user types, for example.
+
+Another interesting point is that as we dynamically re-render the UI for the state change in the input, there is no discernible flicker in the browser. This is because React is intercepting the native browser change event. We can use a similar pattern for many different updates including, for example, counting characters, checking input again certain values etc...
