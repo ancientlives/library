@@ -4,5 +4,13 @@ A quick introduction to animations in the React JavaScript library. Further deta
 
 #### Contents
 * Intro
+* CSS transition groups
 
 ##### Intro
+React has a *Transition Groups* addon, which works with CSS3 to help incorporate animated transitions in React based apps.
+
+Unlike most animation libraries or plugins, which traditionally use an imperative approach, such as selecting an element and then moving it around or modifying its style to create animation, React employs a more declarative approach. This is due to the core nature of React, which employs the render and re-render approach.
+
+CSS *transition groups* enable css animations for transitions, effectively modifying classes during appropriate timed renders and re-renders.
+
+##### CSS transition groups
