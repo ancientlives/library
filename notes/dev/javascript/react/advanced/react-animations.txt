@@ -37,5 +37,5 @@ This add-on automatically handles re-rendering of the component at appropriate t
 The *CSSTransitionGroup* add-on will automatically add and remove these classes, prefixed with the value of the `transitionName` attribute, as child components enter or leave the *ReactCSSTransitionGroup* component. For example,
 
 ```
-
+//accordion...
 ```
