@@ -37,5 +37,80 @@ This add-on automatically handles re-rendering of the component at appropriate t
 The *CSSTransitionGroup* add-on will automatically add and remove these classes, prefixed with the value of the `transitionName` attribute, as child components enter or leave the *ReactCSSTransitionGroup* component. For example,
 
 ```
-//accordion...
+//basic animation of add items - no remove yet...
+var PANELS = [
+	{panelId:1, title: 'panel1', content: 'panel 1 content...', show:true},
+	{panelId:2, title: 'panel2', content: 'panel 2 content...', show:false},
+	{panelId:3, title: 'panel3', content: 'panel 3 content...', show:false}
+];
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+//output panels from passed data...
+var PanelList = React.createClass({
+	render: function() {
+							var panels = this.props.data.map(function(item) {
+									return (
+											<li key={item.panelId} onClick={this.props.onPanelSelected.bind(null, item.panelId)}>
+													{item.title}
+											</li>
+									);
+							}.bind(this));
+					return (
+						<div id="left-titles" className="col-md-6 col-sm-6 col-xs-6">
+							<ul>
+							{panels}
+							</ul>
+						</div>
+					);
+	}
+});
+
+var PanelContent = React.createClass({
+	render: function() {
+		var content = this.props.content.map(function(item) {
+			return (
+				<div className="panel_content" key={item.panelId}>
+					{item.content}
+				</div>
+				);
+		}
+		);
+		return (
+			<div id="right-titles" className="col-md-6 col-sm-6 col-xs-6">
+			<ReactCSSTransitionGroup transitionName="accordion">
+				{content}
+			</ReactCSSTransitionGroup>
+			</div>
+		);
+	}
+});
+
+var PanelContainer = React.createClass({
+	getInitialState: function() {
+		return {
+			selectedPanelId: this.props.defaultPanelId
+		};
+	},
+	render: function() {
+		var data = this.props.data;
+		var selectedPanelContent = data.filter(function(item){
+			return item.panelId === this.state.selectedPanelId;
+		}, this);
+		return (
+			<div className="container col-md-12 col-sm-12 col-xs-12">
+			<PanelList data={data} onPanelSelected={this.onPanelSelected} />
+			<PanelContent content={selectedPanelContent} />
+			</div>
+		);
+	},
+	onPanelSelected: function(panelId) {
+		this.setState({selectedPanelId: panelId});
+	}
+});
+
+var buildPanels = React.render (
+	<PanelContainer data={PANELS} defaultPanelId='1' />,
+	document.getElementById('accordion')
+);
 ```
