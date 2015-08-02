@@ -48,6 +48,9 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 //output panels from passed data...
 var PanelList = React.createClass({
+propTypes: {
+        data: React.PropTypes.array.isRequired
+      },
 	render: function() {
 							var panels = this.props.data.map(function(item) {
 									return (
@@ -67,6 +70,9 @@ var PanelList = React.createClass({
 });
 
 var PanelContent = React.createClass({
+propTypes: {
+        content: React.PropTypes.array.isRequired
+      },
 	render: function() {
 		var content = this.props.content.map(function(item) {
 			return (
