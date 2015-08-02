@@ -114,3 +114,11 @@ var buildPanels = React.render (
 	document.getElementById('accordion')
 );
 ```
+
+##### Render animation with different component
+By default, React's `ReactTransitionGroup` render a `span`. However, it's possible to customise this wrapper element as follows,
+
+```
+<ReactTransitionGroup component="ul">
+...
+```
