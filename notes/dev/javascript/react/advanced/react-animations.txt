@@ -118,7 +118,8 @@ var PanelContainer = React.createClass({
 });
 
 var buildPanels = React.render (
-	<PanelContainer data={PANELS} defaultPanelId='1' />,
+// nb: be careful not to send defaultPanelId as string, ie: '1'
+	<PanelContainer data={PANELS} defaultPanelId={1} />,
 	document.getElementById('accordion')
 );
 ```
