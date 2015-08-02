@@ -84,7 +84,7 @@ propTypes: {
 		);
 		return (
 			<div id="right-titles" className="col-md-6 col-sm-6 col-xs-6">
-			<ReactCSSTransitionGroup transitionName="accordion">
+			<ReactCSSTransitionGroup transitionName="accordion" transitionLeave={false}>
 				{content}
 			</ReactCSSTransitionGroup>
 			</div>
@@ -131,3 +131,5 @@ By default, React's `ReactTransitionGroup` render a `span`. However, it's possib
 <ReactTransitionGroup component="ul">
 ...
 ```
+
+**NB:** React will not remove existing elements, for example when we add new ones to a div, until the animation has ended. Therefore, either we set a leave animation or add the `prop` for `transitionLeave={false}`. We can also disable animations for either enter or leave DOM elements.
