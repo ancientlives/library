@@ -93,6 +93,8 @@ propTypes: {
 });
 
 var PanelContainer = React.createClass({
+// props in initial state is normally an anti-pattern - but this is OK if synchronisation is not the goal...
+// so, setting default from props is OK
 	getInitialState: function() {
 		return {
 			selectedPanelId: this.props.defaultPanelId
