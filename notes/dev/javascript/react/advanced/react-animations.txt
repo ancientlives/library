@@ -37,91 +37,105 @@ This add-on automatically handles re-rendering of the component at appropriate t
 The *CSSTransitionGroup* add-on will automatically add and remove these classes, prefixed with the value of the `transitionName` attribute, as child components enter or leave the *ReactCSSTransitionGroup* component. For example,
 
 ```
-//basic animation of add items - no remove yet...
-var PANELS = [
-	{panelId:1, title: 'panel1', content: 'panel 1 content...', show:true},
-	{panelId:2, title: 'panel2', content: 'panel 2 content...', show:false},
-	{panelId:3, title: 'panel3', content: 'panel 3 content...', show:false}
-];
+//basic animations...
+	var PANELS = [
+		{panelId:1, title: 'panel1', content: 'panel 1 content...'},
+		{panelId:2, title: 'panel2', content: 'panel 2 content...<p>more content...</p><p>even more content...</p>'},
+		{panelId:3, title: 'panel3', content: 'panel 3 content...'}
+	];
 
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+	var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-//output panels from passed data...
-var PanelList = React.createClass({
-propTypes: {
-        data: React.PropTypes.array.isRequired
-      },
-	render: function() {
-							var panels = this.props.data.map(function(item) {
-									return (
-											<li key={item.panelId} onClick={this.props.onPanelSelected.bind(null, item.panelId)}>
-													{item.title}
-											</li>
-									);
-							}.bind(this));
-					return (
-						<div id="left-titles" className="col-md-6 col-sm-6 col-xs-6">
-							<ul>
-							{panels}
-							</ul>
-						</div>
-					);
-	}
-});
+	//outputs all panel titles for user selection
+	var PanelList = React.createClass({
+		propTypes: {
+			data: React.PropTypes.array.isRequired
+		},
+		render: function() {
+								var panels = this.props.data.map(function(item) {
+									if (this.props.panelId == item.panelId) {
+										return (
+											<div key={item.panelId}>
+												<li className="panel_title" onClick={this.props.onPanelSelected.bind(null, item.panelId)}>
+														{item.title} - {this.props.panelId}
+												</li>
+												<PanelContent content={this.props.content} />
+											</div>
+										);}
+										else {
+											return (
+												<li key={item.panelId} className="panel_title" onClick={this.props.onPanelSelected.bind(null, item.panelId)}>
+														{item.title}
+												</li>
 
-var PanelContent = React.createClass({
-propTypes: {
-        content: React.PropTypes.array.isRequired
-      },
-	render: function() {
-		var content = this.props.content.map(function(item) {
-			return (
-				<div className="panel_content" key={item.panelId}>
-					{item.content}
-				</div>
-				);
+											);
+										}
+								}.bind(this));
+						return (
+								<ul key={this.props.data.panelId}>
+								{panels}
+								</ul>
+						);
 		}
-		);
-		return (
-			<div id="right-titles" className="col-md-6 col-sm-6 col-xs-6">
-			<ReactCSSTransitionGroup transitionName="accordion" transitionLeave={false}>
-				{content}
-			</ReactCSSTransitionGroup>
-			</div>
-		);
-	}
 });
 
-var PanelContainer = React.createClass({
-// props in initial state is normally an anti-pattern - but this is OK if synchronisation is not the goal...
-// so, setting default from props is OK
-	getInitialState: function() {
-		return {
-			selectedPanelId: this.props.defaultPanelId
-		};
-	},
-	render: function() {
-		var data = this.props.data;
-		var selectedPanelContent = data.filter(function(item){
-			return item.panelId === this.state.selectedPanelId;
-		}, this);
-		return (
-			<div className="container col-md-12 col-sm-12 col-xs-12">
-			<PanelList data={data} onPanelSelected={this.onPanelSelected} />
-			<PanelContent content={selectedPanelContent} />
-			</div>
-		);
-	},
-	onPanelSelected: function(panelId) {
-		this.setState({selectedPanelId: panelId});
-	}
-});
+//outputs content for user selected panel
+	var PanelContent = React.createClass({
+		propTypes: {
+			content: React.PropTypes.array.isRequired
+		},
+		render: function() {
+				//allow html code from data...not the safest option
+			var content = this.props.content.map(function(item) {
+				return (
+					<div key={item.panelId} className="panel_content">
+						<div dangerouslySetInnerHTML={{__html: item.content}} />
+					</div>
+					);
+			}
+			);
+			//react waits for animation to end before removing elements...otherwise they remain in the DOM
+			return (
+				<div className="panel_content">
+				<ReactCSSTransitionGroup transitionName="accordion" transitionLeave={false}>
+					{content}
+				</ReactCSSTransitionGroup>
+				</div>
+			);
+		}
+	});
 
-var buildPanels = React.render (
-// nb: be careful not to send defaultPanelId as string, ie: '1'
-	<PanelContainer data={PANELS} defaultPanelId={1} />,
-	document.getElementById('accordion')
-);
+	//outputs all panels and default panel content
+	var PanelContainer = React.createClass({
+		//props in initial state is normally an anti-pattern - but this is OK if synchronisation is not the goal...so, setting default from props is OK
+		getInitialState: function() {
+			return {
+				selectedPanelId: this.props.defaultPanelId
+			};
+		},
+		render: function() {
+			var data = this.props.data;
+			var selectedPanelContent = data.filter(function(item){
+				return item.panelId === this.state.selectedPanelId;
+			}, this);
+			return (
+				<div className="container col-md-12 col-sm-12 col-xs-12">
+				<PanelList data={data} onPanelSelected={this.onPanelSelected} panelId={this.state.selectedPanelId} content={selectedPanelContent}/>
+				</div>
+			);
+		},
+		componentWillReceiveProps: function() {
+
+		},
+		onPanelSelected: function(panelId) {
+			this.setState({selectedPanelId: panelId});
+		},
+	});
+
+	var buildPanels = React.render (
+		<PanelContainer data={PANELS} defaultPanelId={1} />,
+		document.getElementById('accordion')
+	);
 ```
 
 ##### Render animation with different component
